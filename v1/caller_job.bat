@@ -18,14 +18,17 @@ set "mbt_call_file_name=mbt_1--------job-----f3----G##test_2#"
 set "mbt_tool_dir="
 set "mbt_log_custom="
 
-set "mbt_tool_dir=G:\localAppRun\green\mfbaktool\mfbaktool_go\v1\"
-set "mbt_log_custom=C:\c_share\localsites\IISstart\mfbaktool_log\pc.mf35.log.txt"
+:: set "mbt_tool_dir=D:\some dir\\mfbaktool\v1\"
+:: File directory where job_1.bat is stored
+
+:: set "mbt_log_custom=C:\some path\your bak dir\any your bakname.log.txt"
+:: The directory where your backup logs are stored
 
 :: --- --- need no modification ---
 
 
 set "mbt_name=mbt"
-set "mbt_version=1.3"
+set "mbt_version=1.3.2"
 set "mbt_path_sp=---"
 set "mbt_path_chr=#"
 
