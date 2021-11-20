@@ -1,7 +1,7 @@
 
 # mfbaktool guide 用法
 
-## about 
+## 关于 about mfbaktool
 
 1. 基于fastcopy写的备份脚本
     方便设置到windows计划任务里，执行成功或者失败都能写入日志。
@@ -11,7 +11,7 @@
 3. 后续版本准备增加多任务功能，以及配合bitlocker 加密备份功能
 
 
-## user guide 推荐用法
+## 推荐用法 user guide 
 
 
 
@@ -19,13 +19,18 @@
 
    将v1下面的caller_job.bat复制到你备份的目标文件夹父目录下（即，和目标文件夹同级）
 
-2. 重命名你复制的caller_job.bat 为 " mbt_1---你的fastcopy任务名---你要检测的源文件夹路径。bat"
+2. 重命名你复制的caller_job.bat 为 " mbt_1---你的fastcopy任务名---需检测的源目录路径.bat"
 
     例如：
      mbt_1---any_your_job_name_1---C##test 1#bak source dir#.bat
     意为： 
     检测 "C:\test 1\bak source dir\" 
     如果存在就执行fastcopy任务 "any_your_job_name_1"
+
+    由于windows不允许 "：\"作为文件名，所以请将它替换为”#“
+    同时不支持你的检测目录名含#号
+    你可以修改源文件来支持#号，如果你有特别需要。
+    文件名的切分符号为至少三个连续的---，你可以在源文件里修改为别的
 
 3.  如果你的clller_job bat文件和job_1文件在同目录，不需要修改
 
@@ -36,26 +41,38 @@
 
 set "mbt_tool_dir=D:\some dir\\mfbaktool\v1\"
 :: mfbaktool执行脚本的目录
+:: File directory where job_1.bat is stored
 
 set "mbt_log_custom=C:\some path\your bak dir\any bakname.log.txt"
 :: 存放你备份日志文件名，必需以.txt结尾
+:: The directory where your backup logs are stored
 
 ```
 
 
 4. 执行 "mbt_1---your_caller_job.bat" 就能看到效果
 
+    execute your_caller_job.bat and you will see
+
+    ![demo_1](./demo_1.png)
+
 
 5. 如果你自己有fastcopy.exe安装目录
-打开job_1.bat
-修改 "fastcopy_dir=fastcopy392\"
-例如修改为 “fastcopy_dir=D:\your fastcopy dir“
 
-## 有什么问题请提 issue 谢谢
+    打开job_1.bat
+
+    修改 "fastcopy_dir=fastcopy392\"
+
+    例如： “fastcopy_dir=D:\your fastcopy insered path\“
+
+## issue 
+
+    any question,issue please, thanks
+    有任务问题请联系我，谢谢
 
 
-## git help
 
+## git init help
 
 first init
 
