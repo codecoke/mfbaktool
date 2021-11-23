@@ -20,7 +20,7 @@ set "mbt_log_custom=%~3"
 
 set "mbt_log_dir="
 set "mbt_log_file="
-set /a mbt_log_lines_max=15
+set /a mbt_log_lines_max=35
 
 :: setting default
 

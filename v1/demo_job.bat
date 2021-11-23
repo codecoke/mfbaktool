@@ -10,10 +10,6 @@ setlocal enabledelayedexpansion
 set "mbt_call_file_name=%~n0"
 
 
-::set "mbt_call_file_name=mbt_1"
-set "mbt_call_file_name=mbt_1--------job-----f3----G##test_2#"
-::set "mbt_call_file_name=mbt_1---job---G__2__Y___localsites_g---Y##disk_g#nas-g#localSites_g#"
-
 
 set "mbt_tool_dir="
 set "mbt_log_custom="

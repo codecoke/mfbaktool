@@ -5,31 +5,30 @@ setlocal enabledelayedexpansion
 
 :: mfbaktool_caller
 :: w@ibar.cn
-:: version 1.3.1
+:: version 1.3.2
 
 set "mbt_call_file_name=%~n0"
 
 
-::set "mbt_call_file_name=mbt_1"
-::set "mbt_call_file_name=mbt_1--------job-----f2----G##test_1#"
-::set "mbt_call_file_name=mbt_1---job---G__2__Y___localsites_g---Y##disk_g#nas-g#localSites_g#"
-
-
 set "mbt_tool_dir="
 set "mbt_log_custom="
-::set "mbt_tool_dir=G:\localAppRun\green\mfbaktool\mbt_run_1\"
-::set "mbt_log_custom=C:\c_share\localsites\IISstart\mfbaktool_log\pc.mf35.log.txt"
+
+:: set "mbt_tool_dir=D:\some dir\\mfbaktool\v1\"
+:: File directory where job_1.bat is stored
+
+:: set "mbt_log_custom=C:\some path\your bak dir\any your bakname.log.txt"
+:: The directory where your backup logs are stored
+
 
 :: --- --- need no modification ---
 
-
 set "mbt_name=mbt"
-set "mbt_version=1.3"
+set "mbt_version=1.3.2"
 set "mbt_path_sp=---"
 set "mbt_path_chr=#"
 
 
-set /a mbt_debug_level=2
+set /a mbt_debug_level=1
 set "mbt_version_major=%mbt_version:~0,1%"
 set "sp_cut_left__=%mbt_path_sp:~0,1%"
 
@@ -40,7 +39,7 @@ call:get_str_len "%mbt_path_sp%"
 set /a sp_len__=%val_get_str_len%
 
 
-set "mbt_ac_type_list=info,cmd,job,list,folder,file-list"
+set "mbt_ac_type_list=info,cmd,job,queue,list,folder,file-list"
 set "mbt_ac_type="
 set "mbt_ac_name="
 set "mbt_ac_dir="
@@ -171,16 +170,16 @@ if "%mbt_err%" NEQ "" goto write_err
     echo.
     echo. "--- --- %mbt_ac_type% : %mbt_ac_name%  --- ---"
     echo.
-    echo. "mbt_debug_level 4: %mbt_debug_level%"
-    echo. "mbt_bat 4: %mbt_bat%"
-    echo. "mbt_ac_type 4: %mbt_ac_type%"
-    echo. "mbt_ac_name 4: %mbt_ac_name%"
-    echo. "mbt_ac_dir 4:  %mbt_ac_dir%"
-    echo. "mbt_version_major 4: %mbt_version_major%"
-    echo. "mbt_call_file_name 4: %mbt_call_file_name%"
-    echo. "mbt_call_err_file 4: %mbt_call_err_file%"
-    echo. "mbt_name_len 4: %mbt_name_len%"
-    echo. "mbt_log_custom 4: %mbt_log_custom%"
+    echo. "mbt_debug_level: %mbt_debug_level%"
+    echo. "mbt_bat: %mbt_bat%"
+    echo. "mbt_ac_type: %mbt_ac_type%"
+    echo. "mbt_ac_name: %mbt_ac_name%"
+    echo. "mbt_ac_dir:  %mbt_ac_dir%"
+    echo. "mbt_version_major: %mbt_version_major%"
+    echo. "mbt_call_file_name: %mbt_call_file_name%"
+    echo. "mbt_call_err_file: %mbt_call_err_file%"
+    echo. "mbt_name_len: %mbt_name_len%"
+    echo. "mbt_log_custom: %mbt_log_custom%"
 
     if %mbt_debug_level% GTR 1 goto :EOF
 
