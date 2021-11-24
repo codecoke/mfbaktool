@@ -4217,3 +4217,709 @@ FileRate   = 0.00 files/s
 
 Result : (ErrFiles : 0 / ErrDirs : 0) at 2021/11/11 06:14:20
 
+=================================================
+FastCopy(ver3.92) start at 2021/11/24 01:59:26
+
+<Source>  G:\\test_1\test-b\*
+<Command> Delete all
+-------------------------------------------------
+
+TotalDel   = 0.0 MiB
+DelFiles   = 4 (4)
+TotalTime  = 0.0 sec
+FileRate   = 4,000 files/s
+
+Result : (ErrFiles : 0 / ErrDirs : 0) at 2021/11/24 01:59:26
+
+=================================================
+FastCopy(ver3.92) start at 2021/11/24 01:59:57
+
+<Source>  G:\\test_1\test-b
+<Command> Delete all
+-------------------------------------------------
+
+TotalDel   = 0.0 MiB
+DelFiles   = 0 (1)
+TotalTime  = 0.0 sec
+FileRate   = 0.00 files/s
+
+Result : (ErrFiles : 0 / ErrDirs : 0) at 2021/11/24 01:59:57
+
+=================================================
+FastCopy(ver3.92) start at 2021/11/24 02:05:32
+
+<Source>  G:\localSites_g\shell\mfbaktool_dev\v1\fastcopy392\fastcopy_cn.htm
+<DestDir> G:\\test_1\test-b\
+<Command> Diff (No overwrite)
+-------------------------------------------------
+
+TotalRead  = 0.1 MiB
+TotalWrite = 0.1 MiB
+TotalFiles = 1 (1)
+TotalTime  = 0.0 sec
+TransRate  = 54.9 MiB/s
+FileRate   = 1,000 files/s
+
+Result : (ErrFiles : 0 / ErrDirs : 0) at 2021/11/24 02:05:32
+
+=================================================
+FastCopy(ver3.92) start at 2021/11/24 02:06:46
+
+<Source>  G:\\test_1\test-b\
+<Command> Delete all
+-------------------------------------------------
+
+TotalDel   = 0.1 MiB
+DelFiles   = 1 (1)
+TotalTime  = 0.0 sec
+FileRate   = 1,000 files/s
+
+Result : (ErrFiles : 0 / ErrDirs : 0) at 2021/11/24 02:06:46
+
+=================================================
+FastCopy(ver3.92) start at 2021/11/24 02:07:19
+
+<Source>  G:\localSites_g\shell\mfbaktool_dev\v1\fastcopy392\fastcopy_cn.htm
+<DestDir> G:\\test_1\test-b\*
+<Command> Diff (No overwrite)
+-------------------------------------------------
+CreateFile(文件名、目录名或卷标语法不正确。123) : G:\test_1\test-b\*\FastCopy_cn.htm
+
+TotalRead  = 0.1 MiB
+TotalWrite = 0.0 MiB
+TotalFiles = 0 (1)
+TotalTime  = 0.0 sec
+TransRate  = 0.00 MiB/s
+FileRate   = 0.00 files/s
+
+Result : (ErrFiles : 1 / ErrDirs : 0) at 2021/11/24 02:07:19
+
+=================================================
+FastCopy(ver3.92) start at 2021/11/24 02:09:29
+
+<Source>  G:\localSites_g\shell\mfbaktool_dev\v1\fastcopy392\fastcopy_cn.htm
+<DestDir> G:\\test_1\test-b\*
+<Command> Diff (No overwrite)
+-------------------------------------------------
+CreateFile(文件名、目录名或卷标语法不正确。123) : G:\test_1\test-b\*\FastCopy_cn.htm
+
+TotalRead  = 0.1 MiB
+TotalWrite = 0.0 MiB
+TotalFiles = 0 (0)
+TotalTime  = 0.0 sec
+TransRate  = 0.00 MiB/s
+FileRate   = 0.00 files/s
+
+Result : (ErrFiles : 1 / ErrDirs : 0) at 2021/11/24 02:09:29
+
+=================================================
+FastCopy(ver3.92) start at 2021/11/24 02:14:59
+
+<Source>  G:\localSites_g\shell\mfbaktool_dev\v1\fastcopy392\fastcopy_cn.htm
+<DestDir> G:\\test_1\test-b\
+<Command> Diff (No overwrite)
+-------------------------------------------------
+
+TotalRead  = 0.1 MiB
+TotalWrite = 0.1 MiB
+TotalFiles = 1 (0)
+TotalTime  = 0.0 sec
+TransRate  = 54.9 MiB/s
+FileRate   = 1,000 files/s
+
+Result : (ErrFiles : 0 / ErrDirs : 0) at 2021/11/24 02:14:59
+
+=================================================
+FastCopy(ver3.92) start at 2021/11/24 02:15:47
+
+<Source>  G:\\test_1\test-b\*
+<Command> Delete all
+-------------------------------------------------
+
+TotalDel   = 0.1 MiB
+DelFiles   = 1 (0)
+TotalTime  = 0.0 sec
+FileRate   = 1,000 files/s
+
+Result : (ErrFiles : 0 / ErrDirs : 0) at 2021/11/24 02:15:47
+
+=================================================
+FastCopy(ver3.92) start at 2021/11/24 02:16:49
+
+<Source>  G:\\test_1\test-b\*
+<Command> Delete all
+-------------------------------------------------
+
+TotalDel   = 0.0 MiB
+DelFiles   = 0 (0)
+TotalTime  = 0.0 sec
+FileRate   = 0.00 files/s
+
+Result : (ErrFiles : 0 / ErrDirs : 0) at 2021/11/24 02:16:49
+
+=================================================
+FastCopy(ver3.92) start at 2021/11/24 02:16:54
+
+<Source>  G:\localSites_g\shell\mfbaktool_dev\v1\fastcopy392\fastcopy_cn.htm
+<DestDir> G:\\test_1\test-b\
+<Command> Diff (No overwrite)
+-------------------------------------------------
+
+TotalRead  = 0.1 MiB
+TotalWrite = 0.1 MiB
+TotalFiles = 1 (0)
+TotalTime  = 0.0 sec
+TransRate  = 54.9 MiB/s
+FileRate   = 1,000 files/s
+
+Result : (ErrFiles : 0 / ErrDirs : 0) at 2021/11/24 02:16:54
+
+=================================================
+FastCopy(ver3.92) start at 2021/11/24 02:17:20
+
+<Source>  G:\localSites_g\shell\mfbaktool_dev\v1\fastcopy392\fastcopy_cn.htm
+<DestDir> G:\\test_1\test-b\
+<Command> Diff (No overwrite)
+-------------------------------------------------
+
+TotalRead  = 0.0 MiB
+TotalWrite = 0.0 MiB
+TotalFiles = 0 (0)
+TotalSkip  = 0.1 MiB
+SkipFiles  = 1 (0)
+TotalTime  = 0.0 sec
+TransRate  = 0.00 MiB/s
+FileRate   = 0.00 files/s
+
+Result : (ErrFiles : 0 / ErrDirs : 0) at 2021/11/24 02:17:20
+
+=================================================
+FastCopy(ver3.92) start at 2021/11/24 02:17:26
+
+<Source>  G:\\test_1\test-b\*
+<Command> Delete all
+-------------------------------------------------
+
+TotalDel   = 0.1 MiB
+DelFiles   = 1 (0)
+TotalTime  = 0.0 sec
+FileRate   = 1,000 files/s
+
+Result : (ErrFiles : 0 / ErrDirs : 0) at 2021/11/24 02:17:26
+
+=================================================
+FastCopy(ver3.92) start at 2021/11/24 02:23:41
+
+<Source>  G:\\test_1\test-b\
+<Command> Delete all
+-------------------------------------------------
+
+TotalDel   = 0.0 MiB
+DelFiles   = 0 (1)
+TotalTime  = 0.0 sec
+FileRate   = 0.00 files/s
+
+Result : (ErrFiles : 0 / ErrDirs : 0) at 2021/11/24 02:23:41
+
+=================================================
+FastCopy(ver3.92) start at 2021/11/24 02:24:47
+
+<Source>  G:\localSites_g\shell\mfbaktool_dev\v1\fastcopy392\fastcopy_cn.htm
+<DestDir> G:\\test_1\test-b\
+<Command> Diff (No overwrite)
+-------------------------------------------------
+
+TotalRead  = 0.1 MiB
+TotalWrite = 0.1 MiB
+TotalFiles = 1 (1)
+TotalTime  = 0.0 sec
+TransRate  = 54.9 MiB/s
+FileRate   = 1,000 files/s
+
+Result : (ErrFiles : 0 / ErrDirs : 0) at 2021/11/24 02:24:47
+
+=================================================
+FastCopy(ver3.92) start at 2021/11/24 02:25:00
+
+<Source>  G:\\test_1\test-b\
+<Command> Delete all
+-------------------------------------------------
+
+TotalDel   = 0.1 MiB
+DelFiles   = 1 (1)
+TotalTime  = 0.0 sec
+FileRate   = 1,000 files/s
+
+Result : (ErrFiles : 0 / ErrDirs : 0) at 2021/11/24 02:25:00
+
+=================================================
+FastCopy(ver3.92) start at 2021/11/24 02:25:25
+
+<Source>  G:\localSites_g\shell\mfbaktool_dev\v1\fastcopy392\fastcopy_cn.htm
+<DestDir> G:\\test_1\test-b\
+<Command> Diff (No overwrite)
+-------------------------------------------------
+
+TotalRead  = 0.1 MiB
+TotalWrite = 0.1 MiB
+TotalFiles = 1 (1)
+TotalTime  = 0.0 sec
+TransRate  = 3.43 MiB/s
+FileRate   = 62.5 files/s
+
+Result : (ErrFiles : 0 / ErrDirs : 0) at 2021/11/24 02:25:25
+
+=================================================
+FastCopy(ver3.92) start at 2021/11/24 02:27:34
+
+<Source>  G:\\test_1\test-b\*
+<Command> Delete all
+-------------------------------------------------
+
+TotalDel   = 0.1 MiB
+DelFiles   = 1 (0)
+TotalTime  = 0.0 sec
+FileRate   = 1,000 files/s
+
+Result : (ErrFiles : 0 / ErrDirs : 0) at 2021/11/24 02:27:34
+
+=================================================
+FastCopy(ver3.92) start at 2021/11/24 02:27:46
+
+<Source>  G:\localSites_g\shell\mfbaktool_dev\v1\fastcopy392\fastcopy_cn.htm
+<DestDir> G:\\test_1\test-b\
+<Command> Diff (No overwrite)
+-------------------------------------------------
+
+TotalRead  = 0.1 MiB
+TotalWrite = 0.1 MiB
+TotalFiles = 1 (0)
+TotalTime  = 0.0 sec
+TransRate  = 54.9 MiB/s
+FileRate   = 1,000 files/s
+
+Result : (ErrFiles : 0 / ErrDirs : 0) at 2021/11/24 02:27:46
+
+=================================================
+FastCopy(ver3.92) start at 2021/11/24 02:30:33
+
+<Source>  G:\\test_1\test-b\*
+<Command> Delete all
+-------------------------------------------------
+
+TotalDel   = 0.1 MiB
+DelFiles   = 1 (0)
+TotalTime  = 0.0 sec
+FileRate   = 1,000 files/s
+
+Result : (ErrFiles : 0 / ErrDirs : 0) at 2021/11/24 02:30:33
+
+=================================================
+FastCopy(ver3.92) start at 2021/11/24 02:30:57
+
+<Source>  G:\\test_1\test-b\*
+<Command> Delete all
+-------------------------------------------------
+
+TotalDel   = 0.0 MiB
+DelFiles   = 0 (0)
+TotalTime  = 0.0 sec
+FileRate   = 0.00 files/s
+
+Result : (ErrFiles : 0 / ErrDirs : 0) at 2021/11/24 02:30:57
+
+=================================================
+FastCopy(ver3.92) start at 2021/11/24 02:32:19
+
+<Source>  G:\\test_1\test-b\*
+<Command> Delete all
+-------------------------------------------------
+
+TotalDel   = 0.0 MiB
+DelFiles   = 0 (0)
+TotalTime  = 0.0 sec
+FileRate   = 0.00 files/s
+
+Result : (ErrFiles : 0 / ErrDirs : 0) at 2021/11/24 02:32:19
+
+=================================================
+FastCopy(ver3.92) start at 2021/11/24 02:32:34
+
+<Source>  G:\\test_1\test-b*
+<Command> Delete all
+-------------------------------------------------
+
+TotalDel   = 0.0 MiB
+DelFiles   = 0 (1)
+TotalTime  = 0.0 sec
+FileRate   = 0.00 files/s
+
+Result : (ErrFiles : 0 / ErrDirs : 0) at 2021/11/24 02:32:34
+
+=================================================
+FastCopy(ver3.92) start at 2021/11/24 02:33:11
+
+<Source>  G:\localSites_g\shell\mfbaktool_dev\v1\fastcopy392\fastcopy_cn.htm
+<DestDir> G:\\test_1\test-b
+<Command> Diff (No overwrite)
+-------------------------------------------------
+
+TotalRead  = 0.1 MiB
+TotalWrite = 0.1 MiB
+TotalFiles = 1 (1)
+TotalTime  = 0.0 sec
+TransRate  = 54.9 MiB/s
+FileRate   = 1,000 files/s
+
+Result : (ErrFiles : 0 / ErrDirs : 0) at 2021/11/24 02:33:11
+
+=================================================
+FastCopy(ver3.92) start at 2021/11/24 02:34:47
+
+<Source>  G:\\test_1\test-b\*
+<Command> Delete all
+-------------------------------------------------
+
+TotalDel   = 0.1 MiB
+DelFiles   = 1 (0)
+TotalTime  = 0.0 sec
+FileRate   = 1,000 files/s
+
+Result : (ErrFiles : 0 / ErrDirs : 0) at 2021/11/24 02:34:47
+
+=================================================
+FastCopy(ver3.92) start at 2021/11/24 02:46:20
+
+<Source>  G:\localSites_g\shell\mfbaktool_dev\v1\fastcopy392\fastcopy_cn.htm
+<DestDir> G:\\test_1\test-b
+<Command> Diff (No overwrite)
+-------------------------------------------------
+
+TotalRead  = 0.1 MiB
+TotalWrite = 0.1 MiB
+TotalFiles = 1 (0)
+TotalTime  = 0.0 sec
+TransRate  = 54.9 MiB/s
+FileRate   = 1,000 files/s
+
+Result : (ErrFiles : 0 / ErrDirs : 0) at 2021/11/24 02:46:20
+
+=================================================
+FastCopy(ver3.92) start at 2021/11/24 02:47:05
+
+<Source>  G:\localSites_g\shell\mfbaktool_dev\v1\fastcopy392\fastcopy_cn.htm
+<DestDir> G:\\test_1\test-b
+<Command> Diff (No overwrite)
+-------------------------------------------------
+
+TotalRead  = 0.0 MiB
+TotalWrite = 0.0 MiB
+TotalFiles = 0 (0)
+TotalSkip  = 0.1 MiB
+SkipFiles  = 1 (0)
+TotalTime  = 0.0 sec
+TransRate  = 0.00 MiB/s
+FileRate   = 0.00 files/s
+
+Result : (ErrFiles : 0 / ErrDirs : 0) at 2021/11/24 02:47:05
+
+=================================================
+FastCopy(ver3.92) start at 2021/11/24 02:48:34
+
+<Source>  G:\localSites_g\shell\mfbaktool_dev\v1\fastcopy392\fastcopy_cn.htm
+<DestDir> G:\\test_1\test-b
+<Command> Diff (No overwrite)
+-------------------------------------------------
+
+TotalRead  = 0.0 MiB
+TotalWrite = 0.0 MiB
+TotalFiles = 0 (0)
+TotalSkip  = 0.1 MiB
+SkipFiles  = 1 (0)
+TotalTime  = 0.0 sec
+TransRate  = 0.00 MiB/s
+FileRate   = 0.00 files/s
+
+Result : (ErrFiles : 0 / ErrDirs : 0) at 2021/11/24 02:48:34
+
+=================================================
+FastCopy(ver3.92) start at 2021/11/24 03:04:41
+
+<Source>  G:\localSites_g\shell\mfbaktool_dev\v1\fastcopy392\fastcopy_cn.htm
+<DestDir> g:\test_1\test_b
+<Command> Diff (Size/Date)
+-------------------------------------------------
+
+TotalRead  = 0.1 MiB
+TotalWrite = 0.1 MiB
+TotalFiles = 1 (1)
+TotalTime  = 0.0 sec
+TransRate  = 54.9 MiB/s
+FileRate   = 1,000 files/s
+
+Result : (ErrFiles : 0 / ErrDirs : 0) at 2021/11/24 03:04:41
+
+=================================================
+FastCopy(ver3.92) start at 2021/11/24 03:05:55
+
+<Source>  G:\localSites_g\shell\mfbaktool_dev\v1\fastcopy392\fastcopy_cn.htm
+<DestDir> g:\test_1\test_b\
+<Command> Diff (Size/Date)
+-------------------------------------------------
+
+TotalRead  = 0.0 MiB
+TotalWrite = 0.0 MiB
+TotalFiles = 0 (0)
+TotalSkip  = 0.1 MiB
+SkipFiles  = 1 (0)
+TotalTime  = 0.0 sec
+TransRate  = 0.00 MiB/s
+FileRate   = 0.00 files/s
+
+Result : (ErrFiles : 0 / ErrDirs : 0) at 2021/11/24 03:05:55
+
+=================================================
+FastCopy(ver3.92) start at 2021/11/24 03:06:37
+
+<Source>  G:\localSites_g\shell\mfbaktool_dev\v1\fastcopy392\fastcopy_cn.htm
+<DestDir> g:\test_1\test_b\
+<Command> Diff (Size/Date)
+-------------------------------------------------
+
+TotalRead  = 0.0 MiB
+TotalWrite = 0.0 MiB
+TotalFiles = 0 (0)
+TotalSkip  = 0.1 MiB
+SkipFiles  = 1 (0)
+TotalTime  = 0.0 sec
+TransRate  = 0.00 MiB/s
+FileRate   = 0.00 files/s
+
+Result : (ErrFiles : 0 / ErrDirs : 0) at 2021/11/24 03:06:37
+
+=================================================
+FastCopy(ver3.92) start at 2021/11/24 03:06:43
+
+<Source>  G:\localSites_g\shell\mfbaktool_dev\v1\fastcopy392\fastcopy_cn.htm
+<DestDir> g:\test_1\test_b\
+<Command> Diff (Size/Date)
+-------------------------------------------------
+
+TotalRead  = 0.0 MiB
+TotalWrite = 0.0 MiB
+TotalFiles = 0 (0)
+TotalSkip  = 0.1 MiB
+SkipFiles  = 1 (0)
+TotalTime  = 0.0 sec
+TransRate  = 0.00 MiB/s
+FileRate   = 0.00 files/s
+
+Result : (ErrFiles : 0 / ErrDirs : 0) at 2021/11/24 03:06:43
+
+=================================================
+FastCopy(ver3.92) start at 2021/11/24 03:08:19
+
+<Source>  G:\localSites_g\shell\mfbaktool_dev\v1\fastcopy392\fastcopy_cn.htm
+<DestDir> G:\\test_1\test-b\
+<Command> Diff (Size/Date)
+-------------------------------------------------
+
+TotalRead  = 0.0 MiB
+TotalWrite = 0.0 MiB
+TotalFiles = 0 (0)
+TotalSkip  = 0.1 MiB
+SkipFiles  = 1 (0)
+TotalTime  = 0.0 sec
+TransRate  = 0.00 MiB/s
+FileRate   = 0.00 files/s
+
+Result : (ErrFiles : 0 / ErrDirs : 0) at 2021/11/24 03:08:19
+
+=================================================
+FastCopy(ver3.92) start at 2021/11/24 03:10:16
+
+<Source>  G:\localSites_g\shell\mfbaktool_dev\v1\fastcopy392\fastcopy_cn.htm
+<DestDir> G:\\test_1\test-b\
+<Command> Diff (Size/Date)
+-------------------------------------------------
+
+TotalRead  = 0.0 MiB
+TotalWrite = 0.0 MiB
+TotalFiles = 0 (0)
+TotalSkip  = 0.1 MiB
+SkipFiles  = 1 (0)
+TotalTime  = 0.0 sec
+TransRate  = 0.00 MiB/s
+FileRate   = 0.00 files/s
+
+Result : (ErrFiles : 0 / ErrDirs : 0) at 2021/11/24 03:10:16
+
+=================================================
+FastCopy(ver3.92) start at 2021/11/24 03:11:11
+
+<Source>  G:\localSites_g\shell\mfbaktool_dev\v1\fastcopy392\fastcopy_cn.htm; G:\localSites_g\shell\mfbaktool_dev\v1\fastcopy392\fastcopy_eng.htm
+<DestDir> G:\\test_1\test-b\
+<Command> Diff (Size/Date)
+-------------------------------------------------
+
+TotalRead  = 0.1 MiB
+TotalWrite = 0.1 MiB
+TotalFiles = 1 (0)
+TotalSkip  = 0.1 MiB
+SkipFiles  = 1 (0)
+TotalTime  = 0.0 sec
+TransRate  = 57.4 MiB/s
+FileRate   = 1,000 files/s
+
+Result : (ErrFiles : 0 / ErrDirs : 0) at 2021/11/24 03:11:11
+
+=================================================
+FastCopy(ver3.92) start at 2021/11/24 03:11:42
+
+<Source>  G:\localSites_g\shell\mfbaktool_dev\v1\fastcopy392\fastcopy_cn.htm; G:\localSites_g\shell\mfbaktool_dev\v1\fastcopy392\fastcopy_eng.htm
+<DestDir> G:\\test_1\test-b\
+<Command> Diff (Size/Date)
+-------------------------------------------------
+
+TotalRead  = 0.0 MiB
+TotalWrite = 0.0 MiB
+TotalFiles = 0 (0)
+TotalSkip  = 0.1 MiB
+SkipFiles  = 2 (0)
+TotalTime  = 0.0 sec
+TransRate  = 0.00 MiB/s
+FileRate   = 0.00 files/s
+
+Result : (ErrFiles : 0 / ErrDirs : 0) at 2021/11/24 03:11:42
+
+=================================================
+FastCopy(ver3.92) start at 2021/11/24 03:12:47
+
+<Source>  G:\\test_1\test-b\*
+<Command> Delete all
+-------------------------------------------------
+
+TotalDel   = 0.1 MiB
+DelFiles   = 2 (0)
+TotalTime  = 0.0 sec
+FileRate   = 2,000 files/s
+
+Result : (ErrFiles : 0 / ErrDirs : 0) at 2021/11/24 03:12:47
+
+=================================================
+FastCopy(ver3.92) start at 2021/11/24 03:14:08
+
+<Source>  G:\localSites_g\shell\mfbaktool_dev\v1\fastcopy392\fastcopy_cn.htm; "G:\localSites_g\shell\mfbaktool_dev\v1\fastcopy392\fastcopy eng.htm"
+<DestDir> G:\\test_1\test-b\
+<Command> Diff (Size/Date)
+-------------------------------------------------
+
+TotalRead  = 0.1 MiB
+TotalWrite = 0.1 MiB
+TotalFiles = 2 (0)
+TotalTime  = 0.0 sec
+TransRate  = 112.3 MiB/s
+FileRate   = 2,000 files/s
+
+Result : (ErrFiles : 0 / ErrDirs : 0) at 2021/11/24 03:14:08
+
+=================================================
+FastCopy(ver3.92) start at 2021/11/24 03:14:50
+
+<Source>  G:\\test_1\test-b\*
+<Command> Delete all
+-------------------------------------------------
+
+TotalDel   = 0.1 MiB
+DelFiles   = 2 (0)
+TotalTime  = 0.0 sec
+FileRate   = 2,000 files/s
+
+Result : (ErrFiles : 0 / ErrDirs : 0) at 2021/11/24 03:14:50
+
+=================================================
+FastCopy(ver3.92) start at 2021/11/24 03:15:08
+
+<Source>  G:\localSites_g\shell\mfbaktool_dev\v1\fastcopy392\fastcopy_cn.htm; "G:\localSites_g\shell\mfbaktool_dev\v1\fastcopy392\fastcopy eng.htm"
+<DestDir> G:\\test_1\test-b\
+<Command> Diff (Size/Date)
+-------------------------------------------------
+
+TotalRead  = 0.1 MiB
+TotalWrite = 0.1 MiB
+TotalFiles = 2 (0)
+TotalTime  = 0.0 sec
+TransRate  = 112.3 MiB/s
+FileRate   = 2,000 files/s
+
+Result : (ErrFiles : 0 / ErrDirs : 0) at 2021/11/24 03:15:08
+
+=================================================
+FastCopy(ver3.92) start at 2021/11/24 03:15:50
+
+<Source>  G:\localSites_g\shell\mfbaktool_dev\v1\fastcopy392\fastcopy_cn.htm; "G:\localSites_g\shell\mfbaktool_dev\v1\fastcopy392\fastcopy eng.htm"; G:\test_1\mfbak_log
+<DestDir> G:\\test_1\test-b\
+<Command> Diff (Size/Date)
+-------------------------------------------------
+
+TotalRead  = 0.0 MiB
+TotalWrite = 0.0 MiB
+TotalFiles = 1 (1)
+TotalSkip  = 0.1 MiB
+SkipFiles  = 2 (0)
+TotalTime  = 0.0 sec
+TransRate  = 0.63 MiB/s
+FileRate   = 1,000 files/s
+
+Result : (ErrFiles : 0 / ErrDirs : 0) at 2021/11/24 03:15:50
+
+=================================================
+FastCopy(ver3.92) start at 2021/11/24 03:17:35
+
+<Source>  G:\\test_1\test-b\*
+<Command> Delete all
+-------------------------------------------------
+
+TotalDel   = 0.1 MiB
+DelFiles   = 3 (1)
+TotalTime  = 0.0 sec
+FileRate   = 3,000 files/s
+
+Result : (ErrFiles : 0 / ErrDirs : 0) at 2021/11/24 03:17:35
+
+=================================================
+FastCopy(ver3.92) start at 2021/11/24 03:17:54
+
+<Source>  G:\localSites_g\shell\mfbaktool_dev\v1\fastcopy392\fastcopy_cn.htm; "G:\localSites_g\shell\mfbaktool_dev\v1\fastcopy392\fastcopy eng.htm"; G:\test_1\mfbak_log
+<DestDir> G:\\test_1\test-b\
+<Command> Diff (Size/Date)
+-------------------------------------------------
+
+TotalRead  = 0.1 MiB
+TotalWrite = 0.1 MiB
+TotalFiles = 3 (1)
+TotalTime  = 0.0 sec
+TransRate  = 112.9 MiB/s
+FileRate   = 3,000 files/s
+
+Result : (ErrFiles : 0 / ErrDirs : 0) at 2021/11/24 03:17:54
+
+=================================================
+FastCopy(ver3.92) start at 2021/11/24 03:23:04
+
+<Source>  G:\localSites_g\shell\mfbaktool_dev\v1\fastcopy392\fastcopy_cn.htm; "G:\localSites_g\shell\mfbaktool_dev\v1\fastcopy392\fastcopy eng.htm"; G:\test_1\mfbak_log
+<DestDir> G:\\test_1\test-b\
+<Command> Diff (Size/Date)
+-------------------------------------------------
+
+TotalRead  = 0.0 MiB
+TotalWrite = 0.0 MiB
+TotalFiles = 0 (0)
+TotalSkip  = 0.1 MiB
+SkipFiles  = 3 (0)
+TotalTime  = 0.0 sec
+TransRate  = 0.00 MiB/s
+FileRate   = 0.00 files/s
+
+Result : (ErrFiles : 0 / ErrDirs : 0) at 2021/11/24 03:23:04
+
