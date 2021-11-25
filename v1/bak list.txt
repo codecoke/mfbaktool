@@ -1,0 +1,4 @@
+G:\localSites_g\shell\mfbaktool_dev\v1\fastcopy392\fastcopy_cn.htm
+"G:\localSites_g\shell\mfbaktool_dev\v1\fastcopy392\fastcopy eng.htm"
+G:\test_1\mfbak_log
+G:\test_1\test 2\tset_4_fastcopy_updata.txt
