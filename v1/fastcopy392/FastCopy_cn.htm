@@ -6,7 +6,7 @@
   <meta name="Keywords" content="FastCopy ver3.92 zh-cn">
   <meta name="Description" content="FastCopy ver3.92 中文帮助">
 	<link rel="icon" href="data:;base64,iVBORw0KGgo=" >
-  <title>Fastcopy 3.0 使用帮助 中文</title>
+  <title>FastCopy 3.0 使用帮助 中文</title>
   <style>
 
   aside{
@@ -15,8 +15,8 @@
     position:sticky;
     float:right;
     left:52rem;
-    top:2rem;
-    margin-top:2rem;
+    top:1rem;
+    margin-top:1rem;
     background-color:#ddffdd;
     width:12rem;
   }
@@ -90,6 +90,16 @@
     background-color:#ddffdd;
   }
 
+	h2[id] {
+		color:#fff;
+		background-color:darkcyan;
+		font-size: 1.2rem;
+		line-height: 2rem;
+		text-indent: 1rem;
+	}
+
+
+
 	.pd-5{
 		padding: 5px;
 	}
@@ -102,16 +112,19 @@
  </head>
 <body>
 
-<h1 class="help_head1">Fastcopy 中文帮助 &nbsp;<sup>ver 3.92 </sup> </h1>
-<p class="txt-right">2020/08/02 H.Shirouzu &amp; FastCopy lab co,ltd</p>
-
+<h1 class="help_head1">FastCopy 中文帮助 &nbsp;<sup>Ver 3.92 </sup> </h1>
+<p class="txt-right">2020/08/02 H.Shirouzu &amp; <a href="https://fastcopy.jp/en/" target="_blank" rel="noopener noreferrer">FastCopy lab co,ltd</a></p>
+<p><a href="FastCopy eng.htm">change language: English</a></p>
 
 <aside class="help_index help_section">
-  <h4 id="index">目录</h4>
+  <h4 id="index">目录</h4>		
     <a href="#about"> 关于</a>
 		<a href="#environment">环境 & 安装</a>
-		<a href="#install">安装</a>
-	<a href="#cmdline">命令行</a>
+		<a href="#cmdline">命令行</a>
+		<nav>
+			<a href="#cmdline">命令行调用</a>
+			<a href="#cmdline_option">命令行参数</a>
+		</nav>
 	<a href="#usage">使用和主窗口</a>
 		<nav class="help_sub_section">
 			<a href="#source_dst">1） 来源/目标</a>
@@ -139,7 +152,7 @@
 
 <main>
 
-<h2 id="about">关于</h2>
+<h2 id="about">关于 FastCopy</h2>
   FastCopy<strong>是 Windows 上最快的复制/备份软件</strong>。
   <br>它支持 UNICODE 和超过 MAX_PATH （260 个字符） 文件路径名。
   <br>它根据源 和 目标目录 是否采用相同或不同的 HDD（或 SSD）自动选择不同方法。
@@ -149,7 +162,7 @@
 	</tbody></table>
 读取/写入处理时没有操作系统缓存，因此其他应用程序不会变慢。<br>它可以实现接近设备限制的读/写性能。<br>可以指定包括/排除筛选器（UNIX 通配符样式）。ver3.0 或更高版本下可以指定相对路径。<br>它运行速度快，不会占用资源，因为未使用 MFC。（仅使用 Win32 API 和 C 运行时设计）<br> <strong>ver3.0 以后，FastCopy 的设置文件从 FastCopy.ini 重命名到 FastCopy2.ini。</strong> 
 
-<h2 id="environment">环境 安装 和 卸载</h2>
+<h2 id="environment">环境,安装 和 卸载</h2>
 <section>
 	<h3 class="help_head3">环境</h3>
 	Windows 7/8/8.1/10<br> 
@@ -167,30 +180,34 @@
 <!-- --- --- commend line --- --- --- -->
 
 
-<h2 id="cmdline"> 命令行</h2>
+<h2 id="cmdline"> 命令行调用</h2>
 
 <section>
 		<div class="border-aaa pd-10">
 			基本格式如下：
 			<br>
-			FastCopy.exe [/选项] 文件1 文件2 文件3<strong>...[/to]dest_dir]</strong>
-      <br>--- Ex: ---
+			FastCopy.exe [ <a href="#cmdline_option">/option</a> ] 文件1 文件2 文件3<strong>... [/to]dest_dir]</strong>
+			<br>
+      <br>example: 
+			<br>
 			<br>FastCopy.exe C:\Windows "C:\Program Files" /to="D:\Backup Folder\" 
       <br>FastCopy.exe /cmd=diff "C:\Test Folder" /to="D:\Backup Folder\"
 			<br>
-      <br>如果您想等待完成，请使用"start /wait..." 命令:
+      <br>如果您想等待命令完成，请使用"  <strong>start /wait...</strong> " 命令调用:
+			<br>
       <br>start "" /wait FastCopy.exe [/options]...
     </div>
 	<ul>
-		<li>在命令行模式下，切分字符是空格（'&nbsp;&nbsp;'）,（不是分号;）。</li>
-    <li>如果文件名包含空格字符，请用双引号括起来</li>
-    <li>如果使用option选项  ，则必须将/to=描述为最后一个参数。</li>
+		<li>在命令行模式下，切分多个来源的字符是空格（'&nbsp;&nbsp;'）,（不是分号;）。</li>
+    <li>如果文件名包含空格，请用双引号括起来</li>
+    <li>如果使用option选项  ，则 "/to=DestDir" 必须作为最后一个参数。</li>
 	</ul>
+</section>
 
-  <h3>支持的选项如下所示。（注意：在 "=" 之前和后面不要有空格）</h3>
+  <h2 id="cmdline_option">命令行参数 cmdline option (选项) : </h2>
 
 	<section>
-		<h4>参数: /cmd= (操作模式)</h4>
+		<h4>参数: /cmd= (操作模式)（注意：在 "=" 之前和后面不要有空格）</h4>
 		<p>/cmd=(<strong>noexist_only | diff| update | force_copy| sync| move | delete</strong>)
 			<br>默认使用diff(差异)模式
 			<br>如果模式 /cmd=delete，"/to=desit_dir" 无效。
@@ -198,11 +215,11 @@
 		<table class="help_table"><tbody>
 			<tr><th>/cmd=</th><th>在 Gui 中</th></tr>
 			<tr><td><strong>noexist_only</strong></td><td>差异（无覆盖,目标不存在时复制）</td></tr>
-			<tr><td><strong>diff</strong></td><td>差异（大小/日期不同,源覆盖目标）</td></tr>
-			<tr><td><strong>update</strong></td><td>差异（源的新文件覆盖目标旧文件）</td></tr>
-			<tr><td><strong>force_copy</strong></td><td>复制（强制覆盖）</td></tr>
-			<tr><td><strong>sync</strong></td><td>同步（大小/日期,目标和源一致,删除多余）</td></tr>
-			<tr><td><strong>move</strong></td><td>移动（覆盖目标,删除源）</td></tr>
+			<tr><td><strong>diff</strong></td><td>差异（大小或日期不同时,以源 覆盖目标）</td></tr>
+			<tr><td><strong>update</strong></td><td>差异（源的新文件较新时，覆盖目标）</td></tr>
+			<tr><td><strong>force_copy</strong></td><td>复制（同名文件强制覆盖）</td></tr>
+			<tr><td><strong>sync</strong></td><td>同步（大小/日期,目标和源一致,删除目标里多余的）</td></tr>
+			<tr><td><strong>move</strong></td><td>移动（复制到目标,删除源）</td></tr>
 			<tr><td><strong>delete</strong></td><td>删除</td></tr>
 			</tbody>
 		</table>
@@ -289,7 +306,7 @@
 </section>
 
 <h2 id="usage">使用和主窗口</h2>
-<div class="help_section">最小化时的主窗口出现在任务通知区域中。<br>运行时，将显示各种状态。<br> （文件编号的括号内是目录数。<h3 class="help_head3" id="source_dst">Source / DestDir <br> 来源 / 目标目录</h3>
+<div class="help_section">最小化时的主窗口出现在任务通知区域中。<br>运行时，将显示各种状态。<br> （文件编号的括号内是目录数。<h3 class="help_head3" id="source_dst">Source / DestDir <br> 来源 / 目标</h3>
 	<div class="help_sub_section">FastCopy 保留了源/目标目录 中 10 个条目的历史记录。（这可以在选项中增加或减少 |主设置对话框。<br>如果要在"源"字段中指定两个或多个文件/dirs，请按行描述路径名。<br>如果要使用拖放将文件/dirs 添加到"源"字段，只需在拖动时按着 CTRL<br><br>时拖放即可拖放到 目标目录 字段。
 	
 	<h4 class="help_head4" id="backslash_behavior">目标目录 是否以"\" 结束决定了目录操作方式。</h4>
@@ -300,7 +317,7 @@
        </tr>
 			<tr>
         <td><strong>2. 目标目录 的最后一个字符不是"\"</strong></td>
-        <td>将源目录的内容复制到 目标目录。（DestDir=Contents_of_SourceDir）<br>但是，如果在源中指定了多个目录，则行为将更改为 1。<br><strong>（小提示）</strong> <br>如果要将源目录的内容复制到目标目录根部，请将"*"追加到源目录结尾。 <br>例如：<br>如果源是 "C:\Folder1\*" 和 目标 "D:\"，则结果为 D:\(Contents_of_Folder1)</td></tr>
+        <td>将源目录的内容复制到 目标目录。（DestDir = Contents_of_SourceDir）<br>但是，如果在源中指定了多个目录，则行为将更改为 1。<br><strong>（小提示）</strong> <br>如果要将源目录的内容复制到目标目录根部，请将"*"追加到源目录结尾。 <br>例如：<br>如果源是 "C:\Folder1\*" 和 目标 "D:\"，则结果为 D:\(Contents_of_Folder1)</td></tr>
 		</tbody></table>
 
 	</div>
@@ -631,7 +648,27 @@
 				<td>选择哈希模式（xxHash/MD5/SHA-1/SHA-256/xxHash3）进行验证。</td></tr>
 			<tr><td><strong>如果发生验证错误，<br>请删除该文件，而不是重命名为.fc_verify_err</strong></td>
 				<td>（与左侧相同）</td></tr>
-			<tr><td id="fc_verify"><strong>添加验证信息</strong></td><td>AltStream （：fc_verify）<br>在验证副本完成后添加。 （要检测静默数据销毁）<br> <br> [完成]完成日期和时间，ftime=文件日期和时间，大小=大小，xxHash=哈希值]在验证错误的情况下，<br>它看起来像这个<br>[错误]完成日期和时间，...，xxHash（src_哈希值，dst=哈希值）]<br><br>当您按下Ctrl键时，此信息将显示在主窗口中，该键称为"验证<a href="#VerifyInfoList">信息</a>列表，您可以读取"</td></tr>
+			<tr>
+				<td id="fc_verify"><strong>添加验证信息</strong></td>
+				<td>
+					文件的 AltStream （：fc_verify）在验证副本完成后添加。 （要检测静默数据销毁）
+					<br> 
+					<!--br> [完成]完成日期和时间，ftime=文件日期和时间，大小=大小，xxHash=哈希值]在验证错误的情况下，-->
+					<br>
+					{done=complete date and time, ftime=file date and time, size=size, xxHash=Hash value}
+					
+					<br>它看起来像这个
+					<br>{error=complete date and time, ... , xxHash(src=hash value, dst=hash value)}
+
+					<!--br>[错误]完成日期和时间，...，xxHash（src_哈希值，dst=哈希值）]
+					<br>
+					This information is displayed in the main window when you press the Ctrl key, which is called "VerifyInfoList, which can be read by You can-->
+
+					<br>在主窗口按下ctrl建,你能从" VerifyInfoList( <a href="#VerifyInfoList">验证信息健</a>)" 中读到这些信息
+					<!--br>当您按下Ctrl键时，此信息将显示在主窗口中，该键称为"验证<a href="#VerifyInfoList">信息</a>列表，您可以读取"-->
+
+				</td>
+			</tr>
 			</tbody></table>
 
 		<h4 class="help_head4" id="setting_del">删除选项</h4>
@@ -645,7 +682,7 @@
 		<h4 class="help_head4" id="setting_log">日志设置</h4>
 
 		<div class="help_sub_section">日志设置<table class="help_table">
-			<tbody><tr><td><strong>源/DestDir 的历史记录项数</strong></td><td>需要重新启动fastcopy</td></tr>
+			<tbody><tr><td><strong>源/目标 的历史记录项数</strong></td><td>需要重新启动fastcopy</td></tr>
 			<tr><td><strong>写入错误日志</strong></td><td>将错误消息记录到fastcopy.log</td></tr>
 			<tr><td><strong>在 Errlog 中使用 UTF-8</strong></td><td>在 FastCopy 中使用 UTF-8 字符.log。否则使用 MBCS。</td></tr>
 			<tr><td><strong>写入文件日志</strong></td><td>创建日志\（日期）.log并登录到所有复制/删除/错误文件。<table class="help_table">
@@ -653,8 +690,8 @@
 				<tr><td><strong>文件大小</strong></td><td>记录文件大小</td></tr>
 				</tbody></table>
 			</td></tr>
-			<tr><td><strong>将 ACL 错误写入错误日志</strong></td><td>有时，在非 NTFS（桑巴等）中会发生许多错误</td></tr>
-			<tr><td><strong>将 AltStream 错误写入错误日志</strong></td><td>有时，在非 NTFS（桑巴等）中会发生许多错误</td></tr>
+			<tr><td><strong>将 ACL 错误写入错误日志</strong></td><td>有时，在非 NTFS（ Samba etc.）中会发生许多错误</td></tr>
+			<tr><td><strong>将 AltStream 错误写入错误日志</strong></td><td>有时，在非 NTFS（ Samba etc. ）中会发生许多错误</td></tr>
 			</tbody></table>
 
 			<br>日志中符号的含义。<table class="help_table">
@@ -710,15 +747,23 @@
 	</div>
 
 	<h3 class="help_head3" id="extend_filter">显示→过滤器的设置</h3>
-	<div class="help_sub_section">显示扩展滤波器（时间戳/大小过滤器）</div>
+	<div class="help_sub_section">显示扩展过滤器（时间戳/大小过滤器）</div>
 
-	<h3 class="help_head3">选项→交换源⇔ DestDir</h3>
-	<div class="help_sub_section">将源交换为 DestDir（用于相互更新等）。<br>无论DestDir字符的末尾是<a href="#backslash_behavior">"\"，都将根据不同的行为修改</a>源/DestDir。（例如，如果源是"C：[A]BBB"，DestDir 是"D：[C]"，则源变为"D：{C}BBB"，DestDir 变为"C：{A}"）<br>如果 Source 有两个或多个文件/目录，则禁用此菜单项。<br> CTL+ALT+S 是此功能的快捷方式。</div>
+	<h3 class="help_head3">选项 → 交换来源 ⇔ 目标</h3>
 
-	<h3 class="help_head3" id="job">job manager → add/del 任务</h3>
+	<div class="help_sub_section">
+		<br>切换来源和目标（用于双向更新等）
+		<br>来源/目标 会根据目标是否以"\"结尾而进行修改,原理 <a href="#backslash_behavior">看这里</a>,例如:
+		<br>source: "C:\AAA\BBB" DestDir: "D:\CCC\"
+		<br>source: "D:\CCC\BBB" DestDir: "C:\AAA\"
+		<br>如果 源 有两个或多个文件/目录，则禁用此菜单项。
+		<br> CTL+ALT+S 是此功能的快捷方式。
+	</div>
+
+	<h3 class="help_head3" id="job">任务管理 (job manager) → 增减任务 add/del </h3>
 	<section>将主窗口中的参数注册/还原为命名任务。<table class="help_table">
 		<tbody><tr><td><strong>Add/Modify 添加/修改</strong></td>
-		<td>将/修改主窗口中的参数（源/DestDir、操作模式、缓冲区大小、不间断/验证/估计/ACL/AltStream/擦除和删除/筛选复选框、筛选器字符串、HDD 模式）作为命名任务。</td></tr>
+		<td>将/修改主窗口中的参数（源/目标、操作模式、缓冲区大小、不间断/验证/估计/ACL/AltStream/擦除和删除/筛选复选框、筛选器字符串、HDD 模式）作为命名任务。</td></tr>
 		<tr><td><strong>Delete 删除</strong></td>
 		<td>删除已注册的任务。</td></tr>
 		<tr><td><strong>打开"Windows 任务计划程序"</strong></td>
@@ -733,25 +778,24 @@
 
 <h2 id="warning"> 警告</h2>
 <section>
-在某些模式下，源目录中具有相同文件名的目标文件将被强制覆盖，而不确认。<br>在同步模式下，在源目录中不存在具有相同文件名的目标文件将被强制删除，而不确认。<br>在删除模式下，目标文件和目录将被强制删除而不确认。<br>如果 FastCopy 有错误，则存在严重问题的可能性。<br>请自担风险使用。（<a href="#license">见 许可</a>)
+在某些模式下，源目录中具有相同文件名的目标文件将被强制覆盖，而不会提示确认。<br>在同步模式下，在源目录中不存在具有相同文件名的目标文件将被强制删除，而不会提示确认。<br>在删除模式下，目标文件和目录将被强制删除而不会提示确认。<br>如果 FastCopy 发生错误，则有可能引发严重问题,发生意外删除导致数据丢失。<br>请在风险自担的前提下使用fastcopy。（<a href="#license">见 许可</a>)
 </section>
 
 <!-- </div> -->
 
-<h2 id="contact">9. 支持论坛/最新版本</h2>
+<h2 id="contact">支持论坛/最新版本</h2>
 支持论坛: <a href="https://groups.google.com/forum/#!forum/FastCopy-bb-eng" target="_blank" rel="noopener noreferrer">groups.google.com/forum/#!forum/FastCopy-bb-eng</a>
 <br>
 最新版本: <a href="https://FastCopy.jp/en/" target="_blank" rel="noopener noreferrer">FastCopy.jp/en/</a>
 
 
-<h2 id="misc">10 .配置文件</h2>
+<h2 id="misc">配置文件</h2>
 设置文件（FastCopy2.ini）和日志文件在以下目录中创建。
-<br><strong>如果 FastCopy 安装到程序文件中</strong>，则这些文件将在
-<br> " C:\Users\(USER)\AppData\roaming\FastCopy\ (Menu File(F) → UserDir(U)" 中创建
-<br>对于其他情况，这些创建者与 FastCopy.exe 在同一目录中
-<br>
+<br><strong>如果 FastCopy 安装到" Program Files "中</strong>，则这些文件将在
+<br> " C:\Users\(USER)\AppData\roaming\FastCopy\ (Menu File(F) → UserDir(U)) " 中创建
+<br>对于其他情况，这些文件都与 FastCopy.exe 在同一目录中
 <br>如果 FastCopy 异常终止，生成 fastcopy_exception.log 日志
-<br>（请将此文件<a href="#contact">发送给作者</a>，我将使用它进行质量改进）
+<br>（请将此文件<a href="#contact">发送给作者</a>，作者将使用它进行质量改进）
 
 
 <h2 class="help_head2 " id="license"> 许可</h2>

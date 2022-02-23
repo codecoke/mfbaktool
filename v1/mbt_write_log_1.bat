@@ -28,7 +28,7 @@ set "mbt_version=1"
 set "mbt_name=mbt"
 
 set "log_type_def=info"
-set "log_type_list=job,info,list,folder"
+set "log_type_list=job,list,info,folder"
 set "log_write_type=add"
 set "bat_name=%~n0"
 set "bat_name_end=%bat_name:~-2%"

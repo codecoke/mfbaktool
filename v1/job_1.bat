@@ -5,7 +5,7 @@ setlocal enabledelayedexpansion
 :: mfBakTool exeute
 :: var_pre mbt
 :: job_1.bat
-:: version 1.3.2
+:: version 1.3.3
 
 :: ---- ---- user setting ---- ----
 
@@ -18,6 +18,8 @@ set "write_log_bat="
 :: --- --- need no modification ---
 :: inputs arguments
 
+:: job_1 "f2" "mbt_1_job_f2.bat" "c:\test 1\log.txt"
+
 set "job_name=%~1"
 set "call_bat=%~2"
 set "mbt_log_custom=%~3"
@@ -28,7 +30,7 @@ set "mbt_log_info="
 set "mbt_err="
 set "mbt_name=mbt"
 set "mbt_suatus=ok"
-set "mbt_version=1.3.2"
+set "mbt_version=1.3.3"
 set "mbt_version_major=%mbt_version:~0,1%"
 set "mbt_caller_dir_err_file=error.%mbt_name%.log.txt"
 set "mbt_log_var=_dev/v1:%mbt_version%"
@@ -41,8 +43,7 @@ set "ac_type_list=info,job,list,folder"
 
 :: execute 
 
-set val_is_str_cludes=
-
+set "val_is_str_cludes="
 set "bat_file_name=%~n0"
 set "bat_name_end=%bat_file_name:~-2%"
 
@@ -58,11 +59,11 @@ if "%ac_type%" == "" (
   set "ac_type=%ac_type_def%"
 ) else (
   call:is_str_cludes ",%ac_type_list%," ",%ac_type%,"
-  if not defined val_is_str_cludes set "ac_type=%ac_type_def%"
+  if "!val_is_str_cludes!" == "" set "ac_type=%ac_type_def%"
 )
 
 call:is_str_cludes ",1,2,3,4,5,6," ",%mbt_version_major%,"
-if not defined val_is_str_cludes set "mbt_version_major=1"
+if "!val_is_str_cludes!" == "" set "mbt_version_major=1"
 
 
 :: set write_log_bat
@@ -218,7 +219,7 @@ goto :EOF
 
 :is_str_cludes
 
-  set val_is_str_cludes=
+  set "val_is_str_cludes="
 
   if "%~1" == ""  goto :EOF
 
@@ -233,8 +234,8 @@ goto :EOF
 
   set val_is_str_cludes=yes
 
-  set is_cludes_str__=
-  set is_cludes_dif__=
+  set "is_cludes_str__="
+  set "is_cludes_dif__="
 
 goto :EOF
 

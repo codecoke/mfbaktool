@@ -69,7 +69,7 @@ set "mbt_log_custom=C:\some_path\your bak directory\any bakname.log.txt"
 
     any question,issue please, thanks！
 
-    有任务问题请联系我，谢谢
+    有任何问题请联系，谢谢！
 
 
 <!-- 

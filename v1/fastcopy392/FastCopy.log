@@ -4923,3 +4923,41 @@ FileRate   = 0.00 files/s
 
 Result : (ErrFiles : 0 / ErrDirs : 0) at 2021/11/24 03:23:04
 
+=================================================
+FastCopy(ver3.92) start at 2021/11/30 05:17:49
+
+<Source>  G:\test_1\test-a1
+<DestDir> G:\test_1\test-b
+<Command> Diff (Size/Date)
+<JobName> f3
+-------------------------------------------------
+FindFirstFileEx(系统找不到指定的文件。2) : G:\test_1\test-a1
+
+TotalRead  = 0.0 MiB
+TotalWrite = 0.0 MiB
+TotalFiles = 0 (0)
+TotalTime  = 0.0 sec
+TransRate  = 0.00 MiB/s
+FileRate   = 0.00 files/s
+
+Result : (ErrFiles : 0 / ErrDirs : 1) at 2021/11/30 05:17:49
+
+=================================================
+FastCopy(ver3.92) start at 2021/11/30 05:23:58
+
+<Source>  G:\test_1\test-a1
+<DestDir> G:\test_1\test-b
+<Command> Diff (Size/Date)
+<JobName> f3
+-------------------------------------------------
+FindFirstFileEx(系统找不到指定的文件。2) : G:\test_1\test-a1
+
+TotalRead  = 0.0 MiB
+TotalWrite = 0.0 MiB
+TotalFiles = 0 (0)
+TotalTime  = 0.0 sec
+TransRate  = 0.00 MiB/s
+FileRate   = 0.00 files/s
+
+Result : (ErrFiles : 0 / ErrDirs : 1) at 2021/11/30 05:23:58
+
