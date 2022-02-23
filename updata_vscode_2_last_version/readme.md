@@ -38,9 +38,19 @@ up-vscode-to-last-version.3.bat anything
 @rem 在非测试环境下，为了数据安全，参数1是必需的，输入任何字符
 ```
 
-## config_for_up_vscode.3.txt
+## config.up-vscode-to-last-version.3.txt
 
-是升级脚本的一些配置
+是存放升级脚本的一些配置的配置文件，后缀必需是`.txt`
+
+默认配置文件名和升级脚本同名（后缀不同），不需要在脚本中定义配置文件名
+
+如果你的配置文件和脚本不同名，请修改脚本中的变量值：
+
+`set "up_vscode2last_config="`
+
+`set "up_vscode2last_config=c:\you-path\you-config.txt"`
+
+
 
 ```ini
 ;commond
@@ -75,7 +85,7 @@ up-vscode-to-last-version.3.bat
 
 目标是删除测试中使用的临时文件
 
-它和updata脚本共享`config_for_up_vscode.3.txt`里面的变量
+它和updata脚本共享`config.up-vscode-to-last-version.3.txt`里面的变量
 
 请自行取用，有什么疑问请联系我
 

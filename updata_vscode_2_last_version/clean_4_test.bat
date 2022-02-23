@@ -2,26 +2,28 @@
 
 setlocal enabledelayedexpansion
 
-@REM START /wait taskkill /f /im w3wp.exe
-@REM taskkill /f /im "Code.exe" /T
-@REM tasklist | findstr /i "code.exe"
-@REM tasklist /v /fi "IMAGENAME eq Code*" /fo list
+set "_up_vscode_bat_name=up-vscode-to-last*.bat"
 
-set /a mf_mod_cmd_test_code=0
-set "_up_run_dir=%~dp0"
-set "up_is_in_test_dir=no"
-set "_up_vals_file=config_for_up_vscode.txt"
-
-set "_up_clean_order=%~1"
-
-if /i "%_up_clean_order%" == "" (
+if /i "%~1" == "" (
   echo. "--- err:"
   echo. "%%1 must test"
   goto :eof
 )
 
-@REM call "%share_cmd_mod%\vals_by_file.1.bat" "%_up_run_dir%%_up_vals_file%" "-"
-call "%_up_run_dir%\vals_by_file.1.bat" "%_up_run_dir%%_up_vals_file%" "-"
+pushd "%~dp0"
+
+set "up_vscode2last_config="
+for /f "usebackq tokens=*" %%Z in (`dir /a:-d /b "%_up_vscode_bat_name%"`) do (
+  if "%up_vscode2last_config%" == "" (
+    for /f "usebackq tokens=*" %%Y in (`"%%Z" config-name`) do ( set "up_vscode2last_config=%%~Y")
+  )
+)
+
+set /a mf_mod_cmd_test_code=0
+set "up_is_in_test_dir=no"
+
+@REM call "%share_cmd_mod%\vals_by_file.1.bat" "%up_vscode2last_config%" "-"
+call "vals_by_file.1.bat" "%up_vscode2last_config%" "-"
 
 set "_up_errcode=%ERRORLEVEL%"
 
@@ -30,7 +32,7 @@ if %_up_errcode% neq 0 (
   echo. "--- read vals from file faild. code [%_up_errcode%] "
   if "%_up_errcode%" equ "404" (
     echo. "---  file not find:"
-    echo. "[%_up_run_dir%%_up_vals_file%]"
+    echo. "[%up_vscode2last_config%]"
   )
   goto :eof
 )
@@ -58,9 +60,6 @@ set "dir_bak_last=%up_dir_bak_pre%_%dir_vscode_last_version%"
 @REM echo. "_up_log_ck : %_up_log_ck%"
 @REM echo. "_up_dir_unzip : %_up_dir_unzip%"
 @REM echo. "up_is_in_test_dir : %up_is_in_test_dir%"
-
-
-pushd "%_up_run_dir%"
 
 
 echo. "1--- check [%_up_log_ck%]"

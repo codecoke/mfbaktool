@@ -3,22 +3,46 @@
 setlocal enabledelayedexpansion
 
 
-set "date_hh=%time:~,2%"
+@REM if "up_vscode2last_config=" then use config.you-bat-name.txt
+set "up_vscode2last_config="
 
+@REM defined config youself:
+@REM set "up_vscode2last_config=c:\some\file-name-of-you-config.txt"
+
+
+@REM Do not modify the following if not necessary
+set "_up_run_dir=%~dp0"
+set "_up_arg_1=%~1"
+set _up_exit_code=0
+set /a mf_mod_cmd_test_code=0
+set "up_is_in_test_dir=no"
+
+if "%up_vscode2last_config%" == "" set "up_vscode2last_config=config.%~n0"
+if "%up_vscode2last_config:~-4%" neq ".txt" (
+  set "up_vscode2last_config=%up_vscode2last_config%.txt"
+)
+if "%up_vscode2last_config:~1,2%" neq ":\" (
+  set "up_vscode2last_config=%_up_run_dir%%up_vscode2last_config%"
+)
+
+set "date_hh=%time:~,2%"
 if "%date_hh:~0,1%" == " " set "date_hh=0%date_hh:~1,1%"
 set "date_ymd=%date:~3,7%-%date:~5,2%-%date:~8,2% %date_hh%:%time:~3,2%:%time:~6,2%"
 
-@REM echo "date_ymd [%date_ymd%]"
+if not exist "%up_vscode2last_config%" (
+    echo. "--- err"
+    echo. "--- not find config_file"
+    echo. "--- [!up_vscode2last_config!]"
+    goto exit_with_err
+)
 
-set /a mf_mod_cmd_test_code=0
+if "%_up_arg_1%" == "config-name" (
+    echo "%up_vscode2last_config%"
+    exit /b 0
+)
 
-set "_up_run_dir=%~dp0"
-set "_up_vals_file=config_for_up_vscode.3.txt"
-set "up_is_in_test_dir=no"
-
-@REM call "%share_cmd_mod%\vals_by_file.1.bat" "%_up_run_dir%%_up_vals_file%" "-"
-
-call "%_up_run_dir%\vals_by_file.1.bat" "%_up_run_dir%%_up_vals_file%" "-"
+@REM call "%share_cmd_mod%\vals_by_file.1.bat" "%up_vscode2last_config%" "-"
+call "vals_by_file.1.bat" "%up_vscode2last_config%" "-"
 
 set "_up_errcode=%ERRORLEVEL%"
 
@@ -27,7 +51,7 @@ if %_up_errcode% neq 0 (
   echo. "--- read vals from file faild. code [%_up_errcode%] "
   if "%_up_errcode%" equ "404" (
     echo. "---  file not find:"
-    echo. "[%_up_run_dir%%_up_vals_file%]"
+    echo. "[%_up_run_dir%%up_vscode2last_config%]"
   )
   goto exit_with_err
 )
@@ -40,7 +64,7 @@ if %_up_errcode% neq 0 (
 @REM echo. "_up_dir_unzip : %_up_dir_unzip%"
 @REM echo. "up_is_in_test_dir : %up_is_in_test_dir%"
 
-echo "up_del_zip_after_sucess : %up_del_zip_after_sucess%"
+@REM echo "up_del_zip_after_sucess : %up_del_zip_after_sucess%"
 
 set "up_zip_file_name="
 set "up_log_pid=%up_log_dir%\up_pid"
@@ -190,8 +214,8 @@ if exist "%dir_bak_last%\" (
 @REM write log_pid
 set /a up_i=%up_i%+1
 set "up_info_1=[%up_i_pre%%up_i% %date_ymd%:!time:~6,2!] write update pid"
-echo. "!up_info_1!" >>"%up_log_pid%"
-echo. "!up_info_1!" >>con
+echo. "!up_info_1!">>"%up_log_pid%"
+echo. "!up_info_1!">>con
 
 if %ERRORLEVEL% neq 0 set "up_info_err=error write update pid %ERRORLEVEL%"
 if "%up_info_err%" neq "" goto writr_err
@@ -200,15 +224,15 @@ if "%up_info_err%" neq "" goto writr_err
 set /a up_i=%up_i%+1
 set "up_info_1=[%up_i_pre%%up_i% %date_ymd%:!time:~6,2!] unzip [%_up_zip_file%]"
 
-echo. "!up_info_1!" >>"%up_log_pid%"
-echo. "!up_info_1!" >>con
+echo. "!up_info_1!">>"%up_log_pid%"
+echo. "!up_info_1!">>con
 
 start "" /wait "%up_z7_exe%" x "%_up_zip_file%" -y -o"./%dir_unzip%"
 
 if %ERRORLEVEL% neq 0 set "up_info_err=error when unzip,code %ERRORLEVEL%"
 if "%up_info_err%" neq "" goto writr_err
 
-ping 127.0.0.1 -n 3 > nul
+ping 127.0.0.1 -n 3 1>nul
 
 
 @REM stop vscode
@@ -216,8 +240,8 @@ ping 127.0.0.1 -n 3 > nul
 set /a up_i=%up_i%+1
 if "%up_is_in_test_dir%" neq "yes" (
   set "up_info_1=[%up_i_pre%%up_i% %date_ymd%:!time:~6,2!] stop vs code task"
-  echo. "!up_info_1!" >>"%up_log_pid%"
-  echo. "!up_info_1!" >>con
+  echo. "!up_info_1!">>"%up_log_pid%"
+  echo. "!up_info_1!">>con
   
   @REM set "_up_vscode_is_runing=no"  
   @REM tasklist /v /fi "IMAGENAME eq Code.exe" | find  /i "code" || set "_up_vscode_is_runing=yes"
@@ -226,14 +250,14 @@ if "%up_is_in_test_dir%" neq "yes" (
 
   if "!_up_vscode_is_runing!" == "yes" (
     start "" /wait taskkill /f /t /im "Code.exe"
-    ping 127.0.0.1 -n 10 >nul
+    ping 127.0.0.1 -n 10 1>nul
   )
 
   tasklist /v /fi "IMAGENAME eq Code.exe" /fo csv /nh | find /i "code" >nul && set "_up_vscode_is_runing=yes" || set "_up_vscode_is_runing=no"
 
   if "!_up_vscode_is_runing!" == "yes" (
     start "" /wait taskkill /f /t /im "Code.exe"
-    ping 127.0.0.1 -n 10 >nul
+    ping 127.0.0.1 -n 10 1>nul
   )
 
   if %ERRORLEVEL% neq 0 set "up_info_err=error when stop code %ERRORLEVEL%"
@@ -241,16 +265,16 @@ if "%up_is_in_test_dir%" neq "yes" (
 
 ) else (
   set "up_info_1=[%up_i_pre%%up_i% %date_ymd%:!time:~6,2!] up_is_in_test_dir:%up_is_in_test_dir%"
-  echo. "!up_info_1!" >>"%up_log_pid%"
-  echo. "!up_info_1!" >>con
+  echo. "!up_info_1!">>"%up_log_pid%"
+  echo. "!up_info_1!">>con
 )
 
 
 @REM rename last—_version
 set /a up_i=%up_i%+1
 set "up_info_1=[%up_i_pre%%up_i% %date_ymd%:!time:~6,2!] rename [%dir_vscode_last_version%] to [%dir_bak_last%]"
-echo. "!up_info_1!" >>"%up_log_pid%"
-echo. "!up_info_1!" >>con
+echo. "!up_info_1!">>"%up_log_pid%"
+echo. "!up_info_1!">>con
 
 ren "%dir_vscode_last_version%" "%dir_bak_last%"
 
@@ -262,41 +286,41 @@ ping 127.0.0.1 -n 3 >nul
 @REM rename unzip_dir to last_version
 set /a up_i=%up_i%+1
 set "up_info_1=[%up_i_pre%%up_i% %date_ymd%:!time:~6,2!] rename [unzip_dir] to [%dir_vscode_last_version%]"
-echo. "!up_info_1!" >>"%up_log_pid%"
-echo. "!up_info_1!" >>con
+echo. "!up_info_1!">>"%up_log_pid%"
+echo. "!up_info_1!">>con
 
 ren "%dir_unzip%" "%dir_vscode_last_version%"
 
 if %ERRORLEVEL% neq 0 set "up_info_err=error when rename [unzip_dir] to [%dir_vscode_last_version%] %ERRORLEVEL%"
 if "%up_info_err%" neq "" goto writr_err
 
-ping 127.0.0.1 -n 3 >nul
+ping 127.0.0.1 -n 3 1>nul
 
 @REM move data to last_version
 set /a up_i=%up_i%+1
 if %up_i% gtr 9 set "up_i_pre="
 set "up_info_1=[%up_i_pre%%up_i% %date_ymd%:!time:~6,2!] move [%dir_bak_last%\data] to [%dir_vscode_last_version%]"
 
-echo. "!up_info_1!" >>"%up_log_pid%"
-echo. "!up_info_1!" >>con
+echo. "!up_info_1!">>"%up_log_pid%"
+echo. "!up_info_1!">>con
 
 move "%dir_bak_last%\data" "%dir_vscode_last_version%\"
 
 if %ERRORLEVEL% neq 0 set "up_info_err=error  move [%dir_bak_last%\data] to to [%dir_vscode_last_version%] %ERRORLEVEL%"
 if "%up_info_err%" neq "" goto writr_err
 
-ping 127.0.0.1 -n 5 >nul
+ping 127.0.0.1 -n 5 1>nul
 
 @REM del bak_dir_last_version
 set /a up_i=%up_i%+1
 if %up_i% gtr 9 set "up_i_pre="
-set "up_info_1=[%up_i_pre%%up_i% %date_ymd%:!time:~6,2!] check [%dir_bak_last%\data]"
+set "up_info_1=[%up_i_pre%%up_i% %date_ymd%:!time:~6,2!] if not exist [bak_last\data],del [%dir_bak_last%]"
 
-echo. "!up_info_1!" >>"%up_log_pid%"
-echo. "!up_info_1!" >>con
+echo. "!up_info_1!">>"%up_log_pid%"
+echo. "!up_info_1!">>con
 
 if exist "%dir_bak_last%\data\" (
-  set "up_info_err=error check_exist [%dir_bak_last%\data]"
+  set "up_info_err=error check exist [%dir_bak_last%\data]"
 ) else (
   rd /s /q %dir_bak_last%
 )
@@ -313,8 +337,8 @@ set /a up_i=%up_i%+1
 if %up_i% gtr 9 set "up_i_pre="
 set "up_info_1=[%up_i_pre%%up_i% %date_ymd%:!time:~6,2!] delete [%_up_zip_file%]"
 
-echo. "!up_info_1!" >>"%up_log_pid%"
-echo. "!up_info_1!" >>con
+echo. "!up_info_1!">>"%up_log_pid%"
+echo. "!up_info_1!">>con
 
 del "%_up_zip_file%"
 
@@ -328,10 +352,15 @@ if "%up_info_err%" neq "" goto writr_err
 
 set /a up_i=%up_i%+1
 if %up_i% gtr 9 set "up_i_pre="
-set "up_info_1=[%up_i_pre%%up_i% %date_ymd%:!time:~6,2!] updata sucess"
+set "up_info_1=[%up_i_pre%%up_i% %date_ymd%:!time:~6,2!] updata clean finish"
+echo. "!up_info_1!">>"%up_log_pid%"
+echo. "!up_info_1!">>con
 
-echo. "!up_info_1!" >>"%up_log_pid%"
-echo. "!up_info_1!" >>con
+set /a up_i=%up_i%+1
+if %up_i% gtr 9 set "up_i_pre="
+set "up_info_1=[%up_i_pre%%up_i% %date_ymd%:!time:~6,2!] updata sucess"
+echo. "!up_info_1!">>"%up_log_pid%"
+echo. "!up_info_1!">>con
 
 ren "%up_log_pid%" "%up_log_ok%"
 
@@ -374,15 +403,13 @@ if "%up_zip_file_name%" == "" goto exit_with_err
 
 if exist "%up_log_pid%" ( 
   ren "%up_log_pid%" "%up_log_err%"
-  echo. "[%up_i_pre%%up_i% %date_ymd%:!time:~6,2!] error: !up_info_1!" >> "%up_log_dir%\%up_log_err%"
+  echo. "[%up_i_pre%%up_i% %date_ymd%:!time:~6,2!] error: !up_info_1!">>"%up_log_dir%\%up_log_err%"
 )
-
-@REM set "up_info_1=[%up_i_pre%%up_i% %date_ymd%:!time:~6,2!] err"
-
 
 :exit_with_err
   echo.
   echo. "--- exit with err"
+  set _up_exit_code=1
 
 :end_up_vscode
   echo.
@@ -390,6 +417,6 @@ if exist "%up_log_pid%" (
   echo.
 
 popd
-endlocal
 
-goto :EOF
+exit /b %_up_exit_code%
+
