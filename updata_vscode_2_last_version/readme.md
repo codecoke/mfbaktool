@@ -1,4 +1,4 @@
-# 绿色版的vscode 半自动更新脚本
+# 绿色版的 visual code 半自动更新脚本
 
 非安装版的vs code自动更新比较烦人
 
@@ -10,14 +10,29 @@
 
 然后...
 
+然后...
+
+就总是几个一样的重复劳动
+
+
 于是我写了一几个小脚本
 
-放到你的vscode更目录
+放到你的vscode同级目录，就是和vscode安装目录同一个父目录
+
+假如你的vscode安装在
+
+C:\xxx\yyy\vscode\last_version\code.exe
+
+几个脚本都放在：
+
+C:\xxx\yyy\vscode\last_version\
+
 
 然后命令行运行
 
 ```bat
 
+cd /d "C:\xxx\yyy\vscode\last_version\"
 up-vscode-to-last-version.3.bat anything
 
 @rem 在非测试环境下，为了数据安全，参数1是必需的，输入任何字符
