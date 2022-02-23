@@ -16,7 +16,9 @@ set "_up_run_dir=%~dp0"
 set "_up_vals_file=config_for_up_vscode.3.txt"
 set "up_is_in_test_dir=no"
 
-call "%share_cmd_mod%\vals_by_file.1.bat" "%_up_run_dir%%_up_vals_file%" "-"
+@REM call "%share_cmd_mod%\vals_by_file.1.bat" "%_up_run_dir%%_up_vals_file%" "-"
+
+call "%_up_run_dir%\vals_by_file.1.bat" "%_up_run_dir%%_up_vals_file%" "-"
 
 set "_up_errcode=%ERRORLEVEL%"
 

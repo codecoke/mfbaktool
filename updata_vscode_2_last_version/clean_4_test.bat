@@ -20,7 +20,8 @@ if /i "%_up_clean_order%" == "" (
   goto :eof
 )
 
-call "%share_cmd_mod%\vals_by_file.1.bat" "%_up_run_dir%%_up_vals_file%" "-"
+@REM call "%share_cmd_mod%\vals_by_file.1.bat" "%_up_run_dir%%_up_vals_file%" "-"
+call "%_up_run_dir%\vals_by_file.1.bat" "%_up_run_dir%%_up_vals_file%" "-"
 
 set "_up_errcode=%ERRORLEVEL%"
 
