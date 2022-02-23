@@ -1,12 +1,19 @@
 # 绿色版的vscode 半自动更新脚本
 
-非安装版的vs code自动更新比较烦人，它就给你一个下载包
+非安装版的vs code自动更新比较烦人
+
+它就给你一个下载包
+
 然后你要自己解压、复制旧版data
+
 然后重命名
+
 然后...
 
 于是我写了一几个小脚本
+
 放到你的vscode更目录
+
 然后命令行运行
 
 ```bat
@@ -17,7 +24,9 @@ up-vscode-to-last-version.3.bat anything
 ```
 
 ## config_for_up_vscode.3.txt
+
 是升级脚本的一些配置
+
 ```ini
 ;commond
 
@@ -48,10 +57,13 @@ up-vscode-to-last-version.3.bat
 ##  clean_4_test.bat
 
 为测试`up-vscode-to-last-version.3.bat`写的一个清理脚本
+
 目标是删除测试中使用的临时文件
+
 它和updata脚本共享`config_for_up_vscode.3.txt`里面的变量
 
 请自行取用，有什么疑问请联系我
+
 谢谢
 
 
