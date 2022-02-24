@@ -1,4 +1,4 @@
-# 绿色版的 visual code 半自动更新脚本
+# 绿色版的 visual studio code 半自动更新脚本
 
 非安装版的vs code自动更新比较烦人
 

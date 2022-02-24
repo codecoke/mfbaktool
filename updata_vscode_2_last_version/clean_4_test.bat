@@ -4,6 +4,8 @@ setlocal enabledelayedexpansion
 
 set "_up_vscode_bat_name=up-vscode-to-last*.bat"
 
+@REM Do not modify the following if not necessary
+
 if /i "%~1" == "" (
   echo. "--- err:"
   echo. "%%1 must test"
@@ -37,16 +39,11 @@ if %_up_errcode% neq 0 (
   goto :eof
 )
 
-
 set "date_ymd=%date:~,4%-%date:~5,2%-%date:~8,2% %time:~,2%:%time:~3,2%"
-
-
 
 echo.
 echo. " --- start clean for update-vscode-test"
 echo.
-
-
 
 set "up_zip_search_name=%up_zip_search_name:~0,-4%"
 set "_up_log_ck=%up_log_dir%\up_???_%up_zip_search_name%.txt"
@@ -56,16 +53,23 @@ set "dir_bak_last=%up_dir_bak_pre%_%dir_vscode_last_version%"
 @REM echo. "up_zip_search_name : %up_zip_search_name%"
 @REM echo. "up_dir_unzip_pre : %up_dir_unzip_pre%"
 @REM echo. "up_log_dir : %up_log_dir%"
-@REM echo. "up_when_pc_start : %up_when_pc_start%"
 @REM echo. "_up_log_ck : %_up_log_ck%"
 @REM echo. "_up_dir_unzip : %_up_dir_unzip%"
 @REM echo. "up_is_in_test_dir : %up_is_in_test_dir%"
 
 
 echo. "1--- check [%_up_log_ck%]"
-if exist "%_up_log_ck%" (
-  echo. " --- del [%_up_log_ck%] for test"
-  del "%_up_log_ck%"
+
+if exist "%up_log_dir%\" (
+  if "%~1" =="init" (
+    echo. " --- del [%up_log_dir%] for test init"
+    rd /s /q "%up_log_dir%\"
+  )else (
+    if exist "%_up_log_ck%" (
+      echo. " --- del [%_up_log_ck%] for test"
+      del "%_up_log_ck%"
+    )
+  )
 )
 
 echo. "2--- check %dir_vscode_last_version%user\data for test"
@@ -95,7 +99,6 @@ if exist "%dir_bak_last%" (
     )
   )
 )
-
 
 echo. "4--- check unzip_dir lasttime if find"
 @REM echo "%_up_dir_unzip%"

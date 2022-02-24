@@ -59,7 +59,6 @@ if %_up_errcode% neq 0 (
 @REM echo. "up_zip_search_name : %up_zip_search_name%"
 @REM echo. "up_dir_unzip_pre : %up_dir_unzip_pre%"
 @REM echo. "up_log_dir : %up_log_dir%"
-@REM echo. "up_when_pc_start : %up_when_pc_start%"
 @REM echo. "_up_log_ck : %_up_log_ck%"
 @REM echo. "_up_dir_unzip : %_up_dir_unzip%"
 @REM echo. "up_is_in_test_dir : %up_is_in_test_dir%"
@@ -329,8 +328,6 @@ if %ERRORLEVEL% neq 0 set "up_info_err=error  move [%dir_bak_last%\data] to to [
 if "%up_info_err%" neq "" goto writr_err
 
 @REM last del_zip_file
-
-@REM if /i "%_up_is_test%" neq "%up_when_pc_start%" goto jump_over_del_zip
 if /i "%up_del_zip_after_sucess%" neq "yes" goto jump_over_del_zip
 
 set /a up_i=%up_i%+1

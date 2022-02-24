@@ -3,7 +3,6 @@
 ;its test for up visual studio code
 
 dir_vscode_last_version=last_version
-up_when_pc_start=up_when_pc_start
 up_zip_search_name=VSCode-win32-x64*.zip
 up_log_dir=log_vscode_uppdata_1
 up_dir_unzip_pre=dir_unzip
