@@ -2,15 +2,19 @@
 
 setlocal enabledelayedexpansion
 
+REM update vscode 2 last version
+REM w@ibar.cn 2024-8-26
 
-@REM if "up_vscode2last_config=" then use config.you-bat-name.txt
+
+
+REM if "up_vscode2last_config=" then use config.you-bat-name.txt
 set "up_vscode2last_config="
 
-@REM defined config youself:
-@REM set "up_vscode2last_config=c:\some\file-name-of-you-config.txt"
+REM defined config youself:
+REM set "up_vscode2last_config=c:\some\file-name-of-you-config.txt"
 
 
-@REM Do not modify the following if not necessary
+REM Do not modify the following if not necessary
 set "_up_run_dir=%~dp0"
 set "_up_arg_1=%~1"
 set _up_exit_code=0
@@ -27,7 +31,10 @@ if "%up_vscode2last_config:~1,2%" neq ":\" (
 
 set "date_hh=%time:~,2%"
 if "%date_hh:~0,1%" == " " set "date_hh=0%date_hh:~1,1%"
-set "date_ymd=%date:~3,7%-%date:~5,2%-%date:~8,2% %date_hh%:%time:~3,2%:%time:~6,2%"
+REM fix date_ymd %date% 2024/02/29 周四
+REM set "date_ymd=%date:~3,7%-%date:~5,2%-%date:~8,2% %date_hh%:%time:~3,2%:%time:~6,2%"
+REM set "date_ymd=%date:~,10% %date_hh%:%time:~3,2%:%time:~6,2%"
+set "date_ymd=%date:~,4%-%date:~5,2%-%date:~8,2% %date_hh%:%time:~3,2%:%time:~6,2%"
 
 if not exist "%up_vscode2last_config%" (
     echo. "--- err"
@@ -41,12 +48,13 @@ if "%_up_arg_1%" == "config-name" (
     exit /b 0
 )
 
-@REM call "%share_cmd_mod%\vals_by_file.1.bat" "%up_vscode2last_config%" "-"
-call "vals_by_file.1.bat" "%up_vscode2last_config%" "-"
+REM call "%share_cmd_mod%\vals_by_file.1.bat" "%up_vscode2last_config%" "-"
+REM call "vals_by_file.1.bat" "%up_vscode2last_config%" "-"
+call "mf_var_of_file.1.bat" "%up_vscode2last_config%"
 
 set "_up_errcode=%ERRORLEVEL%"
 
-if %_up_errcode% neq 0 (
+if "%_up_errcode%" neq "0" (
   echo. "--- err "
   echo. "--- read vals from file faild. code [%_up_errcode%] "
   if "%_up_errcode%" equ "404" (
@@ -56,14 +64,15 @@ if %_up_errcode% neq 0 (
   goto exit_with_err
 )
 
-@REM echo. "up_zip_search_name : %up_zip_search_name%"
-@REM echo. "up_dir_unzip_pre : %up_dir_unzip_pre%"
-@REM echo. "up_log_dir : %up_log_dir%"
-@REM echo. "_up_log_ck : %_up_log_ck%"
-@REM echo. "_up_dir_unzip : %_up_dir_unzip%"
-@REM echo. "up_is_in_test_dir : %up_is_in_test_dir%"
+REM echo. "up_zip_search_name : %up_zip_search_name%"
+REM echo. "up_dir_unzip_pre : %up_dir_unzip_pre%"
+REM echo. "up_log_dir : %up_log_dir%"
+REM echo. "up_when_pc_start : %up_when_pc_start%"
+REM echo. "_up_log_ck : %_up_log_ck%"
+REM echo. "_up_dir_unzip : %_up_dir_unzip%"
+REM echo. "up_is_in_test_dir : %up_is_in_test_dir%"
 
-@REM echo "up_del_zip_after_sucess : %up_del_zip_after_sucess%"
+REM echo "up_del_zip_after_sucess : %up_del_zip_after_sucess%"
 
 set "up_zip_file_name="
 set "up_log_pid=%up_log_dir%\up_pid"
@@ -139,15 +148,15 @@ set "up_log_ok=%up_log_ok_pre%_%up_zip_file_name%.txt"
 set "dir_unzip=%dir_unzip%_%up_zip_file_name%"
 
 echo.
-@REM echo "up_zip_file_name %up_zip_file_name%"
-@REM echo "up_log_pid %up_log_pid%"
-@REM echo "up_log_ck %up_log_ck%"
-@REM echo "up_log_err %up_log_err%"
-@REM echo "up_log_ok %up_log_ok%"
-@REM echo "dir_unzip %dir_unzip%"
-@REM echo "dir_bak_last %dir_bak_last%"
-@REM echo "dir_vscode_last_version %dir_vscode_last_version%"
-@REM echo "up_log_dir %up_log_dir%"
+REM echo "up_zip_file_name %up_zip_file_name%"
+REM echo "up_log_pid %up_log_pid%"
+REM echo "up_log_ck %up_log_ck%"
+REM echo "up_log_err %up_log_err%"
+REM echo "up_log_ok %up_log_ok%"
+REM echo "dir_unzip %dir_unzip%"
+REM echo "dir_bak_last %dir_bak_last%"
+REM echo "dir_vscode_last_version %dir_vscode_last_version%"
+REM echo "up_log_dir %up_log_dir%"
 
 
 if  not exist "%up_log_dir%\" (
@@ -158,7 +167,7 @@ if  not exist "%up_log_dir%\" (
 
 if not exist "%up_log_ck%" (
   echo. "[0%up_i% %date_ymd%:!time:~6,2!] up_log_ck is ok,go on"
-  @REM echo. "[%up_log_ck%]"
+  REM echo. "[%up_log_ck%]"
   goto ck_unzip_dir
 )
 
@@ -169,7 +178,7 @@ if exist "%up_log_dir%\%up_log_ok%" (
     goto end_up_vscode
 )
 
-@REM last updata not finish
+REM last updata not finish
 if exist "%up_log_pid%" (
   echo. "--- error:"
   echo. "--- [%up_zip_file_name%] last update not finish"
@@ -177,7 +186,7 @@ if exist "%up_log_pid%" (
   goto exit_with_err
 )
 
-@REM last updata not finish
+REM last updata not finish
 if exist "%up_log_dir%\%up_log_err%" (
   echo. "--- error:"
   echo. "--- [%up_zip_file_name%] last update err"
@@ -185,7 +194,7 @@ if exist "%up_log_dir%\%up_log_err%" (
   goto exit_with_err
 )
 
-@REM any up_???_zip_filename.txt means unknow err
+REM any up_???_zip_filename.txt means unknow err
 if exist "%up_log_ck%" (
   echo. "unknow error,ck feile:"
   echo. "[%up_log_ck%]"
@@ -210,7 +219,7 @@ if exist "%dir_bak_last%\" (
 
 
 
-@REM write log_pid
+REM write log_pid
 set /a up_i=%up_i%+1
 set "up_info_1=[%up_i_pre%%up_i% %date_ymd%:!time:~6,2!] write update pid"
 echo. "!up_info_1!">>"%up_log_pid%"
@@ -219,7 +228,7 @@ echo. "!up_info_1!">>con
 if %ERRORLEVEL% neq 0 set "up_info_err=error write update pid %ERRORLEVEL%"
 if "%up_info_err%" neq "" goto writr_err
 
-@REM unzip _up_zip_file
+REM unzip _up_zip_file
 set /a up_i=%up_i%+1
 set "up_info_1=[%up_i_pre%%up_i% %date_ymd%:!time:~6,2!] unzip [%_up_zip_file%]"
 
@@ -234,16 +243,13 @@ if "%up_info_err%" neq "" goto writr_err
 ping 127.0.0.1 -n 3 1>nul
 
 
-@REM stop vscode
+REM stop vscode
 
 set /a up_i=%up_i%+1
 if "%up_is_in_test_dir%" neq "yes" (
   set "up_info_1=[%up_i_pre%%up_i% %date_ymd%:!time:~6,2!] stop vs code task"
   echo. "!up_info_1!">>"%up_log_pid%"
   echo. "!up_info_1!">>con
-  
-  @REM set "_up_vscode_is_runing=no"  
-  @REM tasklist /v /fi "IMAGENAME eq Code.exe" | find  /i "code" || set "_up_vscode_is_runing=yes"
 
   tasklist /v /fi "IMAGENAME eq Code.exe" /fo csv /nh | find /i "code" >nul && set "_up_vscode_is_runing=yes" || set "_up_vscode_is_runing=no"
 
@@ -269,7 +275,7 @@ if "%up_is_in_test_dir%" neq "yes" (
 )
 
 
-@REM rename last—_version
+REM rename last—_version
 set /a up_i=%up_i%+1
 set "up_info_1=[%up_i_pre%%up_i% %date_ymd%:!time:~6,2!] rename [%dir_vscode_last_version%] to [%dir_bak_last%]"
 echo. "!up_info_1!">>"%up_log_pid%"
@@ -282,7 +288,7 @@ if "%up_info_err%" neq "" goto writr_err
 
 ping 127.0.0.1 -n 3 >nul
 
-@REM rename unzip_dir to last_version
+REM rename unzip_dir to last_version
 set /a up_i=%up_i%+1
 set "up_info_1=[%up_i_pre%%up_i% %date_ymd%:!time:~6,2!] rename [unzip_dir] to [%dir_vscode_last_version%]"
 echo. "!up_info_1!">>"%up_log_pid%"
@@ -295,7 +301,7 @@ if "%up_info_err%" neq "" goto writr_err
 
 ping 127.0.0.1 -n 3 1>nul
 
-@REM move data to last_version
+REM move data to last_version
 set /a up_i=%up_i%+1
 if %up_i% gtr 9 set "up_i_pre="
 set "up_info_1=[%up_i_pre%%up_i% %date_ymd%:!time:~6,2!] move [%dir_bak_last%\data] to [%dir_vscode_last_version%]"
@@ -310,7 +316,7 @@ if "%up_info_err%" neq "" goto writr_err
 
 ping 127.0.0.1 -n 5 1>nul
 
-@REM del bak_dir_last_version
+REM del bak_dir_last_version
 set /a up_i=%up_i%+1
 if %up_i% gtr 9 set "up_i_pre="
 set "up_info_1=[%up_i_pre%%up_i% %date_ymd%:!time:~6,2!] if not exist [bak_last\data],del [%dir_bak_last%]"
@@ -327,7 +333,8 @@ if exist "%dir_bak_last%\data\" (
 if %ERRORLEVEL% neq 0 set "up_info_err=error  move [%dir_bak_last%\data] to to [%dir_vscode_last_version%] %ERRORLEVEL%"
 if "%up_info_err%" neq "" goto writr_err
 
-@REM last del_zip_file
+REM last del_zip_file
+
 if /i "%up_del_zip_after_sucess%" neq "yes" goto jump_over_del_zip
 
 set /a up_i=%up_i%+1
@@ -343,7 +350,7 @@ if %ERRORLEVEL% neq 0 set "up_info_err=error  del [zip_file],code: %ERRORLEVEL%"
 if "%up_info_err%" neq "" goto writr_err
 
 
-@REM last_clean rename log_pid to log_ok
+REM last_clean rename log_pid to log_ok
 
 :jump_over_del_zip
 
@@ -366,14 +373,14 @@ if "%up_info_err%" neq "" goto writr_err
 
 
 
-@REM echo. "%up_log_pid%"
-@REM echo. "%up_log_ck%"
-@REM echo. "%up_log_err%"
-@REM echo. "%up_log_dir%\%up_log_err%"
-@REM echo. "%up_log_ok%"
-@REM echo. "%up_log_dir%\%up_log_ok%"
-@REM echo. "%dir_unzip%"
-@REM echo. "%dir_bak_last%"
+REM echo. "%up_log_pid%"
+REM echo. "%up_log_ck%"
+REM echo. "%up_log_err%"
+REM echo. "%up_log_dir%\%up_log_err%"
+REM echo. "%up_log_ok%"
+REM echo. "%up_log_dir%\%up_log_ok%"
+REM echo. "%dir_unzip%"
+REM echo. "%dir_bak_last%"
 
 
 goto end_up_vscode

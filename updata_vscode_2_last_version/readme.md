@@ -1,4 +1,6 @@
-# 绿色版的 visual studio code 半自动更新脚本
+# auto-update-bat for stable visual studio code
+
+## 绿色版的 visual studio code 半自动更新脚本
 
 非安装版的vs code自动更新比较烦人
 
@@ -8,11 +10,7 @@
 
 然后重命名
 
-然后...
-
-然后...
-
-就总是几个一样的重复劳动
+然后、然后...就总是几个一样的重复劳动
 
 
 于是我写了一几个小脚本

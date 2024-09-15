@@ -5,7 +5,7 @@ setlocal enabledelayedexpansion
 :: mfBakTool exeute
 :: var_pre mbt
 :: job_1.bat
-:: version 1.3.3
+:: version 1.3.4
 
 :: ---- ---- user setting ---- ----
 
