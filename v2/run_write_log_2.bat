@@ -4,7 +4,7 @@ setlocal enabledelayedexpansion
 
 REM mfbaktool_write_log_2.bat
 REM version 2.0.0
-REM w@ibar.cn 2024-08-30 12:25:59
+REM w(a)ibar.cn 2024-08-30 12:25:59
 
 REM ---- demo ----
 REM "mbt_write_log_2.bat" "log_string" "log_type" "log_file"

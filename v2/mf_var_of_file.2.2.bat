@@ -1,7 +1,7 @@
 @echo off
 
 REM read vars list from file.txt
-REM w@ibar.cn 2024-09-08 02:11:03
+REM w(a)ibar.cn 2024-09-16 02:04:44
 
 REM call "mf_var_of_file.2.2.bat" "val.config.txt" val_pre val_sp val_echo_info
 REM call "mf_var_of_file.bat" ["%~dp0\file.config.txt" "-" "=" 0]

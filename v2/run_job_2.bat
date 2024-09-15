@@ -5,7 +5,7 @@ setlocal enabledelayedexpansion
 REM mfbaktool exeute job
 REM run_job_2.bat
 REM version 2.1.2
-REM w@ibar.cn 2024-09-04 14:00:11
+REM w(a)ibar.cn 2024-09-04 14:00:11
 
 REM inputs arguments
 REM run_job_2.bat 

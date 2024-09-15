@@ -3,7 +3,7 @@ setlocal enabledelayedexpansion
 
 REM mfbaktool caller
 REM version 2.0.1
-REM w@ibar.cn 2024-09-04 12:06:24
+REM w(a)ibar.cn 2024-09-04 12:06:24
 
 REM mbt_2---job---jobname---G##check target dir#.bat
 

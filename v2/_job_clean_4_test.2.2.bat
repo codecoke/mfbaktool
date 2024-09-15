@@ -1,16 +1,18 @@
 @echo off
 
-REM w(a)ibar.cn 2024-09-01 22:58:14
+REM w(a)ibar.cn 2024-09-16 00:58:47
+
 
 if "%~1" == "" echo. "warn: agr 1 must" & goto :EOF
 
 set "_test_dp0=%~dp0"
 set "_test_n0=%~n0"
-set "_test_dir=G:\test_1\"
-set "_dev_target_dir=G:\localSites_g\shell\mfbaktool_dev\v2\"
+set "_test_dir=C:\test_1\"
+set "_dev_target_dir=C:\localSites_g\shell\mfbaktool_dev\v2\"
 set "_test_version=%_test_n0:~-3%"
 set "_dev_type=%_test_n0:~1,3%"
 set "_dev_bat=t_%_dev_type%.%_test_version%"
+REM t_job_2.2
 
 set "_test_version_1=%_test_version%"
 

@@ -1,6 +1,6 @@
 @echo off
 
-REM w@ibar.cn 2024-09-01 22:58:14
+REM w(a)ibar.cn 2024-09-01 22:58:14
 
 if "%~1" == "" echo. "warn: agr 1 must" & goto :EOF
 
