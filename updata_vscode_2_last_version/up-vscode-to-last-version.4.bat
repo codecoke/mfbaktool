@@ -48,7 +48,6 @@ if "%_up_arg_1%" == "config-name" (
     exit /b 0
 )
 
-REM call "%share_cmd_mod%\vals_by_file.1.bat" "%up_vscode2last_config%" "-"
 REM call "vals_by_file.1.bat" "%up_vscode2last_config%" "-"
 call "mf_var_of_file.1.bat" "%up_vscode2last_config%"
 
@@ -228,10 +227,10 @@ echo. "!up_info_1!">>con
 if %ERRORLEVEL% neq 0 set "up_info_err=error write update pid %ERRORLEVEL%"
 if "%up_info_err%" neq "" goto writr_err
 
+REM 03
 REM unzip _up_zip_file
 set /a up_i=%up_i%+1
 set "up_info_1=[%up_i_pre%%up_i% %date_ymd%:!time:~6,2!] unzip [%_up_zip_file%]"
-
 echo. "!up_info_1!">>"%up_log_pid%"
 echo. "!up_info_1!">>con
 
@@ -269,12 +268,19 @@ if "%up_is_in_test_dir%" neq "yes" (
   if "%up_info_err%" neq "" goto writr_err
 
 ) else (
+
   set "up_info_1=[%up_i_pre%%up_i% %date_ymd%:!time:~6,2!] up_is_in_test_dir:%up_is_in_test_dir%"
   echo. "!up_info_1!">>"%up_log_pid%"
   echo. "!up_info_1!">>con
+
+  echo. "--- warning: ">>con
+  echo. "--- up_is_in_test_dir is !up_is_in_test_dir!">>con
+  echo. "--- so don't stop vscdoe before updata">>con
+  echo. "--- if error check file:"
+  echo. "--- %up_vscode2last_config%">>con
 )
 
-
+REM 05
 REM rename last—_version
 set /a up_i=%up_i%+1
 set "up_info_1=[%up_i_pre%%up_i% %date_ymd%:!time:~6,2!] rename [%dir_vscode_last_version%] to [%dir_bak_last%]"

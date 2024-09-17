@@ -7,6 +7,6 @@ up_zip_search_name=VSCode-win32-x64*.zip
 up_log_dir=log_vscode_uppdata_1
 up_dir_unzip_pre=dir_unzip
 up_dir_bak_pre=dir_bak
-up_is_in_test_dir=no
+up_is_in_test_dir=yes
 up_del_zip_after_sucess=no
 up_z7_exe=%ProgramFiles%\7-Zip\7z.exe
