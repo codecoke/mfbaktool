@@ -4,7 +4,7 @@ setlocal enabledelayedexpansion
 
 set "_up_vscode_bat_name=up-vscode-to-last*.bat"
 
-@REM Do not modify the following if not necessary
+REM Do not modify the following if not necessary
 
 if /i "%~1" == "" (
   echo. "--- err:"
@@ -24,8 +24,8 @@ for /f "usebackq tokens=*" %%Z in (`dir /a:-d /b "%_up_vscode_bat_name%"`) do (
 set /a mf_mod_cmd_test_code=0
 set "up_is_in_test_dir=no"
 
-@REM call "%share_cmd_mod%\vals_by_file.1.bat" "%up_vscode2last_config%" "-"
-call "vals_by_file.1.bat" "%up_vscode2last_config%" "-"
+REM call "mf_var_of_file.1.bat" "%up_vscode2last_config%"
+call "mf_var_of_file.1.bat" "%up_vscode2last_config%" "" "" 1
 
 set "_up_errcode=%ERRORLEVEL%"
 
@@ -50,12 +50,12 @@ set "_up_log_ck=%up_log_dir%\up_???_%up_zip_search_name%.txt"
 set "_up_dir_unzip=%up_dir_unzip_pre%_%up_zip_search_name%"
 set "dir_bak_last=%up_dir_bak_pre%_%dir_vscode_last_version%"
 
-@REM echo. "up_zip_search_name : %up_zip_search_name%"
-@REM echo. "up_dir_unzip_pre : %up_dir_unzip_pre%"
-@REM echo. "up_log_dir : %up_log_dir%"
-@REM echo. "_up_log_ck : %_up_log_ck%"
-@REM echo. "_up_dir_unzip : %_up_dir_unzip%"
-@REM echo. "up_is_in_test_dir : %up_is_in_test_dir%"
+REM echo. "up_zip_search_name : %up_zip_search_name%"
+REM echo. "up_dir_unzip_pre : %up_dir_unzip_pre%"
+REM echo. "up_log_dir : %up_log_dir%"
+REM echo. "_up_log_ck : %_up_log_ck%"
+REM echo. "_up_dir_unzip : %_up_dir_unzip%"
+REM echo. "up_is_in_test_dir : %up_is_in_test_dir%"
 
 
 echo. "1--- check [%_up_log_ck%]"
@@ -101,7 +101,7 @@ if exist "%dir_bak_last%" (
 )
 
 echo. "4--- check unzip_dir lasttime if find"
-@REM echo "%_up_dir_unzip%"
+REM echo "%_up_dir_unzip%"
 if not exist "%_up_dir_unzip%" (
   echo. " --- not find unzip_dir-xxx"
   goto after_ck_unzip_dir
@@ -135,7 +135,14 @@ tasklist /v /fi "IMAGENAME eq Code.exe" | find  /i "code" >nul && set "_up_vscod
 echo. "---- _up_vscode_is_runing: %_up_vscode_is_runing%"
 
 :up_test_clean
+
 echo.
+REM dir_vscode_last_version
+
+if "%up_is_in_test_dir%" equ "yes" (
+  echo. "run %~nx0 /%~1 at: %date:~,4%/%date:~5,2%/%date:~8,2% %time:~,2%:%time:~3,2%:%time:~-2%">> "%dir_vscode_last_version%\data\up_vscode_test.txt"
+)
+REM echo. "%dir_vscode_last_version%\data\up_vscode_test.txt"
 echo. "---- up_test_clean end"
 
 popd

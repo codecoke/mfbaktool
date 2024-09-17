@@ -1,0 +1,3 @@
+ err: [f3] job : f3 not find in fastcopy2.ini _dev/v1:ver.2_1.3.3 ; 2024/08/23 13:29:85 ; MF34 
+ err: [f3] job : f3 not find in fastcopy2.ini _dev/v1:ver.2_1.3.3 ; 2024/08/23 13:31:85 ; MF34 
+ err: [test-notfind] job fastcopy_exec fild _dev/v1:ver.2_1.3.3 ; 2024/08/23 14:25:29 ; MF34 

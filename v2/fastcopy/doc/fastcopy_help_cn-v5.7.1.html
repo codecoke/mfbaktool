@@ -1,0 +1,1311 @@
+<html lang="cn"><head>
+  <meta http-equiv="Content-Type" content="text/html; charset= utf-8">
+  <title>FastCopy Help</title>
+  
+  <style type="text/css">
+  <!--
+  .help_head1 {
+    color:#ff5555;
+    background-color:#0000cc;
+  }
+  .help_head2 {
+    color:white;
+    background-color:#0000cc;
+    margin-bottom:10px;
+  }
+  .help_head3 {
+    color:white;
+    background-color:#0000cc;
+    margin-bottom:5px;
+  }
+  .help_head4 {
+    color:white;
+    background-color:#0000cc;
+    margin-bottom:5px;
+  }
+  .help_head5 {
+    margin-bottom:0px;
+  }
+  .help_table {
+    border-style:solid;
+    border-collapse: separate;
+    background-color: #ddffdd;
+    border-color: #aaaaaa;
+    font-size: 95%;
+    width: 93%;
+  }
+  .help_table_sub {
+    border-style:solid;
+    border-collapse: separate;
+    background-color: #ddffdd;
+    border-color: #aaaaaa;
+    font-size: 95%;
+    width: 90%;
+  }
+  .help_table2 {
+    border-style:solid;
+    border-collapse: separate;
+    background-color: #ddffdd;
+    border-color: #aaaaaa;
+    font-size: 95%;
+  }
+  .table_head {
+    background-color: #aaffaa;
+    font-weight: bold;
+  }
+  .help_table_mini {
+    font-size: 90%;
+    margin: 10px;
+  }
+  .tr_default {
+    background-color: #aaffaa;
+  }
+  .tr_sep {
+    background-color: #aaccaa;
+  }
+  .help_all {
+    font-size: 95%;
+  }
+  .help_section {
+    margin-left:25px;
+    margin-bottom:30px;
+  }
+  .help_sub_section {
+    margin-left:10px;
+    margin-bottom:10px;
+  }
+  .help_sub_section2 {
+    margin-left:10px;
+    margin-bottom:10px;
+    font-size: 90%;
+  }
+  .help_mini_section {
+    background-color: #cccccc;
+    padding:2%;
+  }
+  .help_mini_section2 {
+    margin-top:3px;
+    background-color: #eeffff;
+    padding:2%;
+  }
+  .help_license {
+    border-color:#777777; 
+    border-style:solid; 
+    padding:2%;
+    background-color: #dddddd;
+  }
+  .help_license_cond {
+    padding:5%;
+  }
+  .help_index {
+    position: fixed;
+    right: 2px;
+    top: 2px;
+    background-color: #eeffff;
+    border-style:solid; 
+    border-color:#777777; 
+    overflow-y: scroll;
+    font-size: 70%;
+  }
+  .pad_left {
+    padding-left: 10px;
+  }
+  .dos {
+    overflow-x:auto;
+    padding:5px;
+    padding-left:8px;
+    padding-right:8px;
+    margin:5px;
+    border-style:solid;
+    border-color: #aaaaaa;
+    background-color:#ddd;
+    font-family:monospace;
+    display:table;
+    word-break: break-all;
+    max-width:90%;
+  }
+  body {
+    font-family: "Microsoft YaHei";
+  }
+  -->
+  </style>
+  <style type="text/css">#_copy{align-items:center;background:#4494d5;border-radius:3px;color:#fff;cursor:pointer;display:flex;font-size:13px;height:30px;justify-content:center;position:absolute;width:60px;z-index:1000}#select-tooltip,#sfModal,.modal-backdrop,div[id^=reader-helper]{display:none!important}.modal-open{overflow:auto!important}._sf_adjust_body{padding-right:0!important}.enable_copy_btns_div{position:fixed;width:154px;left:10px;top:45%;background:#e7f1ff;border:2px solid #4595d5;font-weight:600;border-radius:2px;font-family:-apple-system,BlinkMacSystemFont,Segoe UI,PingFang SC,Hiragino Sans GB,Microsoft YaHei,Helvetica Neue,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;z-index:5000}.enable_copy_btns_logo{width:100%;background:#4595d5;text-align:center;font-size:12px;color:#e7f1ff;line-height:30px;height:30px}.enable_copy_btns_btn{display:block;width:128px;height:28px;background:#7f5711;border-radius:4px;color:#fff;font-size:12px;border:0;outline:0;margin:8px auto;font-weight:700;cursor:pointer;opacity:.9}.enable_copy_btns_btn:hover{opacity:.8}.enable_copy_btns_btn:active{opacity:1}</style></head>
+  <body bgcolor="#eeffff">
+  
+  <div align="center">
+  <h1 class="help_head1">FastCopy ver5.7.15</h1>
+  </div>
+  <div class="help_all">
+  
+  <div align="right">2024/08/12 H.Shirouzu (白水啓章) &amp; FastCopy Lab, LLC.</div>
+  
+  <h2 class="help_head2" id="index">目录</h2>
+  <div class="help_section">
+    <a href="#about">1. 概述</a><br>
+    <a href="#license">2. 许可证</a><br>
+    <a href="#environment">3. 操作环境</a><br>
+    <a href="#install">4. 安装/卸载</a><br>
+    <a href="#usage">5. 使用规则＆主窗口</a><br>
+      <div class="help_sub_section">
+      <a href="#source_dst">1) Source/DestDir(来源/目标)</a><br>
+      　<a href="#backslash_behavior">DestDir末尾的'\'的含义</a><br>
+      <a href="#mode">2) 操作模式</a><br>
+      <a href="#buttons">3) 指定按钮＆选项</a><br>
+      <a href="#filter">4) 指定过滤器</a><br>
+      <a href="#reparse">5) 交接点・其他</a><br>
+      <a href="#menus">6) 菜单选项</a>
+      </div>
+    <a href="#settings">6. 设置</a><br>
+      <div class="help_sub_section">
+      <a href="#gen_settings">1) 一般设置</a><br>
+        <div class="help_sub_section2">
+        <a href="#setting_default">默认设置</a><br>
+        <a href="#setting_io">I/O设置</a><br>
+        <a href="#setting_verify">校验选项</a><br>
+        <a href="#setting_physical">驱动器组</a><br>
+        <a href="#setting_parallel">同时运行</a><br>
+        <a href="#setting_cpu">CPU设置</a><br>
+        <a href="#setting_copyopt">复制选项</a><br>
+        <a href="#setting_move">移动/同步选项</a><br>
+        <a href="#setting_del">删除相关选项</a><br>
+        <a href="#setting_log">日志设置</a><br>
+        <a href="#setting_shell">外壳扩展</a><br>
+        <a href="#setting_tray">最小化时的设置</a><br>
+        <a href="#setting_custom">操作模式设置</a><br>
+        <a href="#setting_misc">其他</a><br>
+        </div>
+      <a href="#finact">2) 任务结束后运行</a><br>
+      <a href="#shell">3) 扩展设置(外壳扩展/字体等)</a><br>
+      <a href="#job">4) 任务管理</a><br>
+      <a href="#ms_defender">5) MS Defender排除</a><br>
+      <a href="#license_manager">6) 许可证管理</a>
+      </div>
+    <a href="#cmdline">7. 命令行模式</a><br>
+    <a href="#fchash">8. FcHash.exe</a><br>
+    <a href="#warning">9. 警告</a><br>
+    <a href="#contact">10. 支持论坛＆最新版本</a><br>
+    <a href="#misc">11. FAQ(常见问题)</a><br>
+    <a href="#history">12. 历史</a><br>
+  </div>
+  
+  <h2 class="help_head2" id="about">1. 概述</h2>
+  <div class="help_section">
+    <strong>FastCopy是Windows上最快</strong> 的文件复制＆备份软件。
+    <br><br>
+    可复制(＆删除)UNICODE和超过MAX_PATH(260个字)的文件路径名。
+    <br><br>
+    <div id="disk_mode">
+    它会判断来源与目标是否属于同一HDD(or SSD),自动选择不同的方法。
+    <table class="help_table" border="4">
+      <tbody><tr><td nowrap=""><strong>不同HDD</strong></td><td>有多线程能力,读取与写入由单独的线程并行运行。</td></tr>
+      <tr><td nowrap=""><strong>相同HDD</strong></td><td>从目标连续读取直到充满缓冲区。缓冲器填满时,才开始写入至目标。</td></tr>
+    </tbody></table>
+    </div>
+    <br>
+    读/写也完全不使用操作系统的缓存,因此其他进程(应用程序)不会被减慢。
+    <br>
+    它可以实现接近设备极限的读写性能。
+    <br>
+    可指定包含/排除过滤器(UNIX通配符样式)。
+    <br>
+    因没有使用MFC,仅使用Win32API设计,不会贪占资源,运行快速。
+  </div>
+  
+  <h2 class="help_head2" id="license">2. 许可证</h2>
+  <div class="help_section">
+    (必须<a href="https://fastcopy.jp/pro/" target="_blank">购买Pro许可证</a>以便在工作场所使用等)<br>
+    <div class="help_license">
+      <strong>FastCopy许可协议 (EULA)</strong>
+      <br><br>
+    1.(使用许可)本软件在非家庭环境(如工作场所)中使用时需要Pro版许可。 只有在家庭环境中作为个人(非商业)使用时才能免费使用。 <br>
+    2.(免责声明)由FastCopy Lab, LLC.在 "原样 "基础上提供,对任何缺陷不承担任何责任或义务。 <br>
+    3.(禁止逆向工程)禁止以任何方式进行逆向工程。 <br>
+    4.(禁止转让)禁止将Pro版许可证出借、转让或分许可给第三方。 <br>
+    <br>
+      <strong>Copyright 2004-2024 SHIROUZU Hiroaki All rights reserved.</strong><br>
+      <strong>Copyright 2018-2024 FastCopy Lab, LLC. All rights reserved.</strong><br>
+    </div>
+  
+    <h3 class="help_head3" id="pro">Pro版与其他版本的对比图</h3>
+    (<a href="#license_manager">通过注册Pro版许可证密钥</a>,自动变更为专业版)
+    <div class="help_section">
+    <table border="4" style="border-color:#aaa">
+    <tbody><tr><th></th><th>　Pro版　</th><th>标准版</th><th>旧版(v4.x)</th></tr>
+    <tr><td>在工作场所使用(*1)</td>          <td align="center"><img src="ok.png"></td><td align="center"><img src="ng.png"></td><td align="center"><img src="ok.png"></td></tr>
+    <tr><td><a href="#setting_verify">完美校验功能</a></td><td align="center"><img src="ok.png"></td><td align="center"><img src="ng.png"></td><td align="center"><img src="ng.png"></td></tr>
+    <tr><td><a href="#fc_verify_check">检查无声的数据损坏</a></td><td align="center"><img src="ok.png"></td><td align="center"><img src="ng.png"></td><td align="center"><img src="ng.png"></td></tr>
+    <tr><td><a href="#mode">几种操作模式</a></td><td align="center"><img src="ok.png"></td><td align="center"><img src="ng.png"></td><td align="center"><img src="ng.png"></td></tr>
+    <tr><td>在家使用</td>        <td align="center"><img src="ok.png"></td><td align="center"><img src="ok.png"></td><td align="center"><img src="ok.png"></td></tr>
+    <tr><td>Win11的外壳扩展</td>       <td align="center"><img src="ok.png"></td><td align="center"><img src="ok.png"></td><td align="center"><img src="ng.png"></td></tr>
+    <tr><td><a href="#histry_5_0_0">进一步提速</a></td>          <td align="center"><img src="ok.png"></td><td align="center"><img src="ok.png"></td><td align="center"><img src="ng.png"></td></tr>
+    <tr><td><a href="#prealloc">有特权时速度更快</a></td><td align="center"><img src="ok.png"></td><td align="center"><img src="ok.png"></td><td align="center"><img src="ng.png"></td></tr>
+    <tr><td><a href="#setting_cpu">CPU亲和力</a></td><td align="center"><img src="ok.png"></td><td align="center"><img src="ok.png"></td><td align="center"><img src="ng.png"></td></tr>
+    <tr><td>自v4/v5以来的错误修正</td>       <td align="center"><img src="ok.png"></td><td align="center"><img src="ok.png"></td><td align="center"><img src="ng.png"></td></tr>
+    </tbody></table>
+    (*1) 不包括为期两周的试用期。<br>
+    </div>
+  
+    他们使用的图书馆的许可证。
+    <div class="help_license">
+      <div class="pad_left">
+      xxHash Library Copyright (c) 2012-2023, Yann Collet All rights reserved.<br>
+      <a href="xxhash-LICENSE.txt">许可证详情</a>。
+      <br>
+      OpenSSL Library Copyright (c) 1998-2023, The OpenSSL Project All rights reserved.<br>
+      <a href="apache-license-2.0.txt">许可证详情</a>。
+      </div>
+    </div>
+  </div>
+  
+  <h2 class="help_head2" id="environment">3. 运行环境</h2>
+  <div class="help_section">
+    Windows 7/8/8.1/10/11<br>
+    Windows Server 2012(＆R2)/2016/2019/2022
+  </div>
+  
+  <h2 class="help_head2" id="install">4. 安装/卸载</h2>
+  <div class="help_section">
+    <h3 class="help_head3">安装</h3>
+    <div class="help_sub_section">
+      请运行FastCopy5.x.x_installer.exe,并将它安装到任何目录。<br>
+      若想存储到USB等存储设备,只需复制fastcopy.exe,fastcopy_cn.chm到USB储存。<br>
+      有了/h选项,就会显示诸如/silent和/extract等选项。
+    </div>
+  
+    <h3 class="help_head3">卸载</h3>
+    <div class="help_sub_section">
+      在Win7或更高版本中,可以从设置/控制面板等的“程序和功能”中卸载。 <br>
+      它也可以使用安装目录中的setup.exe卸载。 <br>
+      /r /silent将导致无声的卸载。
+    </div>
+  </div>
+  
+  <h2 class="help_head2" id="usage">5. 使用规则＆主窗口</h2>
+  <div class="help_section">
+    如果将主窗口最小化,它会移动到系统托盘中。<br>
+    运行时显示各种状态。<br>
+    (文件数量括号里显示已运行的目录数量)<br>
+    <h3 class="help_head3" id="source_dst">Source/DestDir(来源/目标目录)</h3>
+    <div class="help_sub_section">
+      指定来源和目标目录。<br>
+      (默认保留10条历史记录)<br>
+      若需指定两个或多个来源(可拖曳与拖放),请换行写各路径名。<br>
+      <br>
+      若想用拖曳与拖放将文件/目录增加到来源,按下CTL键。(若没按下CTL键,来源内容会被删除)<br>
+      也可拖放到目标目录。
+  
+      <h4 class="help_head4" id="backslash_behavior">目标目录结束字符是否为'\'表示的意义不同</h4>
+      <table class="help_table" border="4">
+        <tbody><tr><td nowrap=""><strong>结束字符是'\'</strong></td><td>
+        将来源目录包括其自身复制到目标目录。<br>
+        <strong>(目标目录/来源目录/来源目录内文件)</strong>
+        </td></tr>
+        <tr><td nowrap=""><strong>结束字符不是</strong></td><td>
+        复制来源目录内文件到目标目录,
+        不复制来源目标本身。<br>
+        <strong>(目标目录/来源目录内文件)</strong><br>
+        但是,若指定了多个来源目录,操作方式将变为上述“结束字符是'\'”。
+        </td></tr>
+      </tbody></table>
+      <br>
+      <strong>(小提示)</strong> 若想将来源目录内文件复制到驱动器根目录时,来源目录后加上'*'。
+      例如,来源目录是“C:\Folder1\*”,目标目录是“D:\”,结果是“D:\(Folder1内文件)”。
+    </div>
+  
+    <h3 class="help_head3" id="mode">操作模式</h3>
+    <div class="help_sub_section">
+      <table class="help_table" border="4">
+      <tbody><tr><th>模式</th><th>操作内容</th>
+      </tr><tr><td nowrap=""><strong>差异(不覆盖)</strong></td>
+        <td>不复制重名文件。</td></tr>
+      <tr class="tr_default"><td nowrap=""><strong>差异(大小/日期)</strong></td>
+        <td>若重名,仅复制大小/时间不同的文件。(默认)</td></tr>
+      <tr><td nowrap=""><strong>差异(最新日期)</strong></td>
+        <td>若重名,仅复制时间较新的文件。</td></tr>
+      <tr><td nowrap=""><strong>复制(全覆盖)</strong></td>
+        <td>总是复制/覆盖所有文件。</td></tr>
+      <tr class="tr_sep"><td></td><td></td></tr>
+      <tr><td nowrap=""><strong>现存(大小/日期)<br>&nbsp;(仅Pro版)</strong></td>
+        <td>如果存在相同的文件名,但大小或日期不同,则复制。<br>(不存在的文件不会被复制)</td></tr>
+      <tr><td nowrap=""><strong>现存(最新日期)<br>&nbsp;(仅Pro版)</strong></td>
+        <td>如果存在同名文件且时间较新,则复制该文件。<br>(不存在的文件不会被复制)</td></tr>
+      <tr class="tr_sep"><td></td><td></td></tr>
+      <tr><td nowrap=""><strong>同步(大小/日期)</strong></td>
+        <td>若重名,仅复制大小/时间不同的文件。
+        同时删除目标目录当中来源目录里不存在的文件(＆目录)。</td></tr>
+      <tr><td nowrap=""><strong>同步(最新日期)</strong></td>
+        <td>若重名,仅复制时间较新的文件。
+        同时删除目标目录当中来源目录里不存在的文件(＆目录)。</td></tr>
+      <tr><td nowrap=""><strong>移动(全覆盖)</strong></td>
+        <td>复制并覆盖所有文件后删除所有来源文件。<br>
+        (可在一般设置切换 “复制/移动设置”→“移动(大小/时间)”)</td></tr>
+      <tr><td nowrap=""><strong>移动(不覆盖)<br>&nbsp;(仅Pro版)</strong></td>
+        <td>只复制目的地不存在的文件。只有已复制的文件才会从源文件中删除。<br>
+        (未复制的文件不会被删除)</td></tr>
+      <tr><td nowrap=""><strong>删除所有</strong></td>
+        <td>强制删除指定文件(＆目录)(＝读取专用文件取消读取专用后删除)。</td></tr>
+      <tr class="tr_sep"><td></td><td></td></tr>
+      <tr><td nowrap=""><strong>校验</strong></td>
+        <td>对Source和DestDir中具有匹配的大小和时间戳的文件进行相互的哈希比较。<br>
+        (注意：Source和DestDir的<a href="#backslash_behavior">描述应该与只是复制时相同</a>。如果你想比较C:\temp\和D:\temp\,在Source中写C:\temp\,在DestDir中写D:\)</td></tr>
+      <tr><td nowrap=""><strong>FC校验信息显示</strong></td>
+        <td>对于带有<a href="#fc_verify">FC校验信息(:fc_verify)</a>的文件,将显示记录的信息。</td></tr>
+      <tr id="fc_verify_check"><td nowrap=""><strong>FC校验信息验证<br>&nbsp;(仅Pro版)</strong></td>
+        <td>对于具有<a href="#fc_verify">FC校验信息(:fc_verify)</a>的文件,重新计算并比较当前的哈希值与它的记录信息,以验证没有发生无声的数据损坏。 </td></tr>
+      </tbody></table>
+      (在'列表'中,按住Shift键的同时按下按钮也会记录文件日志)
+    </div>
+  
+    <h3 class="help_head3" id="buttons">指定按钮＆选项</h3>
+    <div class="help_sub_section">
+      <table class="help_table" border="4" id="mainwin">
+      <tbody><tr><td nowrap=""><strong>运行</strong></td>
+      <td>运行复制。运行复制时,此按钮变更为［取消...］按钮。<br>
+      ・<strong>同时按下</strong>CTL键,将显示源列表的确认对话框。</td></tr>
+      <tr><td nowrap=""><strong>列表</strong></td>
+      <td>显示将复制＆删除的文件列表。文件名前面有'+'表示创建或更新,有'-'表示删除。<br>
+      ・<strong>同时按下</strong>CTL键(按钮标签“列表 →“列表＋V”)、读取＆使用哈希值比较复制模式跳过的每一对文件(除了由过滤器跳过的)。<br>
+      ・<strong>同时按下</strong>SHIFT键(若在日志设置启用文件日志),将列表内容写入文件日志。(若启用日志设置中的文件日期/文件大小选项,这些信息也将会显示/写入)
+      </td></tr>
+      <tr><td nowrap=""><strong>指定缓冲区大小</strong></td>
+      <td>显示缓冲区的大小,用于读/写。 单击以显示设置</td></tr>
+      <tr><td nowrap=""><strong>速度控制</strong></td>
+      <td>可指定全速、自动降速(*1)、指定速度(90%～10%)、暂停。若觉得它占用资源,建议设置为“自动降速”。(如果它检测到鼠标移动或最顶层窗口更改,它将降速)。若没选择“全速”,进程将设置为低优先级。(这个设置不会被<a href="#job">任务管理</a>保存)</td></tr>
+      <tr><td nowrap=""><strong>错误时继续</strong></td>
+      <td>读/写/删除操作发生错误也不中断,尽可能持续运行。<br>
+      (但会在主窗口中显示错误,并记录在错误日志中)</td></tr>
+      <tr><td nowrap=""><strong>校验</strong></td>
+      <td id="hash_mode">通过xxHash3(MD5/SHA-1/SHA-256/SHA-512/SHA3-256/SHA3-512/xxHash)校验写入的数据。<br>
+      (若想使用MD5/SHA-1/SHA-256/SHA-512/SHA3-256/SHA3-512/xxHash,可在设置面板的<a href="#setting_verify">校验选项</a>更改)<br>
+      <br>
+      在专业版中有常规校验(只有Dest被重新加载)和<a href="#setting_verify">完美校验(Src和Dest都被重新加载)</a>。<br>
+      (完美校验也能在读取Src时检测临时错误)<br>
+      <br>
+      如果发生校验错误,将显示源和目的地的哈希值,然后将目的地文件名改为.fc_verify_err。<br>
+      (它也可以被删除或在设置中设置为其他行为)。
+       </td></tr>
+      <tr><td nowrap=""><strong>预估</strong></td>
+      <td>开始复制前,先计算文件数/文件大小,预估完成时间。
+  (启用删除模式时不能预估完成时间。启用移动模式时预估完成时间不包括删除时间)</td></tr>
+      <tr><td nowrap=""><strong>立即开始</strong></td>
+      <td>运行其他FastCopy时,不等待其他FastCopy任务运行完成,立即开始运行。(其他FastCopy没有复制/移动时,不显示此按钮)(<a href="#setting_parallel">同时运行</a>)</td></tr>
+      </tbody></table>
+      (*1)当FastCopy窗口不是前景且检测到鼠标移动,它将会变慢。具体用以下几个方法降速：I/O之间进行等待,降低进程优先级、降低I/O优先级(Vista以后)、将最大I/O尺寸降到1MB。操作内容将来可能会更改。<br>
+  
+      <br>
+      <table class="help_table" border="4" id="options">
+      <tbody><tr><td><strong>ACL属性</strong></td>
+      <td>复制NTFS的“访问控制表属性(ACL)”。<br>
+        <strong>(建议启用<a href="#elevate">特权</a>后运行)</strong><br>
+        同时扩展属性(EA)(若存在)也会被一起复制。</td></tr>
+      <tr><td><strong>交换数据流</strong></td>
+      <td>复制NTFS的交换数据流(Alternate Stream)。</td></tr>
+      <tr><td><strong>防止被恢复(覆写删除)</strong></td>
+      <td>在删除文件之前,重新命名目标文件,用随机数据覆写,使复原无效。不覆写交换数据流。请注意,不能保证复原完全无效。</td></tr>
+      </tbody></table>
+    </div>
+  
+    <h3 class="help_head3" id="filter">指定过滤器</h3>
+    <div class="help_sub_section">
+      可复制/排除指定的文件/目录。<br>
+      (按下显示列表可先确认操作)<br>
+      <br>
+      <table class="help_table" border="4">
+      <tbody><tr><td><strong>包括</strong></td>
+      <td>仅复制含指定文字列(可使用<a href="#wild_card">Unix通配符</a>)的文件与目录内文件。(<a href="#filter_ps">备注</a>)<br>
+      需指定多个文件时,以'；'为分隔符。需指定目录时,指定文字列后面加上'\'。<br>
+      (例： *.txt; My Folder[0-9]\)<br>
+      <strong>ver3.0以后可指定<a href="#long_filter">相对路径</a>。</strong></td></tr>
+      <tr><td><strong>排除</strong></td>
+      <td>与包括相反的操作。排除含指定文件列的文件与目录。</td></tr>
+      <tr><td colspan="2"><strong>在一般设置启用扩展过滤器显示时,显示以下过滤器。</strong></td></tr>
+      <tr><td><strong>FromDate</strong></td>
+      <td>仅复制比指定日期(<a href="#date_filter">格式</a>)较新时间戳的文件。<br>
+      可指定绝对日期("20150701"or "2016/09/26 12:30:59"等)以外,也<a href="#date_filter">可</a>指定相对日期(10天前: '-10D')。</td></tr>
+      <tr><td><strong>ToDate</strong></td>
+      <td>仅复制比指定日期较早时间戳的文件。</td></tr>
+      <tr><td><strong>MinSize</strong></td>
+      <td>仅复制大于指定尺寸的文件。若想缩写文件大小可在文件名后面加上K/M/G/T。</td></tr>
+      <tr><td><strong>MaxSize</strong></td>
+      <td>仅复制小于指定尺寸的文件。</td></tr>
+      </tbody></table>
+      <br>
+      <div id="filter_ps">
+      备注1)启用删除模式,包括过滤器“指定文件＆不指定目录”时,不删除目录。<br>
+      备注2)指定多个文件时,不复制不含指定文件列的文件。<br>
+      备注3)指定多个目录时,仅复制不含指定文字列的目录内文件。<br>
+      </div>
+  
+      <table class="help_table" border="4" id="long_filter">
+      <tbody><tr><td><strong>指定相对路径</strong></td><td>
+        包括/排除的第一个字符不是'\'时,指定相对路径,从路径末尾向前搜寻。<br>
+        来源指定为C:\dir\时,若指定 包括为 subdir[1-9]\xxx\,仅复制C:\dir\subdir2\xxx\或C:\dir\dir\subdir3\xxx\ 等目录内文件。<br>
+        指定包括 为subdir[1-9]\file.*时,复制C:\dir\zzz\subdir9\file.txt 等文件。
+      </td></tr>
+      <tr><td><strong>指定前方一致</strong></td><td>
+        包括/排除的第一个字符是'\'时,指定前方一致,从路径的开头向后搜寻。(请参照过滤器搜寻的开始点)<br>
+        指定来源为C:\dir\ 时,指定包括为\subdir[1-9]\xxx\,仅复制C:\dir\subdir2\xxx\ ,C:\dir\subdir3\xxx\等目录内文件。<br>
+        指定包括 为\subdir[1-9]\file.*,复制C:\dir\subdir9\file.txt等文件,不复制更深层的目录内文件。
+      </td></tr>
+      <tr><td><strong>过滤器搜寻的开始点</strong></td><td>
+        指定来源为C:\src\; C:\src\file.txt; C:\src\dir*其中一个的时候,过滤器搜寻的开始点(最前面)为C:\src\ 。<br>
+      </td></tr>
+      </tbody></table>
+      <br>
+  
+      <strong id="wild_card">指定包括 / 排除过滤器时可使用的通配符。 </strong>
+      <table class="help_table" border="4">
+      <tbody><tr><td>*</td><td>0个字以上的任何文字。</td>
+      </tr><tr><td>?</td><td>任何1个文字。</td>
+      </tr><tr><td>[abc]</td><td>abc其中1个文字。</td>
+      </tr><tr><td>[!abc]</td><td>除了abc以外的任何1个文字。'!'可用 '^'代替。</td>
+      </tr><tr><td>[a-z]</td><td>a-z当中任何一个文字。</td>
+      </tr><tr><td>\</td><td>前面的'\'为指定前方一致。路径名中间的'\'为目录分隔符。结尾的'\'为指定目录。<br>
+        []里面的'\'为转义符。例如,若想指定"["或"]"为文件名的一部分,则写[\[]。</td>
+      </tr></tbody></table>
+      <br>
+  
+      <strong id="date_filter">指定FromDate/ToDate过滤器格式。</strong>
+      <table class="help_table" border="4">
+      <tbody><tr><td>指定绝对日期</td><td>用YYYYMMDD[hhmmss] 或YYYY/MM/DD [hh:mm:ss]指定日期。</td>
+      </tr><tr><td>指定相对日期</td><td>用"+|-数字W|D|h|m|s"指定日期。(如-10D＝10天前)<br>W|D|h|m|s分别代表：周、日、小时、分、秒。<br><strong>(识别大写和小写)</strong></td>
+      </tr></tbody></table>
+    </div>
+  
+    <h3 class="help_head3" id="reparse">连接/符号链接</h3>
+    <div class="help_sub_section">
+      从v1.70开始可识别连接(包括挂载点)/符号链接。<br>
+      <table class="help_table" border="4">
+      <tbody><tr><th class="table_head">模式</th><th class="table_head">操作内容</th>
+      </tr><tr><td nowrap=""><strong>差异/复制</strong></td>
+        <td>默认复制连接/符号链接其本身。若想改变复制目标,在<a href="#setting_copyopt">设置</a>中可更改(<a href="#junction_ps">警告</a>)。</td></tr>
+      <tr><td nowrap=""><strong>移动</strong></td>
+        <td>总是移动连接/符号链接其本身。</td></tr>
+      <tr><td nowrap=""><strong>删除</strong></td>
+        <td>总是删除连接/符号链接其本身。</td></tr>
+      </tbody></table>
+    </div>
+  
+    <h3 class="help_head3" id="hardlink">硬链接</h3>
+    <div class="help_sub_section">
+      从v1.95开始,只有指定<a href="#linkdest">/linkdest</a> 启动时,可重现硬链接。<br>
+      (运行时TotalFiles:显示的“文件数量(目录数量)”变成“文件数量/硬链接数量(目录数量)”<br>
+      <br>
+      以下两个注意点。<br>
+      １．每1万硬链接消耗大概2-4MB内存。(根据路径长度而改变)。<br>
+      ２．为取得链接计数(linkcounter),不仅打开复制文件也打开跳过文件,所以动作会变慢。<br>
+      <br>
+      指定/linkdest时,总是启用<a href="#recreate">/recreate</a> 选项相同的动作。<br>
+      若想总是重现硬链接,请指定fastcopy2.ini [main] linkdest=1。
+    </div>
+  
+    <h3 class="help_head3" id="menus">菜单选项</h3>
+    <div class="help_sub_section">
+      <h4 class="help_head4">文件(F)</h4>
+      <div class="help_sub_section">
+        <table class="help_table" border="3">
+        <tbody><tr><td nowrap=""><strong>打开日志文件</strong></td><td>打开fastcopy.log</td></tr>
+        <tr><td nowrap=""><strong>最新日志文件</strong></td>
+          <td>若选"<a href="#setting_log">记录日志文件</a>",显示最新运行的日志文件。</td></tr>
+        <tr><td nowrap=""><strong>文件记录历史</strong></td>
+          <td>若选"<a href="#setting_log">记录日志文件</a>",则打开以前的文件日志。</td></tr>
+        <tr><td nowrap=""><strong>FastCopyDir</strong></td><td>打开放置fastcopy.log、fastcopy2.ini的目录。</td></tr>
+        <tr><td nowrap=""><strong>启动时位置</strong></td><td>启动时总是在现在的位置打开。</td></tr>
+        <tr><td nowrap=""><strong>启动时尺寸</strong></td><td>启动时总是以现在的尺寸打开。</td></tr>
+        <tr><td nowrap=""><strong>始终显示在最前面</strong></td><td>始终显示在最前面。</td></tr>
+        <tr><td nowrap=""><strong>关闭</strong></td><td>关闭FastCopy</td></tr>
+        </tbody></table>
+      </div>
+      <h4 class="help_head4">帮助</h4>
+      <div class="help_sub_section">
+        <table class="help_table" border="3">
+        <tbody><tr><td nowrap=""><strong>帮助</strong></td><td>打开帮助</td></tr>
+        <tr><td nowrap=""><strong>检查更新</strong></td>
+          <td>访问<a href="https://ipmsg.org/fastcopy-update2.dat">访问https://ipmsg.org/fastcopy-update2.dat</a> 检查更新。</td></tr>
+        <tr><td nowrap=""><strong>支持论坛</strong></td><td>FastCopy相关问题和建议的支持论坛。</td></tr>
+        <tr><td nowrap=""><strong>最新版本URL</strong></td><td>打开FastCopy官网。</td></tr>
+        <tr><td nowrap=""><strong>关于FastCopy</strong></td><td>显示版本＆著作权</td></tr>
+        </tbody></table>
+      </div>
+      <h4 class="help_head4" id="elevate">特权</h4>
+      <div class="help_sub_section">
+        获得特权。若已获得特权,标题栏显示(Admin)。
+      </div>
+      <h4 class="help_head4">上述以外的项目</h4>
+      <div class="help_sub_section">
+        <a href="#job">任务管理(J)</a> <a href="#settings">设置(S)</a>
+      </div>
+    </div>
+  </div>
+  
+  <h2 class="help_head2" id="settings">6. 设置</h2>
+  <div class="help_section">
+    <h3 class="help_head3" id="gen_settings">设置→ 一般设置</h3>
+    <div class="help_sub_section">
+      FastCopy 的一般设置(默认值,I/O参数,日志记录等)。
+      <h4 class="help_head4" id="setting_default">默认设置</h4>
+  
+      <div class="help_sub_section">
+        指定启动时的默认值。<br>
+  
+        <table class="help_table_sub" border="4">
+        <tbody><tr><td nowrap=""><strong>主屏幕的默认值</strong></td><td>有关项目请参照 <a href="#mainwin">这里</a></td></tr>
+        <tr><td nowrap=""><strong>Language/语言</strong></td><td>改变显示语言(重启后激活)</td></tr>
+        </tbody></table>
+      </div>
+  
+      <h4 class="help_head4" id="setting_io">I/O设置</h4>
+      <div class="help_sub_section">
+        设置I/O的基本参数。
+  
+        <table class="help_table" border="4">
+        <tbody><tr><td nowrap=""><strong>I/O単位(MB)</strong></td><td>指定每次对OS要求的读写文件尺寸。<br>
+          ［I/O单位 * 异步I/O数目］为在OS内同时运行的［最大I/O尺寸］。<br>
+          建议指定1MB。测试时发现若指定2～4MB以上,网络驱动器速度将变慢。<br>
+          (<a href="#mainwin">缓冲区大小</a>需要最大I/O单位的两倍以上)<br><br>
+          这个数量(和下述异步I/O数量)非常大时,可能因系统内核资源不足而发生I/O错误。
+          </td></tr>
+        <tr><td nowrap=""><strong>异步I/O数目</strong></td><td>
+        通过并行发布API,而不是等待每个ReadFile/WriteFile API问题的完成,I/O速度(尤其是网络驱动器)会得到改善。<br>
+        <strong>(注意,将这个数字设置为1并不使用异步I/O)</strong>
+        </td></tr>
+        <tr><td nowrap=""><strong>始终使用Low IO</strong></td><td>
+        优先考虑其他应用程序的I/O。 (从Vista开始使用低优先I/O)
+        </td></tr>
+        <tr><td nowrap="" id="sdcard"><strong>SD卡上不使用异步I/O</strong></td><td>由于某些旧SD卡适配器的问题</td></tr>
+        </tbody></table>
+        <br>
+  
+        <table class="help_table" border="4">
+        <tbody><tr><th class="table_head" colspan="2">OS缓冲存储器设置</th></tr>
+        <tr><td nowrap=""><strong>使用OS缓冲存储器读取</strong></td><td>读取时<strong>不使用Direct I/O</strong>。<br>
+          不建议使用,因为转送速度变慢或其他程序的内存可能会被OS缓冲存储器置换。</td></tr>
+        <tr><td nowrap=""><strong>使用NTFS/FAT</strong></td><td>读取小于指定尺寸的文件时<strong>不使用DirectI/O</strong>。<br>
+  缺点与使用读取OS缓冲存储器时相同,但若复制极小的文件,能减少磁头寻道时间。默认设置未满64KB时启用NTFS,未满128KB时启用FAT。</td></tr>
+        </tbody></table>
+        <br>
+  
+        <table class="help_table" border="4">
+        <tbody><tr><th class="table_head" colspan="2">目录读取</th></tr>
+        <tr><td nowrap=""><strong>启用成批读取</strong></td><td>启用<a href="https://msdn.microsoft.com/ja-jp/library/windows/desktop/aa364419(v=vs.85).aspx" target="_blank">FIND_FIRST_EX_LARGE_FETCH</a>标识符,提升读取目录的速度。</td></tr>
+        </tbody></table>
+      </div>
+  
+      <h4 class="help_head4" id="setting_verify">校验选项</h4>
+      <div class="help_sub_section">
+        校验选项。
+        <table class="help_table_sub" border="4">
+        <tbody><tr><td nowrap=""><strong>校验方法</strong></td><td>选择校验方法<br>
+          <table class="help_table" border="2">
+            <tbody><tr>
+              <th>传统校验</th>
+              <td>写完后,再次阅读并校验目的地</td>
+            </tr>
+            <tr>
+              <th>完美校验<br>(仅Pro版)</th>
+              <td>写完后,src和dest都会被再次读取并校验。<br>读取src时的临时错误也可以被异常检测到。<br></td>
+            </tr>
+          </tbody></table>
+        </td></tr>
+        </tbody></table>
+        <br>
+  
+        <table class="help_table_sub" border="4">
+        <tbody><tr><td nowrap=""><strong>哈希方法(用于校验)</strong></td><td>选择校验的哈希方法(xxHash3/xxHash/MD5/SHA-1/SHA-256/SHA-512/SHA3-256/SHA3-512)<br>(建议为xxHash3)</td></tr>
+        <tr id="verify_action"><td nowrap=""><strong>如果出现校验错误,</strong></td>
+          <td>从以下四个选项中选择。
+            <table class="help_table" border="2">
+            <tbody><tr><td><strong>重命名为(文件名).fc_verify_err</strong></td></tr>
+            <tr><td><strong>删除文件</strong></td></tr>
+            <tr><td><strong>时间戳改为1980-01-01</strong></td></tr>
+            <tr><td><strong>没有什么</strong></td></tr>
+            </tbody></table>
+          </td>
+        </tr>
+  
+        <tr id="verify_timestamp"><td nowrap=""><strong>将时间戳设置为 1980-01-02,<br>直到校验完成</strong></td>
+          <td>
+            从复制/移动到校验完成,时间戳将为 1980-01-02。<br>
+            确保在校验中断时可以识别未校验的文件。
+          </td>
+        </tr>
+  
+        <tr id="verify_recopy_skip"><td nowrap=""><strong>时间戳为1980-01-02的文件将从<br>校验中运行(仅限大小/日期<br>或最新日期。仅限完美校验)</strong></td>
+          <td>
+          复制/移动/同步校验中断时发生的时间戳为1980-01-02的文件将从校验中运行(跳过复制)。(仅限大小/日期或最新日期模式)<br>
+          (在"移动/同步选项"中,可以将 "移动(全覆盖)" 更改为 "移动(大小/日期)")
+          <br>
+          
+          </td>
+        </tr>
+  
+        <tr id="fc_verify"><td nowrap=""><strong>添加校验信息</strong></td><td>当校验拷贝完成后,在交换数据流(:fc_verify)中记录如下。<br>
+        (例如用于检测复制后随时间推移的数据损坏(无声的数据损坏))<br><br>
+  
+        &nbsp;{done=完成日期/时间, ftime=文件日期/时间, size=大小, xxHash=哈希值}<br>
+        在校验错误的情况下,采用以下形式<br>
+        &nbsp;{error=完成日期/时间, ... , xxHash(src=哈希值, dst=哈希值)}<br>
+        <br>
+        这些信息可以通过<a href="#mode"> "FC校验信息显示" 和 "FC校验信息验证"</a>来显示和验证。
+         </td></tr>
+         <tr><td id="srchash"><strong>如果没有得到验证,<br>src的哈希值被记录在文件日志中</strong></td><td>(同左)</td></tr>
+        </tbody></table>
+      </div>
+  
+      <h4 class="help_head4" id="setting_physical">驱动器组</h4>
+      <div class="help_sub_section">
+        <table class="help_table_sub" border="4" id="ssd_raid">
+        <tbody><tr class="table_head"><th colspan="2">始终平行运行的驱动器(如SSD-RAID)</th></tr>
+        <tr><th>概述</th><td>指定哪些硬盘在并行运行时更快,例如在SSD-RAID中。 始终作为一个独立的硬盘模式运行。 另外,当多个FastCopy硬盘运行时,它不会排队。<br>
+          </td></tr>
+        <tr><th nowrap="">指定方法</th><td>如果C:和E:是SSD-RAID,指定 "CE"。<br>
+        请注意,具有UNC路径名的驱动器应该被分配一个盘符。</td></tr>
+        </tbody></table>
+        <br>
+  
+        判断属于相同HDD(or SSD)的驱动器组。(<a href="#setting_physical_ps">*1</a>)<br>
+          FastCopy自动判断物理驱动器,但RAID,TrueCrypt等不容易判断的驱动器需手动设置。<br>
+        <table class="help_table" border="4">
+        <tbody><tr><th colspan="2">手动设置物理驱动器</th></tr>
+        <tr><th>概述</th><td>手动设置驱动器是否属于相同HDD(or SSD)。<br>
+          </td></tr>
+        <tr><th nowrap="">指定方法</th><td>C:与D:属于相同HDD,E:与F:属于相同HDD时,指定"CD,EF"。<br>
+          UNC路径名的驱动器,请指定驱动器名或按照下面方针指定。</td></tr>
+        </tbody></table>
+        <br>
+  
+        <table class="help_table" border="4">
+        <tbody><tr><th colspan="2">网络驱动器的物理驱动器判断方针</th></tr>
+        <tr><th>概述</th><td>设置方针判断哪些网络驱动器属于相同HDD(or SSD)。<br>
+            指定驱动器名的网络驱动器也以挂载时使用的UNC名来判断。(<a href="#setting_physical_ps2">*2</a>)<br>
+          </td></tr>
+        <tr><th>相同UNC通用名＝相同物理驱动器组</th><td>UNC名为 \\Server1\vol1\ 时,将\\Server1\vol1\ 一致的UNC名判断为相同HDD,将\\Server1\vol2\ 判断为不同HDD。</td></tr>
+        <tr><th>相同UNC服务器名称＝相同物理驱动器组</th><td>UNC名为 \\Server1\vol1\ 时,将\\Server1\ 一致的UNC名判断为同一个HDD,将\\Server2\... 判断为不同HDD。</td></tr>
+        <tr><th>所有UNC通用名＝相同物理驱动器组</th><td>将所有网络驱动器判断为相同HDD。</td></tr>
+        </tbody></table>
+        <div id="setting_physical_ps">
+        (*1) 若对被分割的相同HDD同时运行读取与写入,导致磁头寻道多发,速度变慢而且缩短HDD寿命,所以FastCopy识别相同HDD与不同HDD后,自动<a href="#disk_mode">改变操作</a>。
+        </div>
+        <div id="setting_physical_ps2">
+        (*2) 网络带宽不足时,选择“所有UNC通用名＝相同物理驱动器组”可避开网络阻塞。
+        </div>
+      </div>
+  
+      <h4 class="help_head4" id="setting_parallel">同时运行</h4>
+      <div class="help_sub_section">
+        设置FastCopy同时运行几个FastCopy。<br>
+        同时运行几个FastCopy时,需要几个CPU、内存。<br>
+        物理内存不足时,动作可能变慢。<br>
+        <table class="help_table" border="4">
+        <tbody><tr><th>可同时运行的最多FastCopy</th><td>同时运行多个FastCopy时,设置容许并行运行的最多程序量。<br>
+        <strong>其他FastCopy在使用相同HDD时,</strong>就算同时运行的程序比容许的程序量更少也等待该FastCopy完成后再开始运行。<br>
+        在“驱动器组设置”可手动设置相同HDD判断。
+        </td></tr>
+        <tr><td><strong>不等待FastCopy完成立即开始运行</strong></td><td>不管同时运行文件数多少,不管是否使用相同HDD,总是立即开始运行。</td></tr>
+        </tbody></table>
+      </div>
+  
+      <h4 class="help_head4" id="setting_cpu">CPU设置</h4>
+      <div class="help_sub_section">
+        与CPU有关的设置。
+        <table class="help_table_sub" border="4">
+        <tbody><tr><th>CPU亲和力</th><td>
+          决定读或写线程是否被钉在一个逻辑CPU核上。 <br>
+          将读/写线程绑定到逻辑CPU核可以提高I/O性能。 <br>
+          (当多个FastCopy系统同时运行时,它们会被自动分配,使它们尽可能少地被分配到对方)
+        </td></tr>
+        </tbody></table>
+      </div>
+  
+      <h4 class="help_head4" id="setting_copyopt">复制选项</h4>
+      <div class="help_sub_section">
+        与复制有关的选项。 (有些设置也会影响移动)
+        <table class="help_table" border="4">
+        <tbody><tr><td><strong>使用过滤器时,不创建空目录。</strong></td>
+          <td>使用过滤器时,不创建空目录。</td></tr>
+        <tr><td><strong>复制到与源文件相同的目录中,会被重新命名并继续工作</strong></td>
+          <td>如果复制到与源文件相同的目录中,在目录名称的末尾加上(1)等。</td></tr>
+        <tr><td><strong>复制Junction/Symlink本身(不复制实体/内容)</strong></td>
+          <td>复制连接/符号链接时复制连接/符号链接本身(默认)。
+            若不勾选,复制目标文件或目标目录内容。(<a href="#junction_ps">备注 *1</a>)<br>
+            (移动/删除时总是启用)<br>
+            创建符号链接需要管理者权限。</td></tr>
+  
+        <tr><td><strong>在复制/移动时,共享开放的写入目的地(略有风险)</strong></td>
+          <td>非排他性地打开要写入的文件。 增加了向一个正在被其他进程打开的文件写入的可能性,但如果写入其他数据,可能会破坏文件内容。</td></tr>
+  
+        <tr><td><strong>尽可能地复制硬链接</strong></td>
+          <td>复制硬链接。<a href="#hardlink">更多信息见</a></td></tr>
+  
+        <tr><td><strong>比较时间戳时的容许误差</strong></td><td>启用差异(大小/日期)或差异(最新日期)时指定src/dst更新日期的容许误差。<br>
+        通常按照文件系统种类自动校正误差时间戳精准度(NTFS=100ns单位、FAT=2秒单位等)判断,一部分NAS等未满1秒的更新日期不准确的情况下,需手动设置视为相同更新日期的容许误差(msec单位)。</td></tr>
+  
+        <tr><th rowspan="4" id="dst">夏令时的误差容忍度</th></tr>
+        <tr><td>并不总是考虑到夏令时的错误</td></tr>
+        <tr><td>只有FAT允许出现夏令时的错误</td></tr>
+        <tr><td>始终考虑到夏令时的误差</td></tr>
+  
+        <tr id="prealloc"><th rowspan="2">由于预先分配空间,速度更快(仅在有特权时)</th></tr>
+        <tr><td>在特权模式下的空间预分配提供了20-30%的速度,例如,使用高速SSD-RAID。 <br>
+        你可以选择一直这样做,或者只在本地硬盘上做,等等。</td></tr>
+  
+        </tbody></table>
+        <strong id="junction_ps">(*1)</strong>例如C:\Users\(user)\AppData\Local\Applicatoin Data指C:\Users\(user)\AppData\Local,若复制目录实体/内容,无止境地递归。<br>
+        (C:\Users\(user)\AppData\Local\Applicatoin Data\Applicatoin Data\Applicatoin Data\…)<br>
+        所以启用复制实体/内容时需要注意。
+      </div>
+  
+      <h4 class="help_head4" id="setting_move">移动/同步选项</h4>
+      <div class="help_sub_section">
+        移动和同步设置。
+        <table class="help_table_sub" border="4">
+        <tbody><tr class="table_head"><th colspan="2">移动设置</th></tr>
+        <tr><td><strong>“移动(全覆盖)”改为“移动(大小/日期)”</strong></td>
+          <td>若目标目录里有大小/日期相同的文件,将它视为相同文件,删除来源文件。</td></tr>
+        <tr><td><strong>逐一移动</strong></td><td>通常移动文件列表满了(几千～几万个文件)以后才开始删除来源文件。若启用“逐一移动”,每个文件被复制完后(尽快)立即删除来源文件。</td></tr>
+        <tr><td nowrap=""><strong>移动(校验时)</strong></td><td>与上一个相同的动作。每一个文件被校验完后立即删除来源文件。</td></tr>
+  
+        </tbody></table>
+        <br>
+        <table class="help_table_sub" border="4">
+        <tbody><tr class="table_head"><th colspan="2" id="del_before_sync">同步设置</th></tr>
+        <tr><td><strong>在复制前进行删除</strong></td>
+          <td>复制是在事先删除了源文件中不存在的文件和要复制过来的文件后开始的。<br>
+        (目录扫描要进行两次,一次是删除,一次是复制,如果有很多文件的话,速度就会慢一点)</td></tr>
+        </tbody></table>
+      </div>
+  
+      <h4 class="help_head4" id="setting_del">删除的选项</h4>
+      <div class="help_sub_section">
+        删除的选项。
+        <table class="help_table" border="4">
+        <tbody><tr><td><strong>删除目录,即使在删除时有过滤规范</strong></td>
+          <td>默认情况下,如果在包括规范中只指定了文件而没有指定目录,那么目录就不会被删除。<br>
+        如果勾选了这个,目录也总是被删除。(<a href="#filter_ps">注意</a>)</td></tr>
+        <tr><td><strong>使用NSA方法禁止恢复(由于有三次覆盖,所以非常慢)</strong></td>
+          <td>启用“防止被恢复”(先用随机数覆盖1次＆重命名文件后删除)时覆盖3次。(用随机数覆盖2次后再用0数据覆盖1次)</td></tr>
+        </tbody></table>
+      </div>
+  
+      <h4 class="help_head4" id="setting_log">日志设置</h4>
+      <div class="help_sub_section">
+        日志文件相关选项。
+        <table class="help_table" border="4">
+        <tbody><tr><td nowrap=""><strong>Source/DestDir(来源/目标)的历史</strong></td><td>重新启动后有效。</td></tr>
+        <tr><td nowrap=""><strong>记录错误日志</strong></td><td>在fastcopy.log记录错误日志。</td></tr>
+        <tr><td nowrap=""><strong>记录日志文件</strong></td><td>每次复制时,创建Log\日期.log文件,记录所有复制文件名及错误。
+          <table class="help_table" border="2">
+          <tbody><tr><td nowrap=""><strong>文件日期</strong></td><td>记录文件更新日期。</td></tr>
+          <tr><td nowrap=""><strong>文件尺寸</strong></td><td>记录文件尺寸。</td></tr>
+          </tbody></table>
+        </td></tr>
+        <tr><td nowrap=""><strong>将ACL错误记录到日志文件</strong></td><td>非NTFS环境(Samba等)或非管理者权限环境,可能出现大量错误日志。</td></tr>
+        <tr><td><strong>将交流数据流错误记录到日志文件</strong></td><td>在Samba环境(Samba等)可能出现大量错误日志。</td></tr>
+        </tbody></table>
+  
+        <br>
+        关于出现在日志中的符号的含义。
+        <table class="help_table_sub" border="4">
+        <tbody><tr><td nowrap="">+</td><td>创建文件/目录</td></tr>
+        <tr><td nowrap="">-</td><td>删除文件/目录</td></tr>
+        <tr><td nowrap="">-&gt;</td><td>创建符号链接/结点</td></tr>
+        <tr><td nowrap="">=&gt;</td><td>创建硬链接</td></tr>
+        <tr><td nowrap="">!!</td><td>校验错误(哈希值不匹配)</td></tr>
+        </tbody></table>
+      </div>
+  
+      <h4 class="help_head4" id="setting_shell">外壳扩展</h4>
+      <div class="help_sub_section">
+        外壳扩展。<br>
+        当正常激活时,它成为个人使用的扩展,而当以管理员权限激活时,它成为所有用户的扩展。
+      </div>
+  
+      <h4 class="help_head4" id="setting_tray">最小化时的设置</h4>
+      <div class="help_sub_section">
+        最小化时,选择使用任务栏还是任务盘。<br>
+      </div>
+  
+      <h4 class="help_head4" id="setting_custom">操作模式设置</h4>
+      <div class="help_sub_section">
+        选择按下<a href="#mode">操作模式</a>按钮时显示的操作项目。<br>
+        (无论设置如何,用 Ctrl 键按下操作模式按钮时都会显示所有项目)。<br>
+        <br>
+        另外,还可以为 1.启动,2.右键单击外壳时的"复制",和 3.右键拖动外壳时的"复制" 中的每一个选择默认操作模式。
+      </div>
+  
+      <h4 class="help_head4" id="setting_misc">其他</h4>
+      <div class="help_sub_section">
+        其他选项。
+        <table class="help_table" border="4">
+        <tbody><tr><td nowrap=""><strong>启动时检查更新</strong></td><td>无参数启动时确认是否有最新版本。(上次确认后经过1天以上时)</td></tr>
+        <tr><td nowrap=""><strong>运行前显示确认对话框</strong></td><td>运行前确认。</td></tr>
+        <tr><td nowrap=""><strong>速度以MB/s而不是MiB/s为单位</strong></td><td>适应于使用MB/s而不是MiB/s的软件。 (该值增加约4.8%)</td></tr>
+        <tr><td nowrap=""><strong>当前速度显示在 TransRate 字段中</strong></td><td>当前(每秒)速度显示(Src速度/Dest速度/总速度)在 TransRate 字段中(包括校验速度)。<br>(以后显示位置可能会改变。如果您想增加启动时的宽度,请转到<a href="#menus">文件(F) → 启动时尺寸</a>)</td></tr>
+        <tr><td nowrap=""><strong>更新信息的时间间隔</strong></td><td>指定运行时的显示更新时间。与图标旋转速度同步。</td></tr>
+        <tr><td><strong>完成后弹出气泡提示</strong></td><td>存储到系统托盘时完成后弹出气泡提示。</td></tr>
+        <tr><td><strong>复制时防止自动休眠</strong></td><td>不管OS中设置自动休眠,复制时阻止自动休眠。<br>(但显示对话框时不阻止自动休眠)</td></tr>
+        </tbody></table>
+      </div>
+    </div>
+  
+    <h3 class="help_head3" id="finact">设置→ 结束时后运行</h3>
+    <div class="help_sub_section">
+      选择结束时后运行。默认可选择标准、待机、休眠、关机。<br>
+      若选择<strong>“添加/更改/删除...”,显示“结束时后运行窗口”</strong>,在此可添加播放声音、运行命令等运行方式。<br>
+      <table class="help_table" border="4">
+      <tbody><tr class="table_head"><th colspan="2">结束时后运行窗口</th></tr>
+      <tr><td nowrap=""><strong>后运行名称</strong></td><td>默认可选择标准、待机、休眠、关机。<br>
+        也可设置新的结束时后运行。</td></tr>
+      <tr><td nowrap=""><strong>播放声音</strong></td><td>结束时播放声音。<br>
+        可选择<strong>“仅发生错误时播放”</strong>。</td></tr>
+  
+      <tr>
+        <td><strong>关闭</strong></td>
+        <td>完成后关闭 FastCopy。</td>
+      </tr>
+  
+      <tr><td><strong>待机/关机运行的概述</strong></td>
+        <td>关机/待机/休眠运行前显示60秒的倒计时,可按“取消”对话框取消。<br>
+        其他FastCopy在运行时,等待它结束后再开始60秒倒计时。<br>
+        <strong>"恩典"</strong>…可以改变执行倒计时的秒数(标准60秒)<br>
+        <strong>"发生错误时不执行"</strong>…只在成功结束后执行</td>
+      </tr>
+      <tr><td nowrap=""><strong>运行命令</strong></td><td>可指定结束时运行的命令。
+        与发送邮件软件结合用很方便。<br>
+        <strong>“运行条件”</strong>可选择“无条件/正常完成时/错误发生时”。<br>
+        若勾选<strong>“等待完成”</strong>,命令完成前不会“关机/待机/休眠”。</td></tr>
+  
+      <tr>
+        <td id="webhook"><strong>WebHook通知<br>(向Slack等发出完成通知)</strong></td>
+        <td><strong>"运行WebHook通知"</strong>…运行WebHook并向Slack等发送完成通知(相当于日志)<br>
+        (对于Slack,<a href="https://api.slack.com/messaging/webhooks" target="_blank">请看这里,了解更多关于WebHook的信息</a>)<br>
+        你也可以选择<strong>"只在发生错误时执行"</strong></td>
+      </tr>
+  
+      <tr><td nowrap=""><strong>WebHook的参数<br>(通用)</strong></td>
+        <td>设置WebHook的参数。 这个设置对所有的退出过程是通用的。<br>
+        <strong>"WebHook URL"</strong>…描述用于发布WebHook的URL<br>
+        <strong>"描述POST数据"</strong>…描述了要被发送的内容。 注意,$(body)将取代实际的日志。<br>
+        <strong>"测试"</strong>…测试WebHook通知的执行情况。
+        </td></tr>
+      
+      </tbody></table>
+    </div>
+  
+    <h3 class="help_head3">设置→ 字体设置→ 更改主字体和重置</h3>
+    <div class="help_sub_section">
+      更改主窗口中央的信息字体。<br>
+      若想使各位数一致显示,建议用等距字体。
+    </div>
+  
+    <h3 class="help_head3">设置→ 自动/相同/不同HDD模式</h3>
+    <div class="help_sub_section">
+      指定<a href="#disk_mode">自动/相同/不同HDD模式</a>(默认指定自动)。用CTL+K可切换模式。<br>
+    </div>
+  
+    <h3 class="help_head3" id="extend_filter">设置→ 显示扩展过滤器</h3>
+    <div class="help_sub_section">
+      显示扩展过滤器(时间戳/尺寸过滤器)
+    </div>
+  
+    <h3 class="help_head3" id="source_swap">设置→ 交换来源⇔ 目标</h3>
+    <div class="help_sub_section">
+      想要互相同步时,交换来源与目标内容。此时,<a href="#backslash_behavior">按照结尾是否有'\'</a>,更改路径内容。(例如,Source: C:\AAA\BBB、DestDir: D:\CCC\时,变成Source: D:\CCC\BBB、DestDir: C:\AAA\)<br>
+      指定多个来源时不能启用。<br>
+      按下CTL+ALT+S也可运行。
+    </div>
+  
+    <h3 class="help_head3" id="job">任务管理→ 任务注册/删除</h3>
+    <div class="help_sub_section">
+      用任务名可存储＆恢复主窗口填写的内容。
+      <table class="help_table" border="4">
+      <tbody><tr><td nowrap=""><strong>添加/更新</strong></td>
+      <td>用任务名存储/更新主窗口内容(来源/目标、命令行模式、指定过滤器、指定缓冲区、错误时继续选项、预估完成时间、自动/相同/不同HDD模式)。</td></tr>
+      <tr><td nowrap=""><strong>删除</strong></td>
+      <td>删除选择任务。</td></tr>
+      <tr><td nowrap=""><strong>启动Windows任务调度程序</strong></td>
+      <td>启动Windows任务调度程序。<br>(它只是一个快捷方式。\r\n任务调度器的注册辅助/协调功能在FastCopy方面是不可用的)</td></tr>
+      </tbody></table>
+    </div>
+  
+    <h3 class="help_head3" id="ms_defender">Microsoft Defender排除</h3>
+    <div class="help_sub_section">
+        (要显示此设置,请按主屏幕右上方的“特权”按钮进入管理员模式。设置后,即使在普通模式下也能看到效果)<br>
+        <br>
+      在 Microsoft Defender 的排除设置中添加 FastCopy。<br>
+      复制 zip、exe、dll 等文件的速度会明显加快,CPU 占用率也会降低。<br>
+      (如果您复制的文件存在安全问题,请不要添加此功能)<br>
+      <table class="help_table" border="4">
+      <tbody><tr><td nowrap=""><strong>目前的排除名单</strong></td>
+      <td>显示当前 Microsoft Defender 排除设置的内容。</td></tr>
+      <tr><td nowrap=""><strong>添加/从排除到排除名单</strong></td>
+      <td>将 FastCopy 添加到 Microsoft Defender 排除列表/将其删除</td></tr>
+      </tbody></table>
+      (它可能在 Microsoft Defender 由组织管理的环境中不可用)<br>
+    </div>
+  
+    <h3 class="help_head3" id="license_manager">许可证管理</h3>
+    <div class="help_sub_section">
+      <table class="help_table" border="4" id="license_manager_online">
+      <tbody><tr class="table_head"><th colspan="2">许可证管理(在线)</th></tr>
+      <tr><td nowrap=""><strong>许可证密钥</strong></td>
+      <td>当你从 <a href="https://fastcopy.jp/pro/" target="_blank">https://fastcopy.jp/pro/</a> 购买许可证时,你会在购买完成的电子邮件中找到许可证密钥,请复制它。</td></tr>
+      <tr><td nowrap=""><strong>激活</strong></td>
+      <td>输入许可证密钥后,按这个'激活'按钮,完成认证(激活)。<br>
+      在这之后,Pro版的功能就可以使用了。</td></tr>
+      <tr><td nowrap=""><strong>机器迁移/发布</strong></td>
+      <td>如果你想从一台已经授权的机器转移到另一台电脑上或释放许可证,请执行此操作。<br>
+      请注意,你将不能再在这台机器上使用专业版的功能。</td></tr>
+      <tr><td nowrap=""><strong>转到离线模式</strong></td>
+      <td>转到非网络环境的屏幕。</td></tr>
+      </tbody></table>
+      <br>
+  
+      <table class="help_table" border="4" id="license_manager_offline">
+      <tbody><tr class="table_head"><th colspan="2">许可证管理(离线)</th></tr>
+      <tr><td nowrap=""><strong>激活密钥</strong></td>
+      <td>使用连接到网络的机器,进入 <a href="https://fastcopy.jp/pro/activate" target="_blank">https://fastcopy.jp/pro/activate</a>。<br>
+      输入激活密钥(Activation key),通过输入从购买许可证获得的许可证密钥和机器ID(在此屏幕上显示)获得。
+      </td></tr>
+      <tr><td nowrap=""><strong>激活</strong></td>
+      <td>输入激活密钥后,按这个'激活'按钮,完成认证。<br>
+      在这之后,专业版的功能就可以使用了。</td></tr>
+      <tr><td nowrap=""><strong>机器迁移/发布</strong></td>
+      <td>如果你想把已经激活的机器上的许可证转移或释放到另一台电脑上,请运行这个命令。<br>
+      复制通过运行该命令获得的 "停用字符串(Deactivation string)",从联网的机器上访问 <a href="https://fastcopy.jp/pro/deactivate" target="_blank">https://fastcopy.jp/pro/deactivate</a>,完成停用。<br>
+      注意,此后你将不能在这台机器上使用专业版功能。<br>
+      (如果万一你错误地停用了,请重新执行激活程序)。</td></tr>
+      <tr><td nowrap=""><strong>转到在线模式</strong></td>
+      <td>转到网络环境的屏幕。</td></tr>
+      </tbody></table>
+      <br>
+  
+      <table class="help_table" border="4" id="license_newformat">
+      <tbody><tr class="table_head"><th colspan="2">新的许可证认证方式(v5.7.0或更高版本)</th></tr>
+      <tr><td nowrap=""><strong>新的许可证格式</strong></td>
+        <td>
+        (如果此按钮被隐藏,则无需执行任何操作)<br>
+        从 v5.7.0 开始,我们已转向新的许可证身份验证格式,即使重新安装操作系统,机器 ID 也不会更改。<br>
+        虽然您可以继续使用以前的身份验证格式,但我们建议您迁移到新格式,以防需要重新安装操作系统。<br>
+        (如果离线,许可发布放后,如果再次验证,则会迁移为新格式)
+      </td></tr>
+      </tbody></table>
+  
+      <br>
+      许可证密钥的可用性可以在。<a href="https://fastcopy.jp/pro/license_summary" target="_blank">https://fastcopy.jp/pro/license_summary</a>
+  
+    </div>
+  
+  </div>
+  
+  <h2 class="help_head2" id="cmdline">7. 命令行模式</h2>
+  <div class="help_section" id="fcp">
+    基本格式：<br><br>
+  
+    GUI版: <strong>fastcopy.exe [/选项] file1 file2 ... [/to=dest_dir]</strong><br>
+    CUI版: <strong>fcp.exe [/选项] file1 file2 ... [/to=dest_dir]</strong><br>
+    (在 start "" /wait fastcopy.exe的情况下,请使用fcp.exe。注意fcp设置与fastcopy设置相同(参考fastcopy2.ini))<br>
+    <br>
+    <table class="help_table" border="4">
+    <tbody><tr><td>与GUI模式不同,分隔符为空白文字。<br>
+        包含空白文字的路径名,请用 "" 区分。</td></tr>
+    <tr><td>/to=总是放结尾。</td></tr>
+    <tr><td>若想等待完成,请使用fcp,或请指定 start "" /wait fastcopy.exe [/选项]...。</td></tr>
+    </tbody></table><br>
+    以下是可指定选项。('='前后请不要添加空白)<br><br>
+  
+    <table class="help_table" border="2">
+    <tbody><tr><td nowarp=""><strong>/cmd=<br>
+      &nbsp;&nbsp;(noexist_only<br>
+      &nbsp;&nbsp;|&nbsp;diff<br>
+      &nbsp;&nbsp;|&nbsp;update<br>
+      &nbsp;&nbsp;|&nbsp;force_copy<br>
+      &nbsp;&nbsp;|&nbsp;exist_diff<br>
+      &nbsp;&nbsp;|&nbsp;exist_update<br>
+      &nbsp;&nbsp;|&nbsp;sync<br>
+      &nbsp;&nbsp;|&nbsp;sync_update<br>
+      &nbsp;&nbsp;|&nbsp;move<br>
+      &nbsp;&nbsp;|&nbsp;move_noexist<br>
+      &nbsp;&nbsp;|&nbsp;delete<br>
+      &nbsp;&nbsp;|&nbsp;verify<br>
+      &nbsp;&nbsp;|&nbsp;verify_read<br>
+      &nbsp;&nbsp;|&nbsp;verify_check)
+      </strong></td>
+      <td>指定操作模式。(省略cmd指定时默认指定diff模式。指定delete时不用/to=dest_dir)
+      <table class="help_table" border="1">
+      <tbody><tr><th nowrap="">cmdline</th><th>用GUI</th>
+      </tr><tr><td nowrap=""><strong>noexist_only</strong></td><td>差异(不覆盖)</td></tr>
+      <tr class="tr_default"><td nowrap=""><strong>diff</strong></td><td>差异(大小/日期)</td></tr>
+      <tr><td nowrap=""><strong>update</strong></td><td>差异(最新日期)</td></tr>
+      <tr><td nowrap=""><strong>force_copy</strong></td><td>复制(全覆盖)</td></tr>
+      <tr><td nowrap=""><strong>exist_diff</strong></td><td>现存(大小/日期)</td></tr>
+      <tr><td nowrap=""><strong>exist_update</strong></td><td>现存(最新日期)</td></tr>
+      <tr><td nowrap=""><strong>sync</strong></td><td>同步(大小/日期)</td></tr>
+      <tr><td nowrap=""><strong>sync_update</strong></td><td>同步(最新日期)</td></tr>
+      <tr><td nowrap=""><strong>move</strong></td><td>移动(全覆盖)</td></tr>
+      <tr><td nowrap=""><strong>move_noexist</strong></td><td>移动(不覆盖)</td></tr>
+      <tr><td nowrap=""><strong>delete</strong></td><td>删除所有</td></tr>
+      <tr><td nowrap=""><strong>verify</strong></td><td>校验</td></tr>
+      <tr><td nowrap=""><strong>verify_read</strong></td><td>FC校验信息显示</td></tr>
+      <tr><td nowrap=""><strong>verify_check</strong></td><td>FC校验信息验证</td></tr>
+      </tbody></table>
+    </td></tr>
+    <tr><td nowrap=""><strong>/auto_close</strong></td><td>复制结束后,自动关闭。</td></tr>
+    <tr><td nowrap=""><strong>/force_close</strong></td><td>复制结束后,发生错误,也强行关闭。</td></tr>
+    <tr><td nowrap=""><strong>/open_window</strong></td><td>不存储到系统托盘中。(不立即开始运行时不需指定)</td></tr>
+    <tr><td nowrap=""><strong>/estimate</strong></td><td>预估复制完成时间。(禁用：/estimate=FALSE)</td></tr>
+    <tr><td nowrap=""><strong>/balloon(=FALSE)</strong></td><td>完成时显示气球通知。(禁用：/balloon=FALSE)</td></tr>
+    <tr><td nowrap=""><strong>/no_ui</strong></td><td id="no_ui">不显示确认对话框。(为后台任务。如果使用/no_confirm_del,自动设置/no_confirm_stop和/force_close。会话0隔离(主要启动任务计划)时自动设置/no_ui。就算不显示对话框,完成时会倒计时)</td></tr>
+    <tr><td nowrap=""><strong>/no_confirm_del</strong></td><td>当用/delete参数时,不显示确认界面。</td></tr>
+    <tr><td nowrap=""><strong>/no_confirm_stop</strong></td><td>不要显示错误对话框,即使发生严重错误。</td></tr>
+    <tr><td nowrap=""><strong>/no_exec</strong></td><td>对FastCopy窗口界面设置参数,但是不运行。</td></tr>
+    <tr><td nowrap=""><strong>/error_stop</strong></td><td>发生错误时显示对话框确认是否继续。(禁用：/error_stop=FALSE)</td></tr>
+    <tr><td nowrap=""><strong>/bufsize=N(MB)</strong></td><td>用MB单位来指定缓冲区大小。</td></tr>
+  
+    <tr id="ini"><td nowrap=""><strong>/ini=ini文件名</strong></td><td>指定ini文件进行设置。它不能包含目录名称。(默认：fastcopy2.ini)</td></tr>
+    <tr><td nowrap=""><strong>/log</strong></td><td>将操作/错误信息写入日志文件 (fastcopy.log)(禁用: /log=FALSE)</td></tr>
+    <tr><td nowrap=""><strong>/logfile=日志文件名</strong></td><td>指定日志文件的文件名。</td></tr>
+    <tr><td nowrap=""><strong>/filelog</strong></td><td>记录详细文件日志。在FastCopy/Log目录里面,以“日期.log”形式存储。校验时同时记录哈希值。(使用/filelog=filename可存储到指定文件。但若指定同一个文件,同时运行多个FastCopy,日志可能会混合输出)</td></tr>
+    <tr><td nowrap=""><strong>/skip_empty_dir</strong></td><td>启用过滤,不复制空文件夹。(禁用：/skip_empty_dir=FALSE)</td></tr>
+    <tr><td nowrap=""><strong>/job=任务名</strong></td><td>指定事先注册的任务。</td></tr>
+    <tr><td nowrap=""><strong>/force_start(=N)</strong></td><td>不等待其他FastCopy运行完成,立即开始。<br>(/force_start=2～N指定最大并行进程数)</td></tr>
+    <tr><td nowrap=""><strong>/disk_mode=<br>&nbsp;&nbsp;(auto|same|diff)</strong></td><td>指定<a href="#disk_mode">自动/相同/不同HDD模式</a>。(默认：auto)</td></tr>
+    <tr><td nowrap=""><strong>/speed=(full|autoslow|<br>&nbsp;&nbsp;9-1(90%-10%)|suspend)</strong></td><td>控制速度。</td></tr>
+    <tr><td nowrap=""><strong>/low_io</strong></td><td>优先考虑其他应用程序的IO(禁用: /low_io=FALSE)</td></tr>
+    <tr><td nowrap=""><strong>/srcfile="files.txt</strong></td><td>用文件名指定来源内容,用户每行可以描述一个文件名。(不建议指定大量文件)</td></tr>
+    <tr><td nowrap=""><strong>/srcfile_w="files.txt"</strong></td><td>与/srcfile=相同,除了由UNICODE描述。</td></tr>
+    <tr><td nowrap=""><strong>/include="..."</strong></td><td>指定包括过滤器。(<a href="#filter">详情</a>)</td></tr>
+    <tr><td nowrap=""><strong>/exclude="..."</strong></td><td>指定排除过滤器。(<a href="#filter">详情</a>)</td></tr>
+    <tr><td nowrap=""><strong>/from_date="..."</strong></td><td>指定最旧的时间戳的过滤器。(<a href="#filter">详情</a>)</td></tr>
+    <tr><td nowrap=""><strong>/to_date="..."</strong></td><td>指定最新的时间戳的过滤器。(<a href="#filter">详情</a>)</td></tr>
+    <tr><td nowrap=""><strong>/min_size="..."</strong></td><td>指定最小尺寸的过滤器。(<a href="#filter">详情</a>)</td></tr>
+    <tr><td nowrap=""><strong>/max_size="..."</strong></td><td>指定最大尺寸的过滤器。(<a href="#filter">详情</a>)</td></tr>
+    <tr id="time_allow"><td nowrap=""><strong>/time_allow=N(ms)</strong></td><td>指定src/dst更新日期差异的允许时间(ms),在差异(大小/日期)或差异(最新日期)。</td></tr>
+    <tr><td nowrap=""><strong>/wipe_del</strong></td><td>在删除之前重命名文件并擦除,阻止复原。(禁用：/wipe_del=FALSE)</td></tr>
+    <tr><td nowrap=""><strong>/acl</strong></td><td>复制“访问控制表属性(ACL)”、“扩展属性”(EA)。(仅限于NTFS)(禁用：/acl=FALSE)</td></tr>
+    <tr><td nowrap=""><strong>/stream</strong></td><td>复制交换数据流(仅限于NTFS)(禁用：/stream=FALSE )</td></tr>
+    <tr><td nowrap=""><strong>/reparse</strong></td><td>复制连接/装载点/符号链接本身(不是内容)。(复制文件内容：/reparse=FALSE)(<a href="#reparse">详情</a> 及 <a href="#junction_ps">警告</a>)</td></tr>
+    <tr><td nowrap=""><strong>/verify</strong></td><td>校验通过<a href="#hash_mode">xxHash3(or MD5, SHA-1, SHA-256, SHA-512, SHA3-256, SHA3-512, xxHash) </a>写入的文件数据。(禁用：/verify=FALSE)</td></tr>
+    <tr><td nowrap=""><strong>/verifyinfo</strong></td><td>启用<a href="#fc_verify">校验信息附加到交换数据流(:fc_verify)</a>(禁用：/verifyinfo=FALSE)</td></tr>
+    <tr><td nowrap=""><strong>/dlsvt=(none|auto|always)</strong></td><td id="dlsvt">指定夏令时的误差容限 (<a href="#dst">详情</a>)</td></tr>
+    <tr><td nowrap=""><strong>/linkdest</strong></td><td id="linkdest">尽可能重现硬链接。详情 <a href="#hardlink">请参照这里</a> 。</td></tr>
+    <tr><td nowrap=""><strong>/recreate</strong></td><td id="recreate">将更新行为从“覆盖目标”更改为 “删除并重新创建目标”。(指定/linkdest时,不管是否指定/recreate运行这个动作)总是启用这个操作： fastcopy2.ini [main] recreate=1。</td></tr>
+    <tr><td nowrap=""><strong>/postproc=结束时后运行名</strong></td><td>指定事先注册的结束时后运行名。(禁用：/postproc=FALSE)</td></tr>
+    </tbody></table>
+    <br>
+    <strong>例子：</strong> 将C:\test内容差异复制到D:\Backup Folder<br>
+      　fastcopy.exe /cmd=diff C:\test /to="D:\Backup Folder\"
+  </div>
+  
+  <h2 class="help_head2" id="fchash">8. FcHash.exe</h2>
+  <div class="help_section">
+    用于快速哈希计算的命令行。<br>
+    　<strong>FcHash.exe [options] file1(or dir1) [,file2...]</strong><br>
+    <br>
+    <table class="help_table2" border="2">
+    <tbody><tr class="table_head"><th>选择</th><th>内容</th></tr>
+    <tr><td>--(xxh|xxh3|md5|sha1|sha256|sha512|sha3_256|sha3_512)</td><td>哈希类型(Default: xxh3)</td></tr>
+    <tr><td>--recur(sive)</td><td>递归运行目录</td></tr>
+    <tr><td>--non_stop</td><td>忽略错误</td></tr>
+    <tr><td>--use_cache</td><td>使用操作系统缓存</td></tr>
+    </tbody></table>
+    <br>
+    例子：<br>
+    <div class="dos">
+    C:\&gt; fchash --sha256 C:\<br>
+    C:\ :<br>
+    &nbsp;&nbsp;sha256 &lt;180a0d4144b44fc54acc9345a1453a32064ce8329ed387f4bf5faad1d7bc883a&gt;: bootmgr<br>
+    &nbsp;&nbsp;sha256 &lt;6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d&gt;: BOOTNXT<br>
+    </div>
+  </div>
+  
+  <h2 class="help_head2" id="warning">9. 警告</h2>
+  <div class="help_section">
+    目标文件按照操作模式,可能不经确认强制覆写。<br>
+    启用同步模式,有时可能强制删除目标文件＆目录。<br>
+    启用删除模式,总是强制删除文件＆目录。<br>
+    (强制删除＝读取专用文件先取消读取专用属性后删除)<br>
+    <br>
+    若FastCopy有错误,可能会发生严重问题。<br>
+    (请细读「<a href="#license">2. 许可证</a>」)
+  </div>
+  
+  
+  <h2 class="help_head2" id="contact">10. 支持论坛＆最新版本</h2>
+  <div class="help_section">
+    支持论坛:&nbsp;<a href="https://github.com/FastCopyLab/FastCopy/issues">https://github.com/FastCopyLab/FastCopy/issues</a><br>
+    最新版本:&nbsp;<a href="https://fastcopy.jp">https://fastcopy.jp</a>
+  </div>
+  
+  <h2 class="help_head2" id="faq">11. FAQ(常见问题)</h2>
+  <div class="help_section" id="misc">
+    <table class="help_table" border="4">
+  
+    <tbody><tr class="table_head"><td>Q. 配置文件(FastCopy2.ini)和日志文件的位置</td></tr>
+    <tr><td>
+    如果安装在Program Files下、\Users\(USER)\AppData\roaming\FastCopy\。<br>
+    否则,FastCopy.exe存在的目录。<br><br>
+    </td></tr>
+  
+    <tr class="table_head"><td>Q. 当DestDir是驱动器根目录时,我想在没有额外子目录的情况下进行复制(例如：D:\)</td></tr>
+    <tr><td>驱动器根的尾部(例如D:\)不能被删除(会发生错误)。 在这种情况下,请在源端附加*。 例如,对于C:\src,使用C:\src\*。<br></td></tr>
+  
+    <tr class="table_head"><td>Q. 从任务调度器启动时速度慢</td></tr>
+    <tr><td>这是因为Windows强制从任务调度器启动的进程具有低优先级I/O。<br>为了避免这种情况,在任务调度器中选择一个任务,导出它,删除它,把它的 &lt;priority&gt;7&lt;/priority&gt; 设置改为5或更低,然后再导入它。<br>
+    (检索: taskscheduler priority xml)<br><br></td></tr>
+  
+    </tbody></table>
+  
+  </div>
+  
+  <h2 class="help_head2" id="history">12. 历史</h2>
+  <div class="help_section">
+  
+    <table class="help_table" border="4">
+    <tbody><tr class="table_head"><th>Version</th><th>介绍</th></tr>
+  
+    <tr><td>v5.7.15</td><td>
+    修复了在启用 交换数据流 并选择 FC添加校验信息 添加选项的情况下复制 交换数据流 中包含 FC添加校验信息 的文件时未反映时间戳的问题。<br>
+    其他改进。
+    </td></tr>
+  
+    <tr><td>v5.7.14</td><td>
+    添加 <a href="#setting_misc">当前速度显示(Src速度/Dest速度/总速度)在 TransRate 字段中</a> 选项。<br>
+    修复了使用 /job=启动时按Ctrl键时(即使 FastCopy 不在前台)未反映源信息的问题(从 v5.4.0 到 v5.7.12。强烈建议更新)。
+    </td></tr>
+  
+    <tr><td>v5.7.12</td><td>
+    各种稳定性改进。
+    </td></tr>
+  
+    <tr><td>v5.7.11</td><td>
+    为<a href="#finact">结束时后运行</a>添加了“关闭 FastCopy”。<br>
+    启用<a href="#verify_timestamp">将时间戳设置为 1980-01-02,直到校验完成</a>后,即使时间戳恢复失败,也会重试(部分环境有效)。
+    </td></tr>
+  
+    <tr><td>v5.7.10</td><td>
+    修复了极少数情况下由于接近 100% Read 错误环境(在相同HDD模式下)而发生的异常。
+    </td></tr>
+  
+    <tr><td>v5.7.9</td><td>
+    修复了极少数情况下由于频繁 I/O 错误而发生的异常(在相同HDD模式下)(仅限 v5.7.7)。 <br>
+    <a href="#verify_recopy_skip">时间戳为1980-01-02的文件将从校验中运行</a>仅通过完美校验启用。 <br>
+    修复了 交换数据流/ACL 使用常规验证检查时 src 哈希值始终为 0 的问题(仅限 v5.7.7～8)。
+    </td></tr>
+  
+    <tr><td>v5.7.7</td><td>
+    进一步提高速度。 <br>
+    修复了设置“将时间戳设置为 1980-01-02,直到校验完成”时无法正确恢复符号链接/连接日期的问题。 <br>
+    改进了启用 ACL 时的行为。
+    </td></tr>
+  
+    <tr><td>v5.7.5</td><td>
+    各种稳定性改进。
+    </td></tr>
+  
+    <tr><td>v5.7.3</td><td>
+    通过添加 <a href="#ini">/ini=</a> 选项,现在可以指定 ini 文件名。(默认: fastcopy2.ini)
+    </td></tr>
+  
+    <tr><td>v5.7.2</td><td>
+    修复了从外壳扩展中选择删除功能时权限升级不起作用的问题。(仅限 v5.7.1)<br>
+    </td></tr>
+  
+    <tr><td>v5.7.1</td><td>
+    另外,还可以为 1.启动,2.右键单击外壳时的"复制",和 3.右键拖动外壳时的"复制" 中的每一个<a href="#setting_custom">选择默认操作模式</a>。
+    </td></tr>
+  
+    <tr><td>v5.7.0</td><td>
+    添加 <a href="#ms_defender">Microsoft Defender排除</a>。(复制 zip、exe、dll 等文件的速度会明显加快)<br>
+    为 <a href="#license_newformat">新的许可证认证方式</a> 中的罕见环境提供额外支持。<br>
+    更正了<a href="#verify_timestamp">将时间戳设置为 1980-01-02,直到校验完成</a>的错误。
+    </td></tr>
+  
+    <tr><td>v5.6.0</td><td>
+    添加 <a href="#verify_recopy_skip">时间戳为 1980-01-02的文件将从校验中运行(Pro版)</a>。<br>
+    为 <a href="#license_newformat">新的许可证认证方式</a> 中的罕见环境提供额外支持。
+    </td></tr>
+  
+    <tr><td>v5.5.0</td><td>
+    添加 <a href="#verify_timestamp">将时间戳设置为 1980-01-02,直到校验完成</a>。<br>
+    添加 <a href="#license_newformat">新的许可证认证方式</a>。<br>
+    各种稳定性改进。
+    </td></tr>
+  
+    <tr><td>v5.4.3</td><td>
+    在文件菜单中添加了"开始新的FastCopy"项目。<br>
+    修复了移动模式中的一个罕见异常(启用 ACL/交换数据流时)。<br>
+    修复了Win11的外壳扩展设置中的一个罕见异常。
+    </td></tr>
+  
+    <tr><td>v5.4.2</td><td>
+    在 Win11 的<a href="#setting_shell">外壳扩展</a>中添加了一个选项,以在右键单击时不显示顶层菜单。<br>
+    <a href="#sdcard">添加了SD卡上不使用异步I/O选项</a>(由于某些旧SD卡适配器的问题)。<br>
+    修正了移动过程中出现I/O错误时无法继续操作的问题。<br>
+    将构建环境从 VS2019 更改为 VS2022。
+    </td></tr>
+  
+    <tr><td>v5.4.1</td><td>
+    <a href="#setting_custom">您现在可以自定义操作模式列表</a>。<br>
+    添加 <a href="#mode">"现存(大小/日期)"</a> 模式(仅限Pro版)。<br>
+    添加 <a href="#mode">"现存(最新日期)"</a> 模式(仅限Pro版)。<br>
+    添加<a href="#setting_verify">校验类型</a> SHA3-256/SHA3-512(OpenSSL已更新至 3.1.2)。<br>
+    启用 ACL/交换数据流时,速度得到提高。<br>
+    改进了选择 <a href="#job">任务</a> 时的行为<br>
+    按住 Shift 键并按 Source/DestDir 按钮打开文件资源管理器。
+    </td></tr>
+  
+    <tr><td>v5.3.1</td><td>
+    修正校验(MD5/SHA1/SHA256/SHA512)过程中的内存泄漏问题。
+    </td></tr>
+    <tr><td>v5.3.0</td><td>
+    添加 "移动(不覆盖)"模式(仅限Pro版)。<br>
+    </td></tr>
+    <tr><td>v5.2.6</td><td>
+    更新 xxHash 到最新版本 (v0.8.2)。<br>
+    改进了简体中文。<br>
+    修复了"Program Files"中无法安装的问题(仅限 v5.2.5)。
+    </td></tr>
+    <tr><td>v5.2.4</td><td>
+    修复了部分环境下出现的异常。
+    </td></tr>
+    <tr><td>v5.2.3</td><td>
+    修正了当一个目录下有大量目录时可能出现的异常。<br>
+    修正了校验过程中可能发生I/O错误的异常。
+    </td></tr>
+    <tr><td>v5.2.0</td><td>
+    增加了简体中文版本。
+    </td></tr>
+    <tr><td>v5.1.1</td><td>
+    托盘图标的状态即使在运行中也应该改变。<br>
+    信息更新从1秒改为默认的0.5秒(可以从设置 → 其他中改变)。
+    </td></tr>
+    <tr><td>v5.1.0</td><td>
+    为包括/排除过滤器添加多行编辑器。<br>
+    改进了Win11的外壳扩展的行为。
+    </td></tr>
+    <tr><td>v5.0.2<br> - v5.0.5</td><td>
+    改进了核查期间的时间预估。 <br>
+    纠正了在设置屏幕中,空间模式的预分配没有被保存的问题。 <br>
+    修正了在某些Win11环境下,旧的上下文菜单中显示额外的条目。 (可能需要重新注册)<br>
+    增加了网站许可证。
+    </td></tr>
+    <tr><td id="histry_5_0_0">v5.0.0</td><td>
+    <a href="#license">更改许可证</a>。(在工作场所使用等,必须购买专业版许可证密钥)<br>
+    增加<a href="#setting_verify">完美校验</a>。(仅Pro版)<br>
+    支持Win11的外壳扩展。<br>
+    异步I/O算法的演变,以获得更高的速度。<br>
+    <a href="#prealloc">由于特权时预先分配空间</a>,在高速SSD环境下速度提高20%-30%。<br>
+    在主要命令中增加了 <a href="#mode">"校验"、"FC校验信息显示 "、"FC校验信息验证(仅Pro版)"</a>。<br>
+    支持<a href="#setting_cpu">CPU亲和力</a>。<br>
+    增加了<a href="#ssd_raid">总是并行运行的驱动器设置</a>。<br>
+    在<a href="#verify_action">校验错误时的动作中</a>增加了时间戳变化(1980-01-01)<br>
+    纠正了删除时的内存泄漏。
+    </td></tr>
+    </tbody></table>
+  <div>
+  
+  </div>
+  
+  
+  </div></div></body></html>

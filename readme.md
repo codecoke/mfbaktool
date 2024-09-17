@@ -35,7 +35,7 @@
 3.  如果你的`mbt_1..your name.. .bat`文件和`job_1.bat(/v1/)`文件在同目录，不需要修改
 
     如果你的`mbt_1..your name.. .bat`文件和`job_1.bat(/v1/)`文件不在同目录，则需要如下修改
-    打开你重名命的文件，修改其中两处变量：
+    打开你重名命的文件(例如：`mbt_1---any_your_job_name_1---C##test 1#bak source dir#.bat`)，修改其中两处变量：
 
 ```bat
 
