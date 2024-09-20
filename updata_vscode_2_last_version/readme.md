@@ -19,19 +19,19 @@
 
 假如你的vscode安装在
 
-C:\xxx\yyy\vscode\last_version\code.exe
+C:\xxx\yyy\vscode_install_dir\code.exe
 
 几个脚本都放在：
 
-C:\xxx\yyy\vscode\
+C:\xxx\yyy\
 
 
 然后命令行运行
 
 ```bat
 
-cd /d "C:\xxx\yyy\vscode\last_version\"
-up-vscode-to-last-version.x.bat anything
+cd /d "C:\xxx\yyy\vscode_install_dir\"
+up-vscode-to-last-version.x.bat any_string
 rem .x.bat 中的 x 为版本号
 rem 在非测试环境下，为了数据安全，参数1是必需的，输入任何字符
 ```
@@ -55,13 +55,13 @@ rem 在非测试环境下，为了数据安全，参数1是必需的，输入任
 ;commond
 
 ; vs code folder name
-dir_vscode_last_version=last_version
+dir_vscode_last_version="vscode_install_dir"
 
 up_when_pc_start=up_when_pc_start
 
 ; zip file key
 up_zip_search_name=VSCode-win32-x64*.zip
-up_log_dir=log_vscode_uppdata_1
+up_log_dir="log.updata_vscode_to_last"
 up_dir_unzip_pre=dir_unzip
 up_dir_bak_pre=dir_bak
 
@@ -71,7 +71,7 @@ up_is_in_test_dir=no
 ;升级完是否删除压缩包
 up_del_zip_after_sucess=no
 ;7-zip path
-up_z7_exe=%ProgramFiles%\7-Zip\7z.exe
+up_z7_exe="%ProgramFiles%\7-Zip\7z.exe"
 
 ```
 

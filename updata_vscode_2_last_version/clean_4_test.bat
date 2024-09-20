@@ -72,7 +72,7 @@ if exist "%up_log_dir%\" (
   )
 )
 
-echo. "2--- check %dir_vscode_last_version%user\data for test"
+echo. "2--- check %dir_vscode_last_version%\data for test"
 if not exist "%dir_vscode_last_version%\data\"  (
   echo. " --- creat [%dir_vscode_last_version%\data] for test now"
   mkdir "%dir_vscode_last_version%\data\" 

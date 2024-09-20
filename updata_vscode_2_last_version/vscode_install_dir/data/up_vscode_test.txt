@@ -1,0 +1,6 @@
+ "up vscode test info"
+ "[2024-09-20 19:50]"
+ "run clean_4_test.bat /init at: 2024/09/20 19:50:30"
+ "run clean_4_test.bat /1 at: 2024/09/20 19:50:02"
+ "run clean_4_test.bat /1 at: 2024/09/20 19:51:23"
+ "run clean_4_test.bat /1 at: 2024/09/20 19:53:97"
