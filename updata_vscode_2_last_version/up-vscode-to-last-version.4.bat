@@ -2,32 +2,39 @@
 
 setlocal enabledelayedexpansion
 
-REM update vscode 2 last version
-REM w@ibar.cn 2024-8-26
+REM update vscode to last version
+REM w(a)ibar.cn 2024-09-18 01:27:05
 
 
 
-REM if "up_vscode2last_config=" then use config.you-bat-name.txt
+REM if "up_vscode2last_config=" then use config.you-bat-name.ini
 set "up_vscode2last_config="
 
 REM defined config youself:
-REM set "up_vscode2last_config=c:\some\file-name-of-you-config.txt"
+REM set "up_vscode2last_config=c:\some\file-name-of-you-config.ini"
 
 
 REM Do not modify the following if not necessary
 set "_up_run_dir=%~dp0"
 set "_up_arg_1=%~1"
 set _up_exit_code=0
+set "read_vars_from_=mf_var_of_file.1.bat"
 set /a mf_mod_cmd_test_code=0
 set "up_is_in_test_dir=no"
 
-if "%up_vscode2last_config%" == "" set "up_vscode2last_config=config.%~n0"
-if "%up_vscode2last_config:~-4%" neq ".txt" (
-  set "up_vscode2last_config=%up_vscode2last_config%.txt"
+if "%up_vscode2last_config%" == "" set "up_vscode2last_config=config.%~n0.ini"
+if "%up_vscode2last_config:~-4%" neq ".ini" (
+  set "up_vscode2last_config=%up_vscode2last_config%.ini"
 )
 if "%up_vscode2last_config:~1,2%" neq ":\" (
   set "up_vscode2last_config=%_up_run_dir%%up_vscode2last_config%"
 )
+
+if "%read_vars_from_:~1,2%" neq ":\" (
+  set "read_vars_from_=%_up_run_dir%%read_vars_from_%"
+)
+
+
 
 set "date_hh=%time:~,2%"
 if "%date_hh:~0,1%" == " " set "date_hh=0%date_hh:~1,1%"
@@ -49,7 +56,7 @@ if "%_up_arg_1%" == "config-name" (
 )
 
 REM call "vals_by_file.1.bat" "%up_vscode2last_config%" "-"
-call "mf_var_of_file.1.bat" "%up_vscode2last_config%"
+call "%read_vars_from_%" "%up_vscode2last_config%"
 
 set "_up_errcode=%ERRORLEVEL%"
 
@@ -272,12 +279,11 @@ if "%up_is_in_test_dir%" neq "yes" (
   set "up_info_1=[%up_i_pre%%up_i% %date_ymd%:!time:~6,2!] up_is_in_test_dir:%up_is_in_test_dir%"
   echo. "!up_info_1!">>"%up_log_pid%"
   echo. "!up_info_1!">>con
-
-  echo. "--- warning: ">>con
-  echo. "--- up_is_in_test_dir is !up_is_in_test_dir!">>con
-  echo. "--- so don't stop vscdoe before updata">>con
-  echo. "--- if error check file:"
-  echo. "--- %up_vscode2last_config%">>con
+  echo. "    warning: ">>con
+  echo. "    up_is_in_test_dir is !up_is_in_test_dir!">>con
+  echo. "    so don't stop vscdoe before updata">>con
+  echo. "    if error check file:"
+  echo. "    %up_vscode2last_config%">>con
 )
 
 REM 05
@@ -314,6 +320,7 @@ set "up_info_1=[%up_i_pre%%up_i% %date_ymd%:!time:~6,2!] move [%dir_bak_last%\da
 
 echo. "!up_info_1!">>"%up_log_pid%"
 echo. "!up_info_1!">>con
+echo.
 
 move "%dir_bak_last%\data" "%dir_vscode_last_version%\"
 
@@ -327,6 +334,7 @@ set /a up_i=%up_i%+1
 if %up_i% gtr 9 set "up_i_pre="
 set "up_info_1=[%up_i_pre%%up_i% %date_ymd%:!time:~6,2!] if not exist [bak_last\data],del [%dir_bak_last%]"
 
+echo.
 echo. "!up_info_1!">>"%up_log_pid%"
 echo. "!up_info_1!">>con
 
