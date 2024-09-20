@@ -23,7 +23,7 @@ C:\xxx\yyy\vscode\last_version\code.exe
 
 几个脚本都放在：
 
-C:\xxx\yyy\vscode\last_version\
+C:\xxx\yyy\vscode\
 
 
 然后命令行运行
@@ -31,23 +31,24 @@ C:\xxx\yyy\vscode\last_version\
 ```bat
 
 cd /d "C:\xxx\yyy\vscode\last_version\"
-up-vscode-to-last-version.3.bat anything
-
-@rem 在非测试环境下，为了数据安全，参数1是必需的，输入任何字符
+up-vscode-to-last-version.x.bat anything
+rem .x.bat 中的 x 为版本号
+rem 在非测试环境下，为了数据安全，参数1是必需的，输入任何字符
 ```
 
-## config.up-vscode-to-last-version.3.txt
+## config.up-vscode-to-last-version.x.txt
 
-是存放升级脚本的一些配置的配置文件，后缀必需是`.txt`
+是存放升级脚本的一些配置的配置文件，后缀必需是`.ini`
 
 默认配置文件名和升级脚本同名（后缀不同），不需要在脚本中定义配置文件名
 
 如果你的配置文件和脚本不同名，请修改脚本中的变量值：
+`set "up_vscode2last_config=c:\you-path\you-config.ini"`
 
+默认up_vscode2last_config为空：
 `set "up_vscode2last_config="`
-
-`set "up_vscode2last_config=c:\you-path\you-config.txt"`
-
+这时候配置文件为：config.脚本文件同名.ini
+如：`config.up-vscode-to-last-version.x.ini`
 
 
 ```ini
@@ -74,16 +75,16 @@ up_z7_exe=%ProgramFiles%\7-Zip\7z.exe
 
 ```
 
-up-vscode-to-last-version.3.bat 
+up-vscode-to-last-version.x.bat 
 会把这个文件的key-val值读到脚本环境
 
 ##  clean_4_test.bat
 
-为测试`up-vscode-to-last-version.3.bat`写的一个清理脚本
+为测试`up-vscode-to-last-version.x.bat`写的一个清理脚本
 
 目标是删除测试中使用的临时文件
 
-它和updata脚本共享`config.up-vscode-to-last-version.3.txt`里面的变量
+它和updata脚本共享`config.up-vscode-to-last-version.x.ini`里面的变量
 
 请自行取用，有什么疑问请联系我
 
