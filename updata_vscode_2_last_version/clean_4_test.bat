@@ -3,6 +3,7 @@
 setlocal enabledelayedexpansion
 
 set "_up_vscode_bat_name=up-vscode-to-last*.bat"
+set "read_vars_from_=mf_var_of_file.1.bat"
 
 REM Do not modify the following if not necessary
 
@@ -25,7 +26,7 @@ set /a mf_mod_cmd_test_code=0
 set "up_is_in_test_dir=no"
 
 REM call "mf_var_of_file.1.bat" "%up_vscode2last_config%"
-call "mf_var_of_file.1.bat" "%up_vscode2last_config%" "" "" 1
+call "%read_vars_from_%" "%up_vscode2last_config%" "" "" 1
 
 set "_up_errcode=%ERRORLEVEL%"
 

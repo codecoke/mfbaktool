@@ -3,13 +3,13 @@ setlocal enabledelayedexpansion
 
 REM mfbaktool caller
 REM version 2.0.1
-REM w(a)ibar.cn 2024-09-16 01:56:25
+REM w(a)ibar.cn 2024-09-21 16:28:59
 
 REM mbt_2---job---jobname---G##check target dir#.bat
 
 REM ---- user setting ----
 REM set "mbt_tool_dir="
-set "mbt_tool_dir=C:\localSites_g\shell\mfbaktool_dev\v2"
+set "mbt_tool_dir=G:\localSites_g\shell\mfbaktool_dev\v2"
 REM File directory where run_job_2.bat is stored
 
 REM set "mbt_fastcopy_dir="
@@ -82,13 +82,13 @@ set /a _mbt_this_pre_len=0
 REM --- --- for test
 REM set "_mbt_this_bat=mbt_2---job---test-notfind---G##test_1#"
 REM set "_mbt_this_bat=mbt_2---job---copy t-demo-2---G##test_1"
-set "_mbt_this_bat=job---delete test b1---C##test_1"
+set "_mbt_this_bat=job---delete test b1---G##test_1"
 set "_mbt_this_bat=mbt_2.2---job"
 set "_mbt_this_bat=job---test-notfind"
-set "_mbt_this_bat=mbt_2.2---job---delete test b1---C##test_1"
+set "_mbt_this_bat=mbt_2.2---job---delete test b1---G##test_1"
 set "_mbt_this_bat=mbt_2.2---info---delete test b1---test 2#f1#fastcopy392#"
 set "_mbt_this_bat=mbt_2.2---job---test-notfind"
-set "_mbt_this_bat=mbt_2.2---job---delete test b1---C##test_1"
+set "_mbt_this_bat=mbt_2.2---job---delete test b1---G##test_1"
 REM set /a mbt_debug_level__i=0
 
 
@@ -152,7 +152,6 @@ REM echo. "mbt_version:%mbt_version%"
 REM echo. "mbt_version_main:%mbt_version_main%"
 REM echo. "bat_right__:%bat_right__%"
 REM echo. "sp_cut_left__:%sp_cut_left__%"
-
 
 
 REM check mbt_tool_dir

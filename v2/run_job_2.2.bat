@@ -1,11 +1,11 @@
 @echo off
 
-setlocal enabledelayedexpansion
+REM setlocal enabledelayedexpansion
 
 REM mfbaktool exeute job
 REM run_job_2.bat
-REM version 2.1.2
-REM w(a)ibar.cn 2024-09-04 14:00:42
+REM version 2.2.1
+REM w(a)ibar.cn 2024-09-22 11:37:45
 
 REM inputs arguments
 REM run_job_2.bat 
@@ -14,32 +14,47 @@ REM   "[ac_name]" "[caller_bat]"      "[_log_file]"
 REM   "f2"        "mbt_2_job_f2.bat"  "c:\test 1\log.txt"
 
 
-REM ---- ---- user setting ----
-REM set "mbt_fastcopy_dir=G:\localAppRun\green\fastcopy\4.2.2\"
-set "mbt_fastcopy_dir=fastcopy\4.2.2\"
-set "write_log_bat="
-
-
-
 REM --- --- need no modification ---
 
-set "ac_name=%~1"
-set "caller_bat=%~2"
-set "_log_file=%~3"
-
-set "_mbt_this_dir=%~dp0"
-REM mfbaktool setting
-
-set "_log_info="
-set "_mbt_err="
-set "_mbt_suatus=ok "
-set "val_is_str_cludes="
 
 
 REM add write to log_info
 REM set "mbt_log_note="
 
+
+
+set "_arg_1=%~1"
+set "_arg_2=%~2"
+
+
+REM init
+set "_mbt_err="
+set "_is_str_cludes="
+set "_log_info="
+set "_mbt_suatus=ok "
 set /a _mbt_debug_level_stop=3
+
+echo. & echo. "--- --- %~n0 --- ---" & echo.
+
+echo. "_arg_1:%_arg_1%"
+echo. "_arg_2:%_arg_2%"
+echo.
+echo. "_mbt_debug_level_stop:%_mbt_debug_level_stop%"
+echo. "mbt_caller_bat:%mbt_caller_bat%"
+echo. "mbt_caller_dir:%mbt_caller_dir%"
+echo. "mbt_debug_level__i:%mbt_debug_level__i%"
+echo. "mbt_sucess_sleep__i:%mbt_sucess_sleep__i%"
+echo. "mbt_log_lines_max__i:%mbt_log_lines_max__i%"
+echo. "mbt_write_log_bat:%mbt_write_log_bat%"
+echo. "mbt_fastcopy_ini:%mbt_fastcopy_ini%"
+echo. "mbt_fpc_exec_name:%mbt_fpc_exec_name%"
+echo. "mbt_fpc_exec_post:%mbt_fpc_exec_post%"
+REM echo. "mbt_fpc_exec_err_name:%mbt_fpc_exec_err_name%"
+echo. "mbt_fpc_exec_err_bat:%mbt_fpc_exec_err_bat%"
+echo. "mbt_log_file:%mbt_log_file%"
+echo. "mbt_log_note:!mbt_log_note!"
+
+goto :EOF
 
 if "%mbt_debug_echo%"=="" set /a mbt_debug_echo=0
 if "%mbt_debug_level__i%" == "" set /a mbt_debug_level__i=0
@@ -93,7 +108,7 @@ set "ac_type=!_bat_file_name:~%_bat_underline_1%,%_bat_underline_2%!"
 REM echo "%ac_type%"
 
 call:is_str_cludes ",%mbt_ac_type_list%," ",%ac_type%,"
-if "!val_is_str_cludes!" == "" set "_mbt_err=[%ac_type%] not in [%mbt_ac_type_list%]"
+if "!_is_str_cludes!" == "" set "_mbt_err=[%ac_type%] not in [%mbt_ac_type_list%]"
 
 if "%_mbt_err%" NEQ "" goto write_err
 
@@ -106,7 +121,7 @@ set /a _bat_underline_3=%_bat_underline_1% + %_bat_underline_2% + 1
 set "mbt_version_major=!_bat_file_name:~%_bat_underline_3%,1!"
 
 call:is_str_cludes ",1,2,3,4,5,6," ",%mbt_version_major%,"
-if "!val_is_str_cludes!" == "" (
+if "!_is_str_cludes!" == "" (
   echo. "warning: mbt_script_version in run_bat_name is err!"
   set "mbt_version_major=%mbt_script_version:~0,1%"
 )
@@ -122,7 +137,7 @@ if "%mbt_version_major:~1,1%" == "." (
 
 REM check mbt_version_major_1 in run_bat_file_name
 call:is_str_cludes ",1,2,3,4,5,6," ",%mbt_version_major_1%,"
-if "!val_is_str_cludes!" == "" set "_mbt_err=mbt_version_major: %mbt_version_major_1% is error value"
+if "!_is_str_cludes!" == "" set "_mbt_err=mbt_version_major: %mbt_version_major_1% is error value"
 
 if "%_mbt_err%" NEQ "" goto write_err
 
@@ -375,7 +390,7 @@ goto :EOF
 
 :is_str_cludes
 
-  set "val_is_str_cludes="
+  set "_is_str_cludes="
 
   if "%~1" == ""  goto :EOF
 
@@ -388,7 +403,7 @@ goto :EOF
 
   if "%is_cludes_dif__%" EQU "#%~1" goto :EOF
 
-  set val_is_str_cludes=yes
+  set _is_str_cludes=yes
 
   set "is_cludes_str__="
   set "is_cludes_dif__="
