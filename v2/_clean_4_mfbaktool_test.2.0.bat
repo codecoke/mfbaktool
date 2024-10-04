@@ -1,11 +1,11 @@
 @echo off
 
-REM w(a)ibar.cn 2024-09-16 00:58:47
+REM w(a)ibar.cn 2024-10-05 02:25:30
 
 
 REM -1 debug  0 copy 1-clear 2 bakup 3 demo
 
-REM cls & _clean_4_mfbaktool_test.2.0.bat bylist 2.0 bakup
+REM cls & _clean_4_mfbaktool_test.2.0.bat srcfile 2.0 bakup
 REM cls & _clean_4_mfbaktool_test.2.0.bat job 2.2 demo
 REM cls & _clean_4_mfbaktool_test.2.0.bat info 2.0 debug
 
@@ -35,7 +35,7 @@ if /i "%_arg_3%" == "debug" (
   set /a _act=1
 ) else if /i "%_arg_3%" == "bakup" (
   set /a _act=2
-) else if "%_arg_3%" == "demo" (
+) else if /i "%_arg_3%" == "demo" (
   set /a _act=3
 ) else (
   set "_arg_3=copy"
@@ -108,8 +108,8 @@ set "_target_demo_3="
 set "_target_demo_4="
 
 
-if "%_type%" == "bylist" goto _type_bylist_demo
-if "%_type%" == "list" goto _type_bylist_demo
+if "%_type%" == "srcfile" goto _type_srcfile_demo
+REM if "%_type%" == "list" goto _type_srcfile_demo
 if "%_type%" == "job" goto _type_job_demo
 
 REM copy "%_dev_bat%.bat" "%_dir_target%demo_bat\mbt_%_test_version_1%---%_dev_type%---test-b1---G##test_1.bat" /y
@@ -127,8 +127,12 @@ set "_target_demo_4=delete test b1"
 
 
 goto _copy_target_demo
-:_type_bylist_demo
-set "_target_demo_1=C##test_1#bylist.1.ini---C##test_1#test 2"
+
+:_type_srcfile_demo
+set "_target_demo_1=C##test_1#%_type%.1.ini---C##test_1#test 2"
+set "_target_demo_2=diff---C##test_1#%_type%.1.ini---C##test_1#test 2"
+
+
 
 goto _copy_target_demo
 

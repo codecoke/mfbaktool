@@ -10,7 +10,9 @@ REM mbt_2---job---jobname---G##check target dir#.bat
 REM ---- user setting ----
 REM set "mbt_tool_dir="
 REM set "mbt_tool_dir=G:\localSites_g\shell\mfbaktool_dev\v2"
-set "mbt_tool_dir=C:\localSites_g\shell\mfbaktool_dev\v2"
+set "mbt_tool_dir=C:\localSites_g\shell\mfbaktool_dev\v2\"
+set "mbt_tool_dir=C:\localSites_g\shell\mfbaktool_dev_v2\mfbaktool\v2"
+
 
 REM File directory where run_job_2.bat is stored
 
@@ -64,7 +66,7 @@ set /a _mbt_debug_level_stop=4
 set "_mbt_err="
 set "_is_str_cludes="
 
-set "mbt_allow_ac_type=info,cmd,job,bylist,queue,folder,file-list"
+set "mbt_allow_ac_type=info,cmd,job,srcfile,queue,folder,file-list"
 REM set "mbt_ac_type_list=info,cmd,job,queue,list,folder,file-list"
 
 
@@ -73,7 +75,7 @@ set "_mbt_this_n0=%~n0"
 
 set "mbt_caller_bat="
 
-set "_mbt_this_pre="
+REM set "_mbt_this_pre="
 set "_mbt_this_pre=mbt"
 REM set "mbt_mf_vars_of_bat=G:\test_1\mf_var_of_file.1.bat"
 set "mbt_mf_vars_of_bat=mf_var_of_file.2.2.3.bat"
@@ -93,7 +95,7 @@ set "mbt_caller_bat=mbt_2.2---info---delete test b1---test 2#f1#fastcopy392#"
 set "mbt_caller_bat=mbt_2.2---job---test-notfind"
 set "mbt_caller_bat=mbt_2.2---job---delete test b1---G##test_1"
 set "mbt_caller_bat=mbt_2.2---job---delete test b1---C##test_1"
-set "mbt_caller_bat=mbt_2.0---bylist---delete test b1---C##test_1"
+set "mbt_caller_bat=mbt_2.0---srcfile---delete test b1---C##test_1"
 REM set /a mbt_debug_level__i=0
 
 
@@ -444,10 +446,13 @@ if not exist "%mbt_fastcopy_ini%" set "_mbt_err=mbt_fastcopy_ini not find" & got
 
 REM check mbt_action_bat
 set "mbt_action_bat=%mbt_tool_dir%%mbt_ac_run_pre%%mbt_ac_type%"
-if not exist "%mbt_action_bat%_%mbt_version%.bat" (
-  set "mbt_action_bat=%mbt_action_bat%_%mbt_version_main%.bat"
+
+echo. "---- %mbt_action_bat%.%mbt_version%.bat"
+
+if not exist "%mbt_action_bat%.%mbt_version%.bat" (
+  set "mbt_action_bat=%mbt_action_bat%.%mbt_version_main%.bat"
 ) else (
-  set "mbt_action_bat=%mbt_action_bat%_%mbt_version%.bat"
+  set "mbt_action_bat=%mbt_action_bat%.%mbt_version%.bat"
 )
 
 REM echo. "mbt_action_bat:%mbt_action_bat%"
