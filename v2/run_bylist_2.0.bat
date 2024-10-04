@@ -32,6 +32,7 @@ set "_mbt_err="
 set "_is_str_cludes="
 set "_log_info="
 set "_mbt_suatus=ok "
+
 set /a _mbt_debug_level_stop=3
 
 echo. & echo. "--- --- %~n0 --- ---" & echo.
@@ -43,9 +44,17 @@ echo. "_mbt_debug_level_stop:%_mbt_debug_level_stop%"
 
 echo. "mbt_caller_bat:%mbt_caller_bat%"
 echo. "mbt_caller_dir:%mbt_caller_dir%"
+
 echo. "mbt_debug_level__i:%mbt_debug_level__i%"
 echo. "mbt_sucess_sleep__i:%mbt_sucess_sleep__i%"
 echo. "mbt_log_lines_max__i:%mbt_log_lines_max__i%"
+
+echo.
+echo. "mbt_ac_name:%mbt_ac_name%"
+echo. "_mbt_ac_dir:%_mbt_ac_dir%"
+echo.
+
+
 echo. "mbt_write_log_bat:%mbt_write_log_bat%"
 echo. "mbt_fastcopy_ini:%mbt_fastcopy_ini%"
 echo. "mbt_fpc_exec_name:%mbt_fpc_exec_name%"
@@ -55,99 +64,11 @@ echo. "mbt_fpc_exec_err_bat:%mbt_fpc_exec_err_bat%"
 echo. "mbt_log_file:%mbt_log_file%"
 echo. "mbt_log_note:!mbt_log_note!"
 
+
+
 goto :EOF
 
-if "%mbt_debug_echo%"=="" set /a mbt_debug_echo=0
-if "%mbt_debug_level__i%" == "" set /a mbt_debug_level__i=0
-if "%mbt_pushd_count%" == "" set /a mbt_pushd_count=0
 
-if "%mbt_log_lines_max%" =="" set /a mbt_log_lines_max=20
-if %mbt_log_lines_max% LSS 3 set /a mbt_log_lines_max=3
-
-if "%mbt_sucess_sleep%" =="" (
-  if %mbt_debug_level__i% GTR 0 (
-    set /a mbt_sucess_sleep=3
-  )else (
-    set /a mbt_sucess_sleep=0
-  )
-)
-
-
-set "mbt_fpc_exec_err_name=fastcopy_fpc_exec_err_ify"
-set "mbt_fpc_exec_post=fcp_err_ify"
-set "mbt_fpc_exec_err_log="
-
-if "%mbt_script_version%" =="" set "mbt_script_version=2.0.0"
-
-set "ac_type="
-set "ac_typee_def=info"
-if "%mbt_ac_type_list%"=="" set "mbt_ac_type_list=info,cmd,job,queue,list,folder,file-list"
-
-
-REM execute 
-
-REM set /a mbt_debug_level__i=3
-
-set "_bat_file_name=%~n0"
-
-
-
-REM get ac_type by _bat_file_name
-
-REM run_job_2.1bat underline _ 1
-call:index_of "%_bat_file_name%" "_"
-if %val_index_of% LSS 0 set "_mbt_err=run_bat_name must have _ 1" & goto write_err
-set /a _bat_underline_1= %val_index_of%+1
-
-REM run_job_2.1bat underline _ 2
-call:index_of "!_bat_file_name:~%_bat_underline_1%!" "_"
-if %val_index_of% LSS 0 set "_mbt_err=run_bat_name must have _ 2" & goto write_err
-set /a _bat_underline_2= %val_index_of%
-
-set "ac_type=!_bat_file_name:~%_bat_underline_1%,%_bat_underline_2%!"
-
-REM echo "%ac_type%"
-
-call:is_str_cludes ",%mbt_ac_type_list%," ",%ac_type%,"
-if "!_is_str_cludes!" == "" set "_mbt_err=[%ac_type%] not in [%mbt_ac_type_list%]"
-
-if "%_mbt_err%" NEQ "" goto write_err
-
-
-if "%mbt_version_major%" NEQ "" goto check_mbt_version_major
-
-REM if mbt_versoin_major is null
-REM get mbt_versoin_major in run_bat_file_name
-set /a _bat_underline_3=%_bat_underline_1% + %_bat_underline_2% + 1
-set "mbt_version_major=!_bat_file_name:~%_bat_underline_3%,1!"
-
-call:is_str_cludes ",1,2,3,4,5,6," ",%mbt_version_major%,"
-if "!_is_str_cludes!" == "" (
-  echo. "warning: mbt_script_version in run_bat_name is err!"
-  set "mbt_version_major=%mbt_script_version:~0,1%"
-)
-
-
-:check_mbt_version_major
-REM if mbt_version_major is 2.x
-if "%mbt_version_major:~1,1%" == "." (
-  set "mbt_version_major_1=%mbt_version_major:~0,1%"
-) else (
-  set "mbt_version_major_1=%mbt_version_major%"
-)
-
-REM check mbt_version_major_1 in run_bat_file_name
-call:is_str_cludes ",1,2,3,4,5,6," ",%mbt_version_major_1%,"
-if "!_is_str_cludes!" == "" set "_mbt_err=mbt_version_major: %mbt_version_major_1% is error value"
-
-if "%_mbt_err%" NEQ "" goto write_err
-
-if "%write_log_bat%" == "" set "write_log_bat=run_write_log_%mbt_version_major_1%.bat"
-if "%write_log_bat:~1,2%" NEQ ":\" set "write_log_bat=%_mbt_this_dir%%write_log_bat%"
-if "%write_log_bat:~-4%" NEQ ".bat" set "write_log_bat=%write_log_bat%.bat"
-
-if "%_log_file%" == "" set "_log_file=%~dpn2.log"
-if "%_log_file:~-1%" == "\" set "_log_file=%_log_file%%~n2.log"
 
 REM if "%_mbt_err%" NEQ "" goto write_err
 
