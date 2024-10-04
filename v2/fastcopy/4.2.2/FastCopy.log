@@ -954,3 +954,86 @@ FileRate   = 0.00 files/s
 
 Result : (ErrFiles : 0 / ErrDirs : 0) at 2024/09/05 05:37:15
 
+=================================================
+fcp(ver4.2.2) start at 2024/10/05 00:11:58
+<Source>  c:\Users\ytj-m22\.ssh\mf34\pub.txt; c:\Users\ytj-m22\.ssh\mf34\access-js2-136-me.txt
+<DestDir> C:\test_1\test b1\
+<Command> Diff (Size/Date)
+-------------------------------------------------
+
+TotalRead  = 0.0 MiB
+TotalWrite = 0.0 MiB
+TotalFiles = 2 (0)
+TotalTime  = 0.0 sec
+TransRate  = 0.25 MB/s
+FileRate   = 64.5 files/s
+
+Result : (ErrFiles : 0 / ErrDirs : 0) at 2024/10/05 00:11:58
+
+=================================================
+fcp(ver4.2.2) start at 2024/10/05 00:13:24
+<Source>  ਍㩣啜敳獲祜橴洭㈲⹜獳屨晭㐳灜扵琮瑸਍਍㩣啜敳獲祜橴洭㈲⹜獳屨晭㐳慜捣獥⵳獪ⴲ㌱ⴶ敭琮瑸
+<DestDir> C:\test_1\test b1\
+<Command> Diff (Size/Date)
+-------------------------------------------------
+FindFirstFileEx(系统找不到指定的文件。2) : c:\test_1\਍㩣啜敳獲祜橴洭㈲⹜獳屨晭㐳灜扵琮瑸਍਍㩣啜敳獲祜橴洭㈲⹜獳屨晭㐳慜捣獥⵳獪ⴲ㌱ⴶ敭琮瑸
+
+TotalRead  = 0.0 MiB
+TotalWrite = 0.0 MiB
+TotalFiles = 0 (0)
+TotalTime  = 0.0 sec
+TransRate  = 0.00 MB/s
+FileRate   = 0.00 files/s
+
+Result : (ErrFiles : 0 / ErrDirs : 1) at 2024/10/05 00:13:24
+
+=================================================
+fcp(ver4.2.2) start at 2024/10/05 00:13:48
+<Source>  c:\Users\ytj-m22\.ssh\mf34\pub.txt; c:\Users\ytj-m22\.ssh\mf34\access-js2-136-me.txt
+<DestDir> C:\test_1\test b1\
+<Command> Diff (Size/Date)
+-------------------------------------------------
+
+TotalRead  = 0.0 MiB
+TotalWrite = 0.0 MiB
+TotalFiles = 2 (0)
+TotalTime  = 0.0 sec
+TransRate  = 0.49 MB/s
+FileRate   = 125.0 files/s
+
+Result : (ErrFiles : 0 / ErrDirs : 0) at 2024/10/05 00:13:48
+
+=================================================
+fcp(ver4.2.2) start at 2024/10/05 00:14:59
+<Source>  c:\Users\ytj-m22\.ssh\mf34\pub.txt; c:\Users\ytj-m22\.ssh\mf34\access-js2-136-me.txt; C:\test_1\test-a\
+<DestDir> C:\test_1\test b1\
+<Command> Diff (Size/Date)
+-------------------------------------------------
+
+TotalRead  = 0.0 MiB
+TotalWrite = 0.0 MiB
+TotalFiles = 5 (5)
+TotalSkip  = 0.0 MiB
+SkipFiles  = 2 (0)
+TotalTime  = 0.0 sec
+TransRate  = 0.28 MB/s
+FileRate   = 161.3 files/s
+
+Result : (ErrFiles : 0 / ErrDirs : 0) at 2024/10/05 00:14:59
+
+=================================================
+fcp(ver4.2.2) start at 2024/10/05 00:21:18
+<Source>  c:\Users\ytj-m22\.ssh\mf34\pub.txt; c:\Users\ytj-m22\.ssh\mf34\access-js2-136-me.txt; C:\test_1\test-a\
+<DestDir> C:\test_1\test b1\
+<Command> Diff (Size/Date)
+-------------------------------------------------
+
+TotalRead  = 0.0 MiB
+TotalWrite = 0.0 MiB
+TotalFiles = 7 (6)
+TotalTime  = 0.0 sec
+TransRate  = 16.5 MB/s
+FileRate   = 7,000 files/s
+
+Result : (ErrFiles : 0 / ErrDirs : 0) at 2024/10/05 00:21:18
+

@@ -3,9 +3,13 @@
 REM w(a)ibar.cn 2024-09-16 00:58:47
 
 
-REM cls & _clean_4_mfbaktool_test.2.0.bat bylist 2.0 3
-REM cls & _clean_4_mfbaktool_test.2.0.bat job 2.2 3
+REM -1 debug  0 copy 1-clear 2 bakup 3 demo
 
+REM cls & _clean_4_mfbaktool_test.2.0.bat bylist 2.0 bakup
+REM cls & _clean_4_mfbaktool_test.2.0.bat job 2.2 demo
+REM cls & _clean_4_mfbaktool_test.2.0.bat info 2.0 debug
+
+REM del /q test_1\demo_bat\*
 
 set "_clear_file=%~dpnx0"
 set "_test_dp0=%~dp0"
@@ -15,18 +19,30 @@ set "_test_dir=C:\test_1\"
 
 
 set "_dir_target=C:\test_1\test_1\"
+set "_dir_target=C:\localSites_g\shell\mfbaktool_dev_v2\mfbaktool\v2\"
 
-set "_dir_target=C:\localSites_g\shell\mfbaktool_dev\v2\"
 
 set "_type=%~1"
 set "_version=%~2"
-set "_act=%~3"
+set "_arg_3=%~3"
 
-if "%_act%" == "" (
+REM set  /a _act=0
+REM if "%_arg_3%" == "" set "_arg_3=copy"
+
+if /i "%_arg_3%" == "debug" (
+  set /a _act=-1
+) else if /i "%_arg_3%" == "clear" (
+  set /a _act=1
+) else if /i "%_arg_3%" == "bakup" (
+  set /a _act=2
+) else if "%_arg_3%" == "demo" (
+  set /a _act=3
+) else (
+  set "_arg_3=copy"
   set /a _act=0
 )
 
-set /a _act=%_act%
+REM set /a _act=%_act%
 
 REM act:
 REM info.clear.copy.sync
@@ -36,8 +52,12 @@ set "_err="
 if "%_type%" == "" set "_err=[_type] agr 1 must" & goto _end_with_err
 if "%_version%" == "" set "_err=[_version] agr 2 must" & goto _end_with_err
 if "%_version:~1,1%" NEQ "." set "_err=[_version] must n.n" & goto _end_with_err
+
+if "%_dir_target:~-1%" NEQ "\" set "_dir_target=%_dir_target%\"
+
 if not exist "%_dir_target%" set "_err=unfind _dir_target: [%_dir_target%]" & goto _end_with_err
-if "%_test_dir%" NEQ  "%_test_dp0%" set "_err=[%_test_dp0%] NEQ [%_test_dir%]" & goto _end_with_err
+
+if /i "%_test_dir%" NEQ  "%_test_dp0%" set "_err=[%_test_dp0%] NEQ [%_test_dir%]" & goto _end_with_err
 
 REM t_job.2.2.bat
 if not exist "%_test_dp0%t_%_type%.%_version%.bat" set "_err=[t_%_type%.%_version%.bat] unfind" & goto _end_with_err
@@ -167,12 +187,13 @@ REM echo. "%_test_dp0%t_%_type%.%_version%.bat"
 
 
 
-goto :EOF
+REM goto :EOF
 
 :_end_sucess
 
 echo. & echo. "--- ok ---" 
-echo. "%_type% , %_version% , %_act%" & echo.
+REM echo. "%_type% , %_version% ,%_arg_3%, %_act%" & echo.
+echo. "t_%_type%.%_version%.bat [ %_arg_3% ] sucess!"
 
 goto :EOF
 
@@ -190,7 +211,7 @@ goto :EOF
 
 :_echo_vars_info
 
-echo. & echo. "%_type% , %_version% , %_act%" & echo.
+echo. & echo. "%_type% , %_version% ,%_arg_3%, %_act%" & echo.
 
 echo. "_test_dp0:%_test_dp0%"
 echo. "_test_n0:%_test_n0%"
@@ -208,47 +229,6 @@ goto :EOF
 
 
 
-if "%~1" == "" echo. "warn: agr 1 must" & goto :EOF
-
-
-set "_test_version_1=%_test_version%"
-
-if "%_test_version:~-1%" == "0" set "_test_version_1=%_test_version:~0,1%"
-
-REM echo "%_test_n0:~1,3%"
-REM echo "%_test_version%"
-REM echo "%_test_version_1%"
-REM echo "%_dev_bat%"
-REM if "%_test_version%" neq "%_test_version_1%" echo "not 2.1"
-
-REM goto :EOF
-
-if "%_test_dir:~1%" NEQ  "%_test_dp0:~1,9%" echo. "must in  %_test_dir% dir" & goto :EOF
-
-if exist "%_test_dp0%*.log" del "%_test_dp0%*.log"
-if exist "%_test_dp0%*.log.txt" del "%_test_dp0%*.log.txt"
-if exist "%_dir_target%*.log" del "%_dir_target%*.log"
-if exist "%_dir_target%\demo_bat\*.log" del "%_dir_target%\demo_bat\*.log"
-
-
-REM xcopy t_job_2*.bat "G:\localSites_g\shell\mfbaktool_dev\v2\" /y /q
-REM xcopy "mbt_2---job---demo*.bat" "G:\localSites_g\shell\mfbaktool_dev\v2\" /y /q
-REM copy ?.txt aa\ /y
-
-
-copy "%_dev_bat%.bat" "%_dir_target%" /y
-
-if /i "%~1" neq "yes-all" goto :EOF
-
-copy "%_dev_bat%.bat" "%_dir_target%demo_bat\mbt_%_test_version_1%---%_dev_type%---test-b1.bat" /y
-if "%_test_version%" neq "%_test_version_1%" (
-  copy "%_dev_bat%.bat" "%_dir_target%demo_bat\%_dev_type%---test-b1.bat" /y
-)
-copy "%_dev_bat%.bat" "%_dir_target%demo_bat\mbt_%_test_version_1%---%_dev_type%---test-b1---G##test_1.bat" /y
-copy "%_dev_bat%.bat" "%_dir_target%demo_bat\mbt_%_test_version_1%---%_dev_type%---test-notfind.bat" /y
-copy "%_dev_bat%.bat" "%_dir_target%demo_bat\mbt_%_test_version_1%---%_dev_type%---delete test b1.bat" /y
-copy "%_dev_bat%.bat" "%_dir_target%" /y
-copy %~nx0 "%_dir_target%%~nx0" /y
 
 
 

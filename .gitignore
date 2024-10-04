@@ -1,0 +1,9 @@
+*.pem
+*.key
+*.pub
+*.cer
+*.crt
+*.scr
+# .gitignore
+
+.bak/

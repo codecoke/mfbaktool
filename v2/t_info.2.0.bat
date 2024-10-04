@@ -10,7 +10,7 @@ REM mbt_2---job---jobname---G##check target dir#.bat
 REM ---- user setting ----
 REM set "mbt_tool_dir="
 REM set "mbt_tool_dir=G:\localSites_g\shell\mfbaktool_dev\v2"
-set "mbt_tool_dir=C:\localSites_g\shell\mfbaktool_dev\v2"
+set "mbt_tool_dir=C:\localSites_g\shell\mfbaktool_dev_v2\mfbaktool\v2"
 
 REM File directory where run_job_2.bat is stored
 
