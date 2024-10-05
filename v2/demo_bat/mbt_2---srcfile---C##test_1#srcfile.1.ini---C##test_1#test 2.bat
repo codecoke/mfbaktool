@@ -3,7 +3,7 @@ setlocal enabledelayedexpansion
 
 REM mfbaktool caller
 REM version 2.0.1
-REM w(a)ibar.cn 2024-10-03 20:51:00
+REM w(a)ibar.cn 2024-10-06 02:07:50
 
 REM mbt_2---job---jobname---G##check target dir#.bat
 
@@ -96,6 +96,8 @@ set "mbt_caller_bat=mbt_2.2---job---test-notfind"
 set "mbt_caller_bat=mbt_2.2---job---delete test b1---G##test_1"
 set "mbt_caller_bat=mbt_2.2---job---delete test b1---C##test_1"
 set "mbt_caller_bat=mbt_2.0---srcfile---delete test b1---C##test_1"
+
+set "mbt_caller_bat=mbt_2.0---srcfile---diff---s-rcfile.txt---test_1#test b1"
 REM set /a mbt_debug_level__i=0
 
 
@@ -106,8 +108,9 @@ REM list name in config.ini
 REM list file path
 set "mbt_ac_name="
 
-set "_mbt_ac_dir="
-set "_mbt_run_bat="
+REM mbt_version---ac_type---ac_name---ac_arg_1---ac_arg_2
+set "_mbt_ac_arg_1="
+REM set "_mbt_run_bat="
 set "_mbt_version_def=2"
 
 
@@ -182,16 +185,16 @@ REM echo. "mbt_mf_vars_of_bat:%mbt_mf_vars_of_bat%"
 
 REM get ac_type
 call:index_of "%bat_right__%" "%_mbt_path_sp%"
-if %val_index_of% LSS 1 set "_mbt_err=file_name must metch[%_mbt_this_pre%_%mbt_version%%_mbt_path_sp%ac_type%_mbt_path_sp%ac_name.bat, ac_type fild]" & goto write_err
+if %_val_index_of% LSS 1 set "_mbt_err=file_name must metch[%_mbt_this_pre%_%mbt_version%%_mbt_path_sp%ac_type%_mbt_path_sp%ac_name.bat, ac_type fild]" & goto write_err
 
-set "mbt_ac_type=!bat_right__:~0,%val_index_of%!"
+set "mbt_ac_type=!bat_right__:~0,%_val_index_of%!"
 REM check ac_type
 call:is_str_cludes ",%mbt_allow_ac_type%," ",%mbt_ac_type%,"
 if "!_is_str_cludes!" ==  "" set "_mbt_err=[%mbt_ac_type%] not in [%mbt_allow_ac_type%]" & goto write_err
 
 REM ac_name---g##test#
-set /a val_index_of=%val_index_of% + 1
-set "bat_right__=!bat_right__:~%val_index_of%!"
+set /a _val_index_of=%_val_index_of% + 1
+set "bat_right__=!bat_right__:~%_val_index_of%!"
 if "%bat_right__:~0,1%" == "%sp_cut_left__%" call:cut_left_chr "%bat_right__%" "%sp_cut_left__%" "bat_right__"
 
 if "%bat_right__%" == "" set "_mbt_err=file_name must metch [ac_type]%_mbt_path_sp%[ac_name] , ac_name fild" & goto write_err
@@ -201,41 +204,91 @@ REM echo. "after ac_type bat_right__:%bat_right__%"
 REM :get_ac_name
 REM get ac_name from bat_right__
 call:index_of "%bat_right__%" "!_mbt_path_sp!"
-if %val_index_of% LSS 0 (
+if %_val_index_of% LSS 0 (
   set "mbt_ac_name=%bat_right__%"
-  set "_mbt_ac_dir="
-  goto skip_get_ac_dir
+  set "_mbt_ac_arg_1="
+  goto skip_get_ac_arg_1
 )
-set "mbt_ac_name=!bat_right__:~0,%val_index_of%!"
-set /a val_index_of=%val_index_of%+1
-set "_mbt_ac_dir=!bat_right__:~%val_index_of%!"
-if "!_mbt_ac_dir:~0,1!" == "%sp_cut_left__%" call:cut_left_chr "%_mbt_ac_dir%" "%sp_cut_left__%" "_mbt_ac_dir"
-:skip_get_ac_dir
+
+set "mbt_ac_name=!bat_right__:~0,%_val_index_of%!"
+set /a _val_index_of=%_val_index_of%+1
+set "_mbt_ac_arg_1=!bat_right__:~%_val_index_of%!"
+
+if "!_mbt_ac_arg_1:~0,1!" == "%sp_cut_left__%" call:cut_left_chr "%_mbt_ac_arg_1%" "%sp_cut_left__%" "_mbt_ac_arg_1"
+
+
+echo. "%mbt_caller_bat%"
+REM echo. "bat_right__:%bat_right__%"
+REM echo. "_mbt_ac_arg_1:%_mbt_ac_arg_1%"
+
+call:index_of "%_mbt_ac_arg_1%" "!_mbt_path_sp!"
+if %_val_index_of% LSS 0 goto skip_get_ac_arg_2
+set "bat_right__=%_mbt_ac_arg_1%"
+set "_mbt_ac_arg_1=!bat_right__:~0,%_val_index_of%!"
+set "_mbt_ac_arg_2=!bat_right__:~%_val_index_of%!"
+if "!_mbt_ac_arg_2:~0,1!" == "%sp_cut_left__%" call:cut_left_chr "%_mbt_ac_arg_2%" "%sp_cut_left__%" "_mbt_ac_arg_2"
+
+
+
+
+:skip_get_ac_arg_2
+
+
+
+REM set /a _val_index_of=%_val_index_of%+1
+
+
+
+echo. "bat_right__:%bat_right__%"
+echo. "_mbt_ac_arg_1:%_mbt_ac_arg_1%"
+echo. "_mbt_ac_arg_2:%_mbt_ac_arg_2%"
+echo.
+
+
+:skip_get_ac_arg_1
+
+
+
+
 
 REM echo.
 REM echo. "mbt_ac_name:%mbt_ac_name%"
-REM echo. "_mbt_ac_dir:%_mbt_ac_dir%"
+REM echo. "_mbt_ac_arg_1:%_mbt_ac_arg_1%"
 
-set "_ck_ac_dir_ify="
-if "%_mbt_ac_dir%" == "" goto skip_check_ac_dir
-if /i "!_mbt_ac_dir:~1,2!" == "%_mbt_path_chr%%_mbt_path_chr%" set "_mbt_ac_dir=!_mbt_ac_dir:~0,1!:\!_mbt_ac_dir:~3!"
-set "_mbt_ac_dir=!_mbt_ac_dir:%_mbt_path_chr%=\!"
-if "!_mbt_ac_dir:~1,2!" NEQ ":\" (
-  if "!_mbt_ac_dir:~0,2!" NEQ "\\" set "_mbt_ac_dir=%mbt_caller_dir%!_mbt_ac_dir!"
+set "_ck_ac_arg_1_ify="
+if "%_mbt_ac_arg_1%" == "" goto skip_check_ac_arg_1
+if /i "!_mbt_ac_arg_1:~1,2!" == "%_mbt_path_chr%%_mbt_path_chr%" set "_mbt_ac_arg_1=!_mbt_ac_arg_1:~0,1!:\!_mbt_ac_arg_1:~3!"
+set "_mbt_ac_arg_1=!_mbt_ac_arg_1:%_mbt_path_chr%=\!"
+if "!_mbt_ac_arg_1:~1,2!" NEQ ":\" (
+  if "!_mbt_ac_arg_1:~0,2!" NEQ "\\" set "_mbt_ac_arg_1=%mbt_caller_dir%!_mbt_ac_arg_1!"
 )
-REM if not exist "%_mbt_ac_dir%" set "_mbt_err=_mbt_ac_dir [%_mbt_ac_dir%] not find" & goto write_err
-set "_ck_ac_dir_ify=find"
-if not exist "%_mbt_ac_dir%" set "_ck_ac_dir_ify=not_find"
-:skip_check_ac_dir
+set "_ck_ac_arg_1_ify=find"
+if not exist "%_mbt_ac_arg_1%" set "_ck_ac_arg_1_ify=not_find"
 
 
-REM echo.
+set "_ck_ac_arg_2_ify="
+if "%_mbt_ac_arg_2%" == "" goto skip_check_ac_arg_1
+if /i "!_mbt_ac_arg_2:~1,2!" == "%_mbt_path_chr%%_mbt_path_chr%" set "_mbt_ac_arg_2=!_mbt_ac_arg_2:~0,1!:\!_mbt_ac_arg_2:~3!"
+set "_mbt_ac_arg_2=!_mbt_ac_arg_2:%_mbt_path_chr%=\!"
+if "!_mbt_ac_arg_2:~1,2!" NEQ ":\" (
+  if "!_mbt_ac_arg_2:~0,2!" NEQ "\\" set "_mbt_ac_arg_2=%mbt_caller_dir%!_mbt_ac_arg_2!"
+)
+REM if not exist "%_mbt_ac_arg_2%" set "_mbt_err=_mbt_ac_arg_2 [%_mbt_ac_arg_2%] not find" & goto write_err
+set "_ck_ac_arg_2_ify=find"
+if not exist "%_mbt_ac_arg_2%" set "_ck_ac_arg_2_ify=not_find"
+
+:skip_check_ac_arg_1
+
+
+
+
+
 REM echo. "mbt_ac_name:%mbt_ac_name%"
-REM echo. "_mbt_ac_dir:%_mbt_ac_dir%"
+REM echo. "_mbt_ac_arg_1:%_mbt_ac_arg_1%"
 REM echo.
 
 if /i "%mbt_ac_type%" == "job" (
-  if "%_ck_ac_dir_ify%" == "not_find" set "_mbt_err=_mbt_ac_dir[%_mbt_ac_dir%] not_find" & goto write_err
+  if "%_ck_ac_arg_1_ify%" == "not_find" set "_mbt_err=_mbt_ac_arg_1[%_mbt_ac_arg_1%] not_find" & goto write_err
 )
 
 
@@ -447,7 +500,7 @@ if not exist "%mbt_fastcopy_ini%" set "_mbt_err=mbt_fastcopy_ini not find" & got
 REM check mbt_action_bat
 set "mbt_action_bat=%mbt_tool_dir%%mbt_ac_run_pre%%mbt_ac_type%"
 
-echo. "---- %mbt_action_bat%.%mbt_version%.bat"
+REM echo. "---- %mbt_action_bat%.%mbt_version%.bat"
 
 if not exist "%mbt_action_bat%.%mbt_version%.bat" (
   set "mbt_action_bat=%mbt_action_bat%.%mbt_version_main%.bat"
@@ -485,7 +538,8 @@ echo. "_mbt_debug_level_stop:%_mbt_debug_level_stop%"
 REM echo. "mbt_sucess_sleep__i:%mbt_sucess_sleep__i%"
 REM echo. "_mbt_debug_level_stop:%_mbt_debug_level_stop%"
 
-REM echo. "mbt_allow_ac_type:%mbt_allow_ac_type%"
+echo. "_mbt_ac_arg_1:%_mbt_ac_arg_1%"
+echo. "_mbt_ac_arg_2:%_mbt_ac_arg_2%"
 
 echo. "mbt_log_lines_max__i:%mbt_log_lines_max__i%"
 REM echo. "mbt_run_confirm:%mbt_run_confirm%"
@@ -508,7 +562,7 @@ echo. "mbt_sucess_sleep__i:%mbt_sucess_sleep__i%"
 REM echo. "__vof_load_cout:%__vof_load_cout%"
 echo.
 REM echo. "mbt_ac_name:%mbt_ac_name%"
-REM echo. "_mbt_ac_dir:%_mbt_ac_dir%"
+REM echo. "_mbt_ac_arg_1:%_mbt_ac_arg_1%"
 
 if %mbt_debug_level__i% GEQ %_mbt_debug_level_stop% goto :EOF
 
@@ -634,7 +688,7 @@ goto :EOF
 
 :index_of
 
-set /a val_index_of=-1
+set /a _val_index_of=-1
 set "index_str_=%~1"
 set "index_of_chr_=!index_str_:%~2=&rem.!"
 set index_of_chr_=#%index_of_chr_%
@@ -657,6 +711,6 @@ for %%A in (729 243 81 27 9 3 1) do (
     )
   )
 )
-set /a val_index_of=%indexof_i_%
+set /a _val_index_of=%indexof_i_%
 
 goto :EOF

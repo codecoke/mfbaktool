@@ -5,7 +5,7 @@ REM w(a)ibar.cn 2024-10-05 02:25:30
 
 REM -1 debug  0 copy 1-clear 2 bakup 3 demo
 
-REM cls & _clean_4_mfbaktool_test.2.0.bat srcfile 2.0 bakup
+REM cls & _clean_4_mfbaktool_test.2.0.bat srcfile 2.0 demo
 REM cls & _clean_4_mfbaktool_test.2.0.bat job 2.2 demo
 REM cls & _clean_4_mfbaktool_test.2.0.bat info 2.0 debug
 
