@@ -4,6 +4,13 @@
 *.cer
 *.crt
 *.scr
+
+*.log
+**/*.log
+
 # .gitignore
 
 .bak/
+
+v2/fastcopy/4.2.2/FastCopy.log
+v2/fastcopy/4.2.2/FastCopy2.ini

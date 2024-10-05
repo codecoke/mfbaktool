@@ -1037,3 +1037,58 @@ FileRate   = 7,000 files/s
 
 Result : (ErrFiles : 0 / ErrDirs : 0) at 2024/10/05 00:21:18
 
+=================================================
+fcp(ver4.2.2) start at 2024/10/06 02:44:10
+<Source>  c:\Users\ytj-m22\.ssh\mf34\pub.txt; c:\Users\ytj-m22\.ssh\mf34\access-js2-136-me.txt; C:\test_1\test-a\
+<DestDir> C:\test_1\test b1\
+<Command> Diff (Size/Date)
+-------------------------------------------------
+
+TotalRead  = 0.0 MiB
+TotalWrite = 0.0 MiB
+TotalFiles = 0 (0)
+TotalSkip  = 0.0 MiB
+SkipFiles  = 7 (0)
+TotalTime  = 0.0 sec
+TransRate  = 0.00 MB/s
+FileRate   = 0.00 files/s
+
+Result : (ErrFiles : 0 / ErrDirs : 0) at 2024/10/06 02:44:10
+
+=================================================
+fcp(ver4.2.2) start at 2024/10/06 02:44:33
+<Source>  c:\Users\ytj-m22\.ssh\mf34\pub.txt; c:\Users\ytj-m22\.ssh\mf34\access-js2-136-me.txt; "; C:\test_1\test-a\"
+<DestDir> C:\test_1\test b1\
+<Command> Diff (Size/Date)
+-------------------------------------------------
+GetFullPathName2(文件名、目录名或卷标语法不正确。123) : C:\test_1\; C:\test_1\test-a\
+
+TotalRead  = 0.0 MiB
+TotalWrite = 0.0 MiB
+TotalFiles = 0 (0)
+TotalSkip  = 0.0 MiB
+SkipFiles  = 2 (0)
+TotalTime  = 0.0 sec
+TransRate  = 0.00 MB/s
+FileRate   = 0.00 files/s
+
+Result : (ErrFiles : 0 / ErrDirs : 0) at 2024/10/06 02:44:33
+
+=================================================
+fcp(ver4.2.2) start at 2024/10/06 02:45:04
+<Source>  c:\Users\ytj-m22\.ssh\mf34\pub.txt; c:\Users\ytj-m22\.ssh\mf34\access-js2-136-me.txt; C:\test_1\test-a\
+<DestDir> C:\test_1\test b1\
+<Command> Diff (Size/Date)
+-------------------------------------------------
+
+TotalRead  = 0.0 MiB
+TotalWrite = 0.0 MiB
+TotalFiles = 0 (0)
+TotalSkip  = 0.0 MiB
+SkipFiles  = 7 (0)
+TotalTime  = 0.0 sec
+TransRate  = 0.00 MB/s
+FileRate   = 0.00 files/s
+
+Result : (ErrFiles : 0 / ErrDirs : 0) at 2024/10/06 02:45:04
+

@@ -97,7 +97,7 @@ set "mbt_caller_bat=mbt_2.2---job---delete test b1---G##test_1"
 set "mbt_caller_bat=mbt_2.2---job---delete test b1---C##test_1"
 set "mbt_caller_bat=mbt_2.0---srcfile---delete test b1---C##test_1"
 
-set "mbt_caller_bat=mbt_2.0---srcfile---diff---s-rcfile.txt---test_1#test b1"
+set "mbt_caller_bat=mbt_2.0---srcfile---diff---s-rcfile---test_1#test b1"
 REM set /a mbt_debug_level__i=0
 
 
